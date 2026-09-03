@@ -45,6 +45,8 @@
     display:flex;flex-wrap:wrap;gap:10px;align-items:center;
     padding:16px 0 26px;border-bottom:1px solid var(--line);
   }
+  /* מחלקה גוברת על [hidden] של הדפדפן — בלי זה הסינון מוצג גם כשאין מלאי */
+  .filters[hidden]{display:none}
   .filters select,.filters input{
     font-family:inherit;font-size:15px;color:var(--fg);
     background:var(--bg-2);border:1px solid var(--line);border-radius:8px;
