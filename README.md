@@ -14,7 +14,10 @@
 | `data/inventory-template.csv` | תבנית לייבוא לגוגל שיטס |
 | `scripts/sync-inventory.mjs` | מושך את הגיליון, מנרמל, כותב את ה-JSON |
 | `.github/workflows/sync-inventory.yml` | מריץ את הסקריפט כל 30 דקות ומקבע שינויים |
-| `CNAME` | הדומיין המותאם |
+
+> **אין כאן קובץ `CNAME` בכוונה.** ברגע שהוא קיים, GitHub Pages מפנה את
+> `yedidiamotors.github.io` לדומיין המותאם — ואם ה-DNS עוד לא מוגדר, **האתר יורד**.
+> את הקובץ יוצרים רק דרך Settings → Pages → Custom domain, ורק **אחרי** שרשומת ה-DNS קיימת.
 
 > **החלפת מקור הנתונים ל-Supabase בעתיד:** משנים רק את `scripts/sync-inventory.mjs`
 > כך שיקרא מ-n8n/Supabase במקום מהגיליון. מבנה ה-JSON נשאר, והאתר לא משתנה בכלל.
