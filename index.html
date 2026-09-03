@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ידידיה מוטורס — יבוא ומכירת רכבי יוקרה ושטח</title>
+<meta name="description" content="ידידיה מוטורס — יבוא אישי ומכירת רכבי יוקרה ושטח בישראל. ליווי מלא מהזמנה ועד מסירה.">
+<link rel="canonical" href="https://motors.yedidia.co.il/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ידידיה מוטורס">
+<meta property="og:title" content="ידידיה מוטורס — יבוא ומכירת רכבי יוקרה ושטח">
+<meta property="og:description" content="יבוא אישי ומכירת רכבי יוקרה ושטח בישראל. ליווי מלא מהזמנה ועד מסירה.">
+<meta property="og:url" content="https://motors.yedidia.co.il/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d0f12;
+    --ink-2:#15181d;
+    --line:#262b33;
+    --paper:#f7f7f5;
+    --muted:#9aa3af;
+    --muted-2:#6b7280;
+    --accent:#c9a227;
+    --accent-soft:rgba(201,162,39,.12);
+    --max:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:"Heebo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+    font-weight:400;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* header */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(13,15,18,.86);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+  .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+  .brand strong{font-weight:900;letter-spacing:-.02em;font-size:20px}
+  .brand span{color:var(--accent);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+  nav{display:flex;gap:22px;font-size:15px}
+  nav a{text-decoration:none;color:var(--muted)}
+  nav a:hover{color:var(--paper)}
+  @media(max-width:640px){nav{display:none}}
+
+  /* hero */
+  .hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);
+    border:1px solid rgba(201,162,39,.3);border-radius:999px;padding:6px 14px;margin-bottom:24px;
+  }
+  h1{
+    font-size:clamp(34px,6vw,60px);line-height:1.12;font-weight:900;
+    letter-spacing:-.03em;margin:0 0 20px;
+  }
+  .lede{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:60ch;margin:0 0 32px;font-weight:300}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:500;font-size:16px;
+    padding:13px 26px;border-radius:6px;border:1px solid transparent;transition:.15s;
+  }
+  .btn-primary{background:var(--accent);color:#1a1508;border-color:var(--accent)}
+  .btn-primary:hover{background:#dab52f}
+  .btn-ghost{border-color:var(--line);color:var(--paper)}
+  .btn-ghost:hover{border-color:var(--muted-2)}
+
+  /* sections */
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:clamp(24px,3.4vw,32px);font-weight:700;letter-spacing:-.02em;margin:0 0 12px}
+  .sub{color:var(--muted);margin:0 0 36px;max-width:62ch;font-weight:300}
+
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{
+    background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:26px;
+  }
+  .card h3{margin:0 0 10px;font-size:18px;font-weight:700}
+  .card p{margin:0;color:var(--muted);font-size:15px;font-weight:300}
+  .num{
+    color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.12em;
+    display:block;margin-bottom:12px;
+  }
+
+  /* contact */
+  dl{display:grid;grid-template-columns:auto 1fr;gap:14px 20px;margin:0;font-size:16px}
+  dt{color:var(--muted-2);font-weight:400;white-space:nowrap}
+  dd{margin:0;font-weight:500}
+  dd a{text-decoration:none;border-bottom:1px solid rgba(201,162,39,.45)}
+  dd a:hover{border-bottom-color:var(--accent)}
+  .pending{color:var(--muted-2);font-style:italic;font-weight:300}
+
+  footer{padding:36px 0;color:var(--muted-2);font-size:14px}
+  .foot{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+  .social{display:flex;gap:18px}
+  .social a{text-decoration:none;color:var(--muted)}
+  .social a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <strong>ידידיה מוטורס</strong>
+      <span>Yedidia Motors</span>
+    </a>
+    <nav>
+      <a href="#about">אודות</a>
+      <a href="#services">שירותים</a>
+      <a href="#contact">יצירת קשר</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">יבוא אישי · רכבי יוקרה ושטח</span>
+      <h1>רכב שנבחר עבורך,<br>מיובא עד הדלת.</h1>
+      <p class="lede">
+        ידידיה מוטורס עוסקת ביבוא אישי ובמכירת רכבי יוקרה ורכבי שטח בישראל.
+        אנחנו מלווים את הלקוח לאורך כל התהליך — בחירת הרכב אצל הספק בחו״ל,
+        הזמנה, שילוח, שחרור מהמכס והמסירה.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#contact">דברו איתנו</a>
+        <a class="btn btn-ghost" href="#services">מה אנחנו עושים</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>אודות</h2>
+      <p class="sub">
+        ידידיה מוטורס היא חברה פרטית העוסקת ביבוא ומכירה של רכבי יוקרה ורכבי שטח.
+        העבודה שלנו מתחילה בהבנה מדויקת של מה שהלקוח מחפש — דגם, רמת גימור, אביזרים ותקציב —
+        וממשיכה באיתור הרכב אצל ספקים בחו״ל, בליווי הרגולטורי מול רשויות היבוא ובמסירה בישראל.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>מה אנחנו עושים</h2>
+      <p class="sub">שלושה תחומי פעילות, תהליך אחד מסודר.</p>
+      <div class="grid">
+        <div class="card">
+          <span class="num">01</span>
+          <h3>יבוא אישי</h3>
+          <p>איתור והזמנה של רכב ספציפי אצל ספק בחו״ל, לפי מפרט שנקבע מראש מול הלקוח, כולל טיפול במכסות רישיון היבוא ובעמידה בתקן.</p>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <h3>מכירה ממלאי</h3>
+          <p>רכבי יוקרה ושטח שכבר נמצאים בדרך או במלאי בישראל, עם מפרט מלא וסטטוס מעודכן של כל רכב.</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <h3>ליווי לוגיסטי ורגולטורי</h3>
+          <p>שילוח ימי, עמילות מכס, שחרור, בדיקות ורישוי — מרגע ההזמנה ועד שהרכב על שם הלקוח.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>יצירת קשר</h2>
+      <p class="sub">נשמח לשמוע מה אתם מחפשים.</p>
+      <dl>
+        <dt>שם החברה</dt>
+        <dd class="pending">[[שם החברה כפי שרשום ברשם החברות]]</dd>
+
+        <dt>ח.פ.</dt>
+        <dd class="pending">[[מספר ח.פ.]]</dd>
+
+        <dt>כתובת</dt>
+        <dd class="pending">[[רחוב ומספר, עיר, מיקוד]]</dd>
+
+        <dt>טלפון</dt>
+        <dd><a href="tel:+97248419413">04-841-9413</a></dd>
+
+        <dt>דוא״ל</dt>
+        <dd class="pending">[[כתובת דוא״ל ליצירת קשר]]</dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© <span id="y">2026</span> ידידיה מוטורס. כל הזכויות שמורות.</div>
+    <div class="social">
+      <a href="https://www.facebook.com/Yedidia.Motors" rel="noopener">פייסבוק</a>
+      <a href="https://www.instagram.com/yedidia_motors" rel="noopener">אינסטגרם</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
