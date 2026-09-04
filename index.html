@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', async function() {
        הבלוק הזה יושב מחוץ ל-bundle (כמו סקריפט הטופס) ודורס בעזרת
        !important את ה-inline styles. הדסקטופ (1280px ומעלה) לא מושפע.
        ================================================================ -->
-  <style>
+  <style id="ym-responsive">
   /* ---------- טאבלט וחלונות צרים ---------- */
   @media (max-width: 1279px) {
     [data-dc-tpl="6"], [data-dc-tpl="14"], [data-dc-tpl="44"], [data-dc-tpl="89"],
@@ -730,6 +730,27 @@ document.addEventListener('DOMContentLoaded', async function() {
     [data-dc-tpl="155"] { height: 36px !important; }
   }
   </style>
+
+  <script>
+  /* ה-bundle מחליף את ה-document כולו, ולכן תג <style> רגיל נמחק ברגע הפריסה.
+     הסקריפט הזה קורא את ה-CSS לפני הפריסה ומזריק אותו מחדש אחריה. */
+  (function () {
+    var src = document.getElementById('ym-responsive');
+    var CSS = src ? src.textContent : '';
+    if (!CSS) return;
+    function ensure() {
+      if (document.getElementById('ym-responsive')) return;
+      var s = document.createElement('style');
+      s.id = 'ym-responsive';
+      s.textContent = CSS;
+      (document.head || document.documentElement).appendChild(s);
+    }
+    ensure();
+    try { new MutationObserver(ensure).observe(document, { childList: true }); } catch (e) {}
+    window.addEventListener('load', ensure);
+    var n = 0, t = setInterval(function () { ensure(); if (++n > 240) clearInterval(t); }, 250);
+  })();
+  </script>
 
 </body>
 </html>
