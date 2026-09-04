@@ -891,14 +891,23 @@ document.addEventListener('DOMContentLoaded', async function() {
                (b === brand ? 'true' : 'false') + '">' + esc(b) + '</button>';
       }).join('');
 
-      var cards = list.slice(0, MAX_CARDS).map(cardHtml).join('');
+      // תצוגה מגוונת: קודם דגם אחד מכל סוג, ורק אם נשאר מקום ממלאים בכפילויות
+      var seen = {}, primary = [], rest = [];
+      list.forEach(function (v) {
+        var key = (v.make || '') + '|' + (v.model || '');
+        if (seen[key]) { rest.push(v); } else { seen[key] = 1; primary.push(v); }
+      });
+      var picked = primary.concat(rest).slice(0, MAX_CARDS);
+
+      var cards = picked.map(cardHtml).join('');
       if (!cards) cards = '<div class="ym-spec">אין כרגע רכבים להצגה בקטגוריה הזו.</div>';
 
       return '' +
         '<div class="ym-head">' +
           '<div>' +
             '<h2>הדגמים שלנו</h2>' +
-            '<div class="ym-sub">' + all.length + ' רכבים במלאי · מתעדכן ישירות מהמערכת</div>' +
+            '<div class="ym-sub">' + all.filter(function (v) { return v.status !== 'sold'; }).length +
+              ' רכבים במלאי · מתעדכן ישירות מהמערכת</div>' +
           '</div>' +
           '<div class="ym-brands">' + chips + '</div>' +
         '</div>' +
