@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-04T14:30:49.770Z",
+  "updated_at": "2026-09-04T15:57:23.203Z",
   "source": "google-sheet",
   "count": 24,
   "vehicles": [
@@ -411,7 +411,10 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
+      "images": [
+        "https://lh3.googleusercontent.com/d/1aKzh8A9fOl-jCxIrge0gqKpFs83X-nAh=w1600",
+        "https://lh3.googleusercontent.com/d/1ukYeruPVka-rwd2qXeSCtyE-rihIzMCH=w1600"
+      ]
     },
     {
       "id": "412562",
@@ -521,7 +524,9 @@
         "נקודת עיגון"
       ],
       "description": null,
-      "images": []
+      "images": [
+        "https://lh3.googleusercontent.com/d/1AsPGKidPuQItq91yjNQ9wYHcu7IBuoUD=w1600"
+      ]
     }
   ]
 }
