@@ -639,8 +639,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     [data-dc-tpl="46"] { overflow-x: auto !important; flex-wrap: nowrap !important; white-space: nowrap !important; }
     [data-dc-tpl="48"] { flex: 0 0 auto !important; }
     [data-dc-tpl="49"] { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important; }
-    [data-dc-tpl="89"], [data-dc-tpl="97"] { grid-template-columns: 1fr 1fr !important; }
-    [data-dc-tpl="110"], [data-dc-tpl="143"] { grid-template-columns: 1fr !important; }
+    [data-dc-tpl="110"] > *, [data-dc-tpl="143"] > *, [data-dc-tpl="49"] > *, [data-dc-tpl="89"] > *,
+    [data-dc-tpl="97"] > *, [data-dc-tpl="103"] > *, [data-dc-tpl="153"] > *, [data-dc-tpl="118"] > *,
+    [data-dc-tpl="72"] > * { min-width: 0 !important; }
+    [data-dc-tpl="89"], [data-dc-tpl="97"] { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; }
+    [data-dc-tpl="110"], [data-dc-tpl="143"] { grid-template-columns: minmax(0,1fr) !important; }
     [data-dc-tpl="153"] { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; }
   }
 
@@ -687,7 +690,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     [data-dc-tpl="46"] { margin: 0 -16px !important; padding: 0 16px !important; scrollbar-width: none !important; }
     [data-dc-tpl="46"]::-webkit-scrollbar { display: none !important; }
     [data-dc-tpl="48"] { padding: 11px 15px !important; font-size: 12.5px !important; }
-    [data-dc-tpl="49"] { grid-template-columns: 1fr !important; gap: 20px !important; }
+    [data-dc-tpl="49"] { grid-template-columns: minmax(0,1fr) !important; gap: 20px !important; }
     [data-dc-tpl="52"] { height: 210px !important; }
     [data-dc-tpl="56"] { font-size: 22px !important; }
 
@@ -696,37 +699,37 @@ document.addEventListener('DOMContentLoaded', async function() {
     [data-dc-tpl="69"] { font-size: 28px !important; }
 
     /* יד שנייה + מימון */
-    [data-dc-tpl="72"] { grid-template-columns: 1fr !important; }
+    [data-dc-tpl="72"] { grid-template-columns: minmax(0,1fr) !important; }
     [data-dc-tpl="73"], [data-dc-tpl="81"] { height: auto !important; min-height: 340px !important; }
     [data-dc-tpl="78"], [data-dc-tpl="86"] { font-size: 26px !important; }
 
     /* למה אנחנו */
-    [data-dc-tpl="89"] { grid-template-columns: 1fr 1fr !important; padding: 48px 16px !important; gap: 28px 18px !important; }
+    [data-dc-tpl="89"] { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; padding: 48px 16px !important; gap: 28px 18px !important; }
     [data-dc-tpl="92"] { font-size: 32px !important; }
 
     /* התהליך */
     [data-dc-tpl="95"] { padding: 56px 16px !important; gap: 28px !important; }
     [data-dc-tpl="96"] { font-size: 28px !important; }
-    [data-dc-tpl="97"] { grid-template-columns: 1fr 1fr !important; gap: 24px 16px !important; }
+    [data-dc-tpl="97"] { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; gap: 24px 16px !important; }
     [data-dc-tpl="101"] { font-size: 20px !important; }
 
     /* המלצות */
-    [data-dc-tpl="103"] { grid-template-columns: 1fr !important; padding: 56px 16px !important; gap: 20px !important; }
+    [data-dc-tpl="103"] { grid-template-columns: minmax(0,1fr) !important; padding: 56px 16px !important; gap: 20px !important; }
 
     /* אולם התצוגה + טופס הפנייה */
-    [data-dc-tpl="110"] { grid-template-columns: 1fr !important; }
+    [data-dc-tpl="110"] { grid-template-columns: minmax(0,1fr) !important; }
     [data-dc-tpl="113"] { padding: 48px 18px !important; gap: 20px !important; }
     [data-dc-tpl="116"] { font-size: 28px !important; }
-    [data-dc-tpl="118"] { grid-template-columns: 1fr !important; gap: 10px !important; }
+    [data-dc-tpl="118"] { grid-template-columns: minmax(0,1fr) !important; gap: 10px !important; }
     [data-dc-tpl="139"] { flex-wrap: wrap !important; gap: 12px !important; }
 
     /* שאלות נפוצות */
-    [data-dc-tpl="143"] { grid-template-columns: 1fr !important; padding: 56px 16px !important; gap: 24px !important; }
+    [data-dc-tpl="143"] { grid-template-columns: minmax(0,1fr) !important; padding: 56px 16px !important; gap: 24px !important; }
     [data-dc-tpl="144"] { font-size: 28px !important; }
 
     /* פוטר */
     [data-dc-tpl="152"] { padding: 48px 16px 28px !important; gap: 28px !important; }
-    [data-dc-tpl="153"] { grid-template-columns: 1fr 1fr !important; gap: 26px 18px !important; }
+    [data-dc-tpl="153"] { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; gap: 26px 18px !important; }
     [data-dc-tpl="155"] { height: 36px !important; }
   }
   </style>
