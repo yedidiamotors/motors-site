@@ -1,16 +1,18 @@
 #!/usr/bin/env node
 /**
- * מושך את גיליון המלאי (Google Sheet שפורסם כ-CSV), מנרמל אותו
- * וכותב data/inventory.json — החוזה היחיד שהאתר קורא.
+ * מושך את גיליון המלאי (CSV מ-n8n או מגוגל), מנרמל אותו,
+ * מוריד וממיר את תמונות הרכבים, וכותב data/inventory.json —
+ * החוזה היחיד שהאתר קורא.
  *
  * כשנחליף מקור ל-Supabase, רק הקובץ הזה משתנה. האתר לא נוגע.
  *
- * הרצה: SHEET_CSV_URL="https://docs.google.com/.../pub?gid=0&single=true&output=csv" node scripts/sync-inventory.mjs
+ * הרצה: SHEET_CSV_URL="https://.../webhook/inventory.csv?key=..." node scripts/sync-inventory.mjs
  */
 
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { processImages, imageProxyBase } from './images.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, 'data/inventory.json');
@@ -116,30 +118,22 @@ const splitList = v =>
     .map(s => s.trim())
     .filter(Boolean);
 
-/* ---------- קישורי Google Drive → כתובת שניתן להטמיע ---------- */
+/* ---------- תמונות: מזהי קבצים בדרייב ---------- */
 
-function driveId(url) {
+function driveId(raw) {
+  const s = String(raw).trim();
+  const m0 = s.match(/^drive:([a-zA-Z0-9_-]{20,})$/);
+  if (m0) return m0[1];
   const patterns = [
     /\/file\/d\/([a-zA-Z0-9_-]{20,})/,
     /[?&]id=([a-zA-Z0-9_-]{20,})/,
     /\/d\/([a-zA-Z0-9_-]{20,})/,
   ];
   for (const p of patterns) {
-    const m = url.match(p);
+    const m = s.match(p);
     if (m) return m[1];
   }
   return null;
-}
-
-function toImageUrl(raw, width = 1600) {
-  const url = String(raw).trim();
-  if (!/^https?:\/\//i.test(url)) return null;
-  if (/drive\.google\.com|docs\.google\.com/.test(url)) {
-    const id = driveId(url);
-    // lh3 מגיש את הקובץ ישירות ותומך בהטמעה, בניגוד ל-/file/d/.../view
-    return id ? `https://lh3.googleusercontent.com/d/${id}=w${width}` : null;
-  }
-  return url;
 }
 
 /* ---------- ראשי ---------- */
@@ -178,7 +172,7 @@ rows.slice(1).forEach((row, i) => {
     return;
   }
 
-  const images = splitList(get(row, 'images')).map(u => toImageUrl(u)).filter(Boolean);
+  const imageIds = [...new Set(splitList(get(row, 'images')).map(driveId).filter(Boolean))];
   const year = toNumber(get(row, 'year'));
 
   vehicles.push({
@@ -197,9 +191,27 @@ rows.slice(1).forEach((row, i) => {
     drivetrain: get(row, 'drivetrain'),
     features: splitList(get(row, 'features')),
     description: get(row, 'description'),
-    images,
+    imageIds,
+    images: [],
   });
 });
+
+/* ---------- המרת התמונות ואחסונן ברפו ---------- */
+
+const prev = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : null;
+const prevImages = new Map((prev?.vehicles || []).map(v => [v.id, v.images || []]));
+
+const processed = await processImages({
+  root: ROOT,
+  vehicles,
+  proxyBase: imageProxyBase(SHEET_CSV_URL),
+});
+
+for (const v of vehicles) {
+  // אם שלב התמונות לא רץ, לא מוחקים את מה שכבר קיים ברפו
+  v.images = processed ? (processed[v.id] || []) : (prevImages.get(v.id) || []);
+  delete v.imageIds;
+}
 
 const payload = {
   updated_at: new Date().toISOString(),
@@ -212,12 +224,9 @@ mkdirSync(dirname(OUT), { recursive: true });
 
 // כותבים רק אם משהו מהותי השתנה — כדי לא ליצור commit על כל הרצה
 const next = JSON.stringify(payload, null, 2) + '\n';
-if (existsSync(OUT)) {
-  const prev = JSON.parse(readFileSync(OUT, 'utf8'));
-  if (JSON.stringify(prev.vehicles) === JSON.stringify(payload.vehicles)) {
-    console.log(`אין שינוי במלאי (${vehicles.length} רכבים). לא נכתב קובץ.`);
-    process.exit(0);
-  }
+if (prev && JSON.stringify(prev.vehicles) === JSON.stringify(payload.vehicles)) {
+  console.log(`אין שינוי במלאי (${vehicles.length} רכבים). לא נכתב קובץ.`);
+  process.exit(0);
 }
 
 writeFileSync(OUT, next);
