@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-04T16:21:47.665Z",
+  "updated_at": "2026-09-04T19:37:48.169Z",
   "source": "google-sheet",
-  "count": 24,
+  "count": 34,
   "vehicles": [
     {
       "id": "220351",
@@ -526,6 +526,244 @@
       "description": null,
       "images": [
         "/assets/vehicles/412642/1AsPGKidPuQItq91yjNQ9wYHcu7IBuoUD.webp"
+      ]
+    },
+    {
+      "id": "TI-MERCEDES-S500-2021-4YKD6",
+      "make": "MERCEDES",
+      "model": "S500",
+      "year": 2021,
+      "trim": null,
+      "color": "כסוף",
+      "km": 120000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 2"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "TI-MERCEDES-GLC-300E-2021-7THAS",
+      "make": "MERCEDES",
+      "model": "GLC 300E",
+      "year": 2021,
+      "trim": null,
+      "color": "כסף מטלי",
+      "km": 102000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 1"
+      ],
+      "description": null,
+      "images": [
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1M5LCc6GWcnfLZs0mCxwMMsrTzJKtk_xC.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1eunCEY1Ry6DHCtHYs-TPz5z1gTxSx6z3.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/14AwjiJvahcvqOmdUOpf-qQVLlUIYZK9N.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1w7hA-VaGtsKMHX8K2t9hTyThwgcVkP7Q.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1MHwRKN1024_YSfORh_04584oUbmpczEg.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1ZOCFUkqQfPYfu-W0bcEkxQhUKf1xZjvT.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1yMPc8G_XGxWsfmxoERk_x2cSUs3z3xhA.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1tdCsQZF9WBvKXmo2rfZMUY7j3V4aYmDE.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1jHIW-ANQ7lozicLPZAYFTtKuJh1Ph02q.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1qfeEdl9-viQlEdUlVP369-GqtcwZANd3.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1UCofQW9dG7guNBni1yMDC2RLn-B6wGn3.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1sdxrBB57eo7aN1MgYF5bRIb1nxsl_qcG.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1OiP9VkSj_I2AQvjyXLX83yr5F2YbxwoK.webp",
+        "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1WFy3pbz-YmNv_CYQEQeJ2g8Ey1BJeOv3.webp"
+      ]
+    },
+    {
+      "id": "TI-CHEVROLET-SAVANA-MAX-2018-8JEKT",
+      "make": "CHEVROLET",
+      "model": "SAVANA MAX",
+      "year": 2018,
+      "trim": null,
+      "color": "לבן",
+      "km": 225000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 2"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6",
+      "make": "CHEVROLET",
+      "model": "SILVERADO LTZ +",
+      "year": 2022,
+      "trim": null,
+      "color": "לבן",
+      "km": 155000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 1"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "TI-CHEVROLET-SILVERADO-4WT-2025-MK21E",
+      "make": "CHEVROLET",
+      "model": "SILVERADO 4WT",
+      "year": 2025,
+      "trim": null,
+      "color": "לבן",
+      "km": 42000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 1"
+      ],
+      "description": null,
+      "images": [
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/12BtoiOOilwb261URMeqb2k35TWlafJ9J.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1-ZijshX_OZaCZGgOUHFceyYvuzM5n9IU.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1OH5pawp4sq2VPpV9ES38_RITst65w2Fp.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1rgYCydAiGRnpMxJyf4TVCLl8rsd9VWBP.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1aISBVf2blyJJi47wZXWiuoTOcfxaP2CU.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1IUi-xQPrrST0LmYUgwZT9oigBJWfCkag.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1uBf8D6UBKP97AUpkLv-wf7VLzbNk1Aez.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1wupabT2_6UNjeVET7wcfq50VwP2I3Kft.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/16thi95ymGGTmqChPpsOkmRtf_fzo_gTp.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1DzNVt1gXlbAVvTNlTrsm7agjL5tKdh5J.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1b49HvD0fsHkRx0lvamAert_6IlBXj4kZ.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1ktPdFOe_GDUSInaWZzIqxnTO3M3jt6Lf.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1q9KnkKt7-rgTFCQjlmijXs8XcRZURWWX.webp"
+      ]
+    },
+    {
+      "id": "TI-BMW-X1-2016-8S229",
+      "make": "BMW",
+      "model": "X1",
+      "year": 2016,
+      "trim": null,
+      "color": "לבן",
+      "km": 155000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 2"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "TI-RAM-LIMITED-2021-MVO6W",
+      "make": "RAM",
+      "model": "LIMITED",
+      "year": 2021,
+      "trim": null,
+      "color": "לבן",
+      "km": 110000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 1"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "TI-RAM-LIMITED-2022-LHA3W",
+      "make": "RAM",
+      "model": "LIMITED",
+      "year": 2022,
+      "trim": null,
+      "color": "שחור",
+      "km": 212000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 2"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "TI-RAM-LARAMIE-2024-Y7ZN3",
+      "make": "RAM",
+      "model": "LARAMIE",
+      "year": 2024,
+      "trim": null,
+      "color": "לבן",
+      "km": 103000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 2"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "TI-RAM-LARAMIE-2024-WU7DW",
+      "make": "RAM",
+      "model": "LARAMIE",
+      "year": 2024,
+      "trim": null,
+      "color": "שחור",
+      "km": 107000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 2"
+      ],
+      "description": null,
+      "images": [
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1q7qv7hGSb7HbCEUW2ytH4knEL-g8j6-i.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1qybA46RJwN7DSsNB489WV_yoZO_h9nNP.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1LMHgihBaJHuh_-CrfWiXCJb13SiqxYRw.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1fFInTEbf3kDb6HdswtUUeu-MD_H3hg7B.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1OK1A5m12Ey56Dv8FVgYvX8otH7QAs23D.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1oZcujC0I5M4Da1BfClHdyptIbUPIMAmI.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1TepuWiOgyVU9U5YeDtqZIegRU-nT4rN8.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1bK0ZZswtBx_BDnyRvL8lSTQlPJbFA8vU.webp"
       ]
     }
   ]
