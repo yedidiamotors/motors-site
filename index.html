@@ -965,10 +965,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     function apply() {
       if (pending) return;
       pending = true;
-      requestAnimationFrame(function () {
+      // setTimeout ולא requestAnimationFrame: בטאב שלא מצייר rAF לא נורה בכלל,
+      // והדגל pending היה נתקע ומשתיק את כל הקריאות הבאות.
+      setTimeout(function () {
         pending = false;
         try { render(); addLinks(); } catch (e) {}
-      });
+      }, 0);
     }
 
     fetch('/data/inventory.json', { cache: 'no-cache' })
