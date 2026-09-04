@@ -732,6 +732,61 @@ document.addEventListener('DOMContentLoaded', async function() {
     [data-dc-tpl="153"] { grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; gap: 26px 18px !important; }
     [data-dc-tpl="155"] { height: 36px !important; }
   }
+
+  /* ---------- סקשן "הדגמים שלנו" — מחובר ל-data/inventory.json ---------- */
+  .ym-lineup { background: #fff; color: #000; padding: 88px 48px 96px;
+               display: flex; flex-direction: column; gap: 32px; }
+  .ym-lineup .ym-head { display: flex; align-items: flex-end; justify-content: space-between;
+                        gap: 24px; flex-wrap: wrap; }
+  .ym-lineup h2 { font: 700 72px/1.05 Heebo, sans-serif; margin: 0; }
+  .ym-lineup .ym-sub { font: 400 15px/1.6 Heebo, sans-serif; color: #666; }
+  .ym-lineup .ym-brands { display: flex; gap: 4px; flex-wrap: nowrap;
+                          overflow-x: auto; scrollbar-width: none; }
+  .ym-lineup .ym-brands::-webkit-scrollbar { display: none; }
+  .ym-lineup .ym-brands button { flex: 0 0 auto; background: none; border: 0;
+                                 padding: 14px 22px; font: 600 14px/1 Heebo, sans-serif;
+                                 letter-spacing: .06em; text-transform: uppercase;
+                                 color: #777; cursor: pointer;
+                                 border-bottom: 2px solid transparent; }
+  .ym-lineup .ym-brands button[aria-pressed="true"] { color: #000; border-bottom-color: #C9A24A; }
+  .ym-lineup .ym-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .ym-lineup .ym-card { background: #f5f5f5; display: flex; flex-direction: column; min-width: 0; }
+  .ym-lineup .ym-photo { position: relative; height: 260px; background: #e8e8e8;
+                         display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .ym-lineup .ym-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ym-lineup .ym-none { font: 500 13px/1 Heebo, sans-serif; color: #9a9a9a; }
+  .ym-lineup .ym-badge { position: absolute; top: 14px; inset-inline-start: 14px;
+                         background: #000; color: #fff; padding: 6px 12px;
+                         font: 700 11px/1 Heebo, sans-serif; letter-spacing: .08em; }
+  .ym-lineup .ym-badge.sold { background: #B03A2E; }
+  .ym-lineup .ym-badge.transit { background: #C9A24A; color: #000; }
+  .ym-lineup .ym-body { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 6px; }
+  .ym-lineup .ym-make { font: 600 12px/1 Heebo, sans-serif; letter-spacing: .12em;
+                        color: #888; text-transform: uppercase; }
+  .ym-lineup .ym-model { font: 700 26px/1.15 Heebo, sans-serif; }
+  .ym-lineup .ym-spec { font: 400 14px/1.6 Heebo, sans-serif; color: #555; }
+  .ym-lineup .ym-cta { display: flex; gap: 8px; margin-top: 14px; }
+  .ym-lineup .ym-cta a { flex: 1 1 0; min-width: 0; text-align: center; padding: 14px 10px;
+                         font: 700 12px/1 Heebo, sans-serif; letter-spacing: .06em; text-decoration: none; }
+  .ym-lineup .ym-cta .p { background: #000; color: #fff; }
+  .ym-lineup .ym-cta .s { border: 1px solid #000; color: #000; }
+  .ym-lineup .ym-all { align-self: center; margin-top: 8px; border: 1px solid #000; color: #000;
+                       text-decoration: none; padding: 18px 40px;
+                       font: 700 13px/1 Heebo, sans-serif; letter-spacing: .08em; }
+  [data-dc-tpl="44"].ym-replaced { display: none !important; }
+
+  @media (max-width: 1279px) {
+    .ym-lineup { padding-left: 24px; padding-right: 24px; }
+    .ym-lineup h2 { font-size: clamp(30px, 5vw, 64px); }
+  }
+  @media (max-width: 767px) {
+    .ym-lineup { padding: 56px 16px 64px; gap: 24px; }
+    .ym-lineup .ym-grid { grid-template-columns: minmax(0, 1fr); }
+    .ym-lineup .ym-photo { height: 210px; }
+    .ym-lineup .ym-model { font-size: 22px; }
+    .ym-lineup h2 { font-size: 30px; }
+    .ym-lineup .ym-brands { margin: 0 -16px; padding: 0 16px; }
+  }
   </style>
 
   <script>
@@ -752,6 +807,188 @@ document.addEventListener('DOMContentLoaded', async function() {
     try { new MutationObserver(ensure).observe(document, { childList: true }); } catch (e) {}
     window.addEventListener('load', ensure);
     var n = 0, t = setInterval(function () { ensure(); if (++n > 240) clearInterval(t); }, 250);
+  })();
+  </script>
+
+
+  <!-- ================================================================
+       "הדגמים שלנו" בדף הבית — מחובר למלאי האמיתי (נוסף 04/09/2026)
+       קורא את data/inventory.json (אותו קובץ שעמוד /stock/ קורא),
+       מחליף את סקשן הדמו הקבוע שנצרב בעיצוב, ומוסיף קישור למלאי
+       בתפריט ובפוטר. הכל מחוץ ל-bundle ועם MutationObserver,
+       כי הקומפוננטה מרנדרת מחדש ומוחקת שינויים ב-DOM.
+       ================================================================ -->
+  <script>
+  (function () {
+    'use strict';
+
+    var MAX_CARDS = 6;
+    var STOCK_URL = '/stock/';
+    var data = null;
+    var brand = 'הכל';
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    var STATUS = {
+      available: { he: 'זמין',  cls: '' },
+      in_transit: { he: 'בדרך', cls: 'transit' },
+      sold:      { he: 'נמכר',  cls: 'sold' }
+    };
+    var ORDER = { available: 0, in_transit: 1, sold: 2 };
+
+    function specLine(v) {
+      if (v.description) return v.description;
+      if (v.features && v.features.length) return v.features.slice(0, 3).join(' · ');
+      var bits = [];
+      if (v.year) bits.push(v.year);
+      if (v.color) bits.push(v.color);
+      return bits.join(' · ');
+    }
+
+    function cardHtml(v) {
+      var st = STATUS[v.status] || STATUS.available;
+      var img = (v.images && v.images[0])
+        ? '<img src="' + esc(v.images[0]) + '" alt="' + esc(v.make + ' ' + v.model) + '" loading="lazy">'
+        : '<span class="ym-none">אין תמונה</span>';
+      var meta = [];
+      if (v.year) meta.push(v.year);
+      if (v.color) meta.push(v.color);
+      if (v.condition) meta.push(v.condition);
+      return '' +
+        '<div class="ym-card">' +
+          '<div class="ym-photo">' + img +
+            '<span class="ym-badge ' + st.cls + '">' + esc(st.he) + '</span>' +
+          '</div>' +
+          '<div class="ym-body">' +
+            '<div class="ym-make">' + esc(v.make) + (meta.length ? ' · ' + esc(meta.join(' · ')) : '') + '</div>' +
+            '<div class="ym-model">' + esc(v.model) + '</div>' +
+            '<div class="ym-spec">' + esc(specLine(v)) + '</div>' +
+            '<div class="ym-cta">' +
+              '<a class="p" href="#lead">הצעת מחיר</a>' +
+              '<a class="s" href="#lead">נסיעת מבחן</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    }
+
+    function sectionHtml() {
+      var all = (data && data.vehicles) || [];
+      var makes = [];
+      all.forEach(function (v) { if (v.make && makes.indexOf(v.make) < 0) makes.push(v.make); });
+      makes.sort();
+
+      var list = all.filter(function (v) { return brand === 'הכל' || v.make === brand; });
+      list = list.slice().sort(function (a, b) {
+        return (ORDER[a.status] == null ? 3 : ORDER[a.status]) - (ORDER[b.status] == null ? 3 : ORDER[b.status]);
+      });
+
+      var chips = ['הכל'].concat(makes).map(function (b) {
+        return '<button type="button" data-ym-brand="' + esc(b) + '" aria-pressed="' +
+               (b === brand ? 'true' : 'false') + '">' + esc(b) + '</button>';
+      }).join('');
+
+      var cards = list.slice(0, MAX_CARDS).map(cardHtml).join('');
+      if (!cards) cards = '<div class="ym-spec">אין כרגע רכבים להצגה בקטגוריה הזו.</div>';
+
+      return '' +
+        '<div class="ym-head">' +
+          '<div>' +
+            '<h2>הדגמים שלנו</h2>' +
+            '<div class="ym-sub">' + all.length + ' רכבים במלאי · מתעדכן ישירות מהמערכת</div>' +
+          '</div>' +
+          '<div class="ym-brands">' + chips + '</div>' +
+        '</div>' +
+        '<div class="ym-grid">' + cards + '</div>' +
+        '<a class="ym-all" href="' + STOCK_URL + '">לכל המלאי ←</a>';
+    }
+
+    function render() {
+      if (!data) return;
+      var orig = document.querySelector('[data-dc-tpl="44"]');
+      if (!orig) return;
+
+      // ה-id עובר לסקשן שלנו כדי שעוגני #lineup ימשיכו לעבוד
+      if (orig.id === 'lineup') orig.removeAttribute('id');
+      orig.classList.add('ym-replaced');
+
+      var sec = document.getElementById('lineup');
+      if (!sec || !sec.classList.contains('ym-lineup')) {
+        sec = document.createElement('section');
+        sec.id = 'lineup';
+        sec.className = 'ym-lineup';
+        sec.setAttribute('dir', 'rtl');
+        orig.parentNode.insertBefore(sec, orig.nextSibling);
+      }
+      // בונים מחדש רק כשצריך — אחרת ה-MutationObserver שלנו היה מזין את עצמו
+      var sig = brand + '|' + (data.count || 0) + '|' + (data.updated_at || '');
+      if (sec.__ymSig !== sig || !sec.firstChild) {
+        sec.innerHTML = sectionHtml();
+        sec.__ymSig = sig;
+      }
+    }
+
+    // קישור לעמוד המלאי — בתפריט ובפוטר. משכפלים קישור קיים כדי לרשת את העיצוב.
+    function addLink(container) {
+      if (!container) return;
+      var have = [].slice.call(container.querySelectorAll('a')).some(function (a) {
+        return (a.getAttribute('href') || '').indexOf('/stock') === 0;
+      });
+      if (have) return;
+      var proto = container.querySelector('a');
+      if (!proto) return;
+      var a = proto.cloneNode(true);
+      a.textContent = 'המלאי שלנו';
+      a.setAttribute('href', STOCK_URL);
+      a.removeAttribute('data-dc-tpl');
+      proto.parentNode.appendChild(a);
+    }
+
+    function addLinks() {
+      addLink(document.querySelector('[data-dc-tpl="18"]'));          // תפריט עליון
+      var footer = document.querySelector('[data-dc-tpl="153"]');     // עמודות הפוטר
+      if (footer) {
+        var col = [].slice.call(footer.children).filter(function (c) {
+          return /רכבים/.test((c.textContent || '').slice(0, 12));
+        })[0] || footer.children[0];
+        if (col) {
+          var holder = col.querySelector('a') ? col.querySelector('a').parentNode : null;
+          addLink(holder || col);
+        }
+      }
+    }
+
+    var pending = false;
+    function apply() {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () {
+        pending = false;
+        try { render(); addLinks(); } catch (e) {}
+      });
+    }
+
+    fetch('/data/inventory.json', { cache: 'no-cache' })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { data = j; apply(); })
+      .catch(function () {});
+
+    // לחיצה על מותג — מאזין ב-window כדי לשרוד רינדור מחדש
+    window.addEventListener('click', function (e) {
+      var b = e.target && e.target.closest ? e.target.closest('[data-ym-brand]') : null;
+      if (!b) return;
+      e.preventDefault();
+      e.stopPropagation();
+      brand = b.getAttribute('data-ym-brand');
+      render();
+    }, true);
+
+    try { new MutationObserver(apply).observe(document, { childList: true, subtree: true }); } catch (e) {}
+    window.addEventListener('load', apply);
+    var n = 0, t = setInterval(function () { apply(); if (++n > 120) clearInterval(t); }, 500);
   })();
   </script>
 
