@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-04T19:41:50.728Z",
+  "updated_at": "2026-09-04T20:42:49.974Z",
   "source": "google-sheet",
   "count": 34,
   "vehicles": [
@@ -633,7 +633,12 @@
         "יד 1"
       ],
       "description": null,
-      "images": []
+      "images": [
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1UFP3MjIuUSj-Bi9q8gSc4AuwbroRcdNm.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1lQ0FpMviLSSAWugqkuehzrCY3TGSlAIG.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1YAtYnbfrmSZmLRCZ_2HdyvFaDbSHwaws.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1cs2k2jd2T7MCfdhqZ34oiqKyYsQqLEE9.webp"
+      ]
     },
     {
       "id": "TI-CHEVROLET-SILVERADO-4WT-2025-MK21E",
@@ -747,7 +752,17 @@
         "יד 2"
       ],
       "description": null,
-      "images": []
+      "images": [
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1twLVOZH-3daIac5wxOiXols0DHMAi0yT.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1LMPttn9tqH61Ez-EKjbObYpU08GSca7x.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/11J8gHJUuxV7t2H_lMY8V97ShLYlZWQjH.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1A0jZBj-7DLcxlLMLWx3-i71v7Ktxs-Rs.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1xVSGsAQ1dIJ28eck-MURzZ81PomhpWPT.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/19ug2T43iD00HNKo_T4WVgNTu36T8peB4.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1BDxBq_xMrROrLqBvJbckG-CSCaJLtMg4.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1UB9NByyXXvf_3tyGx48jHPBpdxPdbPPl.webp",
+        "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1kvzPEBC6p5xakAQUW6rWeOF93AKGfq5o.webp"
+      ]
     },
     {
       "id": "TI-RAM-LARAMIE-2024-WU7DW",
