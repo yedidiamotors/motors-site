@@ -617,5 +617,119 @@ document.addEventListener('DOMContentLoaded', async function() {
   })();
   </script>
 
+
+  <!-- ================================================================
+       שכבת רספונסיביות — נוסף 04/09/2026
+       דף הבית נבנה בקנבס עיצוב בפיקסלים קבועים, בלי אף media query.
+       הבלוק הזה יושב מחוץ ל-bundle (כמו סקריפט הטופס) ודורס בעזרת
+       !important את ה-inline styles. הדסקטופ (1280px ומעלה) לא מושפע.
+       ================================================================ -->
+  <style>
+  /* ---------- טאבלט וחלונות צרים ---------- */
+  @media (max-width: 1279px) {
+    [data-dc-tpl="6"], [data-dc-tpl="14"], [data-dc-tpl="44"], [data-dc-tpl="89"],
+    [data-dc-tpl="95"], [data-dc-tpl="103"], [data-dc-tpl="143"], [data-dc-tpl="152"] {
+      padding-left: 24px !important; padding-right: 24px !important;
+    }
+    [data-dc-tpl="31"] { left: 24px !important; right: 24px !important; }
+    [data-dc-tpl="34"] { font-size: clamp(40px, 6.6vw, 92px) !important; }
+    [data-dc-tpl="45"], [data-dc-tpl="69"], [data-dc-tpl="96"], [data-dc-tpl="144"] {
+      font-size: clamp(30px, 5vw, 64px) !important;
+    }
+    [data-dc-tpl="46"] { overflow-x: auto !important; flex-wrap: nowrap !important; white-space: nowrap !important; }
+    [data-dc-tpl="48"] { flex: 0 0 auto !important; }
+    [data-dc-tpl="49"] { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important; }
+    [data-dc-tpl="89"], [data-dc-tpl="97"] { grid-template-columns: 1fr 1fr !important; }
+    [data-dc-tpl="110"], [data-dc-tpl="143"] { grid-template-columns: 1fr !important; }
+    [data-dc-tpl="153"] { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; }
+  }
+
+  /* ---------- מובייל ---------- */
+  @media (max-width: 767px) {
+    html, body { overflow-x: hidden !important; }
+    [data-dc-tpl="5"] { overflow-x: hidden !important; }
+    [data-dc-tpl="5"] img { max-width: 100% !important; }
+    [data-dc-tpl="5"] image-slot, [data-dc-tpl="5"] image-slot img { object-fit: cover !important; }
+
+    /* בר עליון */
+    [data-dc-tpl="6"] { height: auto !important; padding: 7px 14px !important; font-size: 11px !important;
+                        flex-wrap: wrap !important; gap: 4px 14px !important; justify-content: center !important; }
+    [data-dc-tpl="7"], [data-dc-tpl="10"] { gap: 14px !important; flex-wrap: wrap !important; justify-content: center !important; }
+    [data-dc-tpl="9"], [data-dc-tpl="13"] { display: none !important; }
+
+    /* ניווט: לוגו + CTA בשורה, קישורים בשורה נגללת מתחת */
+    [data-dc-tpl="14"] { height: auto !important; padding: 8px 14px !important; flex-wrap: wrap !important; row-gap: 8px !important; }
+    [data-dc-tpl="15"] { display: contents !important; }
+    [data-dc-tpl="16"] { order: 1 !important; }
+    [data-dc-tpl="17"] { height: 30px !important; }
+    [data-dc-tpl="24"] { order: 2 !important; gap: 6px !important; }
+    [data-dc-tpl="25"] { display: none !important; }
+    [data-dc-tpl="26"] { padding: 9px 14px !important; font-size: 10.5px !important; }
+    [data-dc-tpl="18"] { order: 3 !important; width: 100% !important; gap: 18px !important; font-size: 12px !important;
+                         flex-wrap: nowrap !important; white-space: nowrap !important; overflow-x: auto !important;
+                         scrollbar-width: none !important; }
+    [data-dc-tpl="18"]::-webkit-scrollbar { display: none !important; }
+
+    /* הירו */
+    [data-dc-tpl="27"] { height: auto !important; min-height: 78vh !important; max-height: none !important; }
+    [data-dc-tpl="31"] { flex-direction: column !important; align-items: stretch !important; gap: 14px !important;
+                         left: 0 !important; right: 0 !important; bottom: 0 !important; padding: 0 16px 26px !important; }
+    [data-dc-tpl="32"] { width: 100% !important; max-width: 100% !important; align-items: stretch !important; gap: 14px !important; }
+    [data-dc-tpl="34"] { font-size: clamp(28px, 8.4vw, 40px) !important; line-height: 1.14 !important; }
+    [data-dc-tpl="36"] { font-size: 14px !important; max-width: 100% !important; }
+    [data-dc-tpl="37"] { width: 100% !important; flex-wrap: wrap !important; gap: 8px !important; }
+    [data-dc-tpl="38"], [data-dc-tpl="39"] { flex: 1 1 0 !important; min-width: 0 !important;
+                                             text-align: center !important; padding: 15px 10px !important; font-size: 12.5px !important; }
+
+    /* דגמים */
+    [data-dc-tpl="44"] { padding: 56px 16px 64px !important; gap: 24px !important; }
+    [data-dc-tpl="45"] { font-size: 30px !important; }
+    [data-dc-tpl="46"] { margin: 0 -16px !important; padding: 0 16px !important; scrollbar-width: none !important; }
+    [data-dc-tpl="46"]::-webkit-scrollbar { display: none !important; }
+    [data-dc-tpl="48"] { padding: 11px 15px !important; font-size: 12.5px !important; }
+    [data-dc-tpl="49"] { grid-template-columns: 1fr !important; gap: 20px !important; }
+    [data-dc-tpl="52"] { height: 210px !important; }
+    [data-dc-tpl="56"] { font-size: 22px !important; }
+
+    /* טרייד-אין */
+    [data-dc-tpl="63"] { height: auto !important; min-height: 440px !important; }
+    [data-dc-tpl="69"] { font-size: 28px !important; }
+
+    /* יד שנייה + מימון */
+    [data-dc-tpl="72"] { grid-template-columns: 1fr !important; }
+    [data-dc-tpl="73"], [data-dc-tpl="81"] { height: auto !important; min-height: 340px !important; }
+    [data-dc-tpl="78"], [data-dc-tpl="86"] { font-size: 26px !important; }
+
+    /* למה אנחנו */
+    [data-dc-tpl="89"] { grid-template-columns: 1fr 1fr !important; padding: 48px 16px !important; gap: 28px 18px !important; }
+    [data-dc-tpl="92"] { font-size: 32px !important; }
+
+    /* התהליך */
+    [data-dc-tpl="95"] { padding: 56px 16px !important; gap: 28px !important; }
+    [data-dc-tpl="96"] { font-size: 28px !important; }
+    [data-dc-tpl="97"] { grid-template-columns: 1fr 1fr !important; gap: 24px 16px !important; }
+    [data-dc-tpl="101"] { font-size: 20px !important; }
+
+    /* המלצות */
+    [data-dc-tpl="103"] { grid-template-columns: 1fr !important; padding: 56px 16px !important; gap: 20px !important; }
+
+    /* אולם התצוגה + טופס הפנייה */
+    [data-dc-tpl="110"] { grid-template-columns: 1fr !important; }
+    [data-dc-tpl="113"] { padding: 48px 18px !important; gap: 20px !important; }
+    [data-dc-tpl="116"] { font-size: 28px !important; }
+    [data-dc-tpl="118"] { grid-template-columns: 1fr !important; gap: 10px !important; }
+    [data-dc-tpl="139"] { flex-wrap: wrap !important; gap: 12px !important; }
+
+    /* שאלות נפוצות */
+    [data-dc-tpl="143"] { grid-template-columns: 1fr !important; padding: 56px 16px !important; gap: 24px !important; }
+    [data-dc-tpl="144"] { font-size: 28px !important; }
+
+    /* פוטר */
+    [data-dc-tpl="152"] { padding: 48px 16px 28px !important; gap: 28px !important; }
+    [data-dc-tpl="153"] { grid-template-columns: 1fr 1fr !important; gap: 26px 18px !important; }
+    [data-dc-tpl="155"] { height: 36px !important; }
+  }
+  </style>
+
 </body>
 </html>
