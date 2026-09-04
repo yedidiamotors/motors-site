@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-04T19:37:48.169Z",
+  "updated_at": "2026-09-04T19:41:50.728Z",
   "source": "google-sheet",
   "count": 34,
   "vehicles": [
@@ -546,7 +546,19 @@
         "יד 2"
       ],
       "description": null,
-      "images": []
+      "images": [
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1Ss_ik7E8_jzw2REy0rxtWVVNqPojUDH0.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1PuY0_AbvHOTHAOhJelv-VtfRtp3G5m-E.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1kwBJY7XWJ-zr-wfe9MKR1lNoTRN2SRy_.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/123HIE1w94ZdfmvV8jH_BP3Msj_yfRXR_.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1VZsK5jkRVEbHWupL-cnpZMFyE0uajOQx.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1WAiHr-jkbDOZVTy1IdHv0RnzXNO_maz2.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1qWmHFoqSIrQhmdi8ej7gd0tADHGuK5Hu.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1DsXG5ZK7JCqyqMTGfhgE76snSYKjZc1G.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1GXlQkbRMfVnelQ5Fyo8Y0exDZAaWZ3q1.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1rMGLXfKOiCvExTXCzB64Pj3MVmF531Up.webp",
+        "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1m4fIhYcDWJOkuIlzJnqtjXnDF8BYnNfH.webp"
+      ]
     },
     {
       "id": "TI-MERCEDES-GLC-300E-2021-7THAS",
