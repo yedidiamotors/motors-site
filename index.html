@@ -957,14 +957,21 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     function sectionHtml() {
-      var all = (data && data.vehicles) || [];
+      var everything = (data && data.vehicles) || [];
+      // דף הבית מציג רכבים חדשים בלבד. יד שנייה נמצאת בעמוד המלאי.
+      var all = everything.filter(function (v) { return /חדש/.test(v.condition || ''); });
       var makes = [];
       all.forEach(function (v) { if (v.make && makes.indexOf(v.make) < 0) makes.push(v.make); });
       makes.sort();
 
       var list = all.filter(function (v) { return brand === 'הכל' || v.make === brand; });
+      // סדר: זמינים קודם, ובתוכם רכבים עם תמונות לפני רכבים בלי — תמונה מוכרת, "אין תמונה" לא
       list = list.slice().sort(function (a, b) {
-        return (ORDER[a.status] == null ? 3 : ORDER[a.status]) - (ORDER[b.status] == null ? 3 : ORDER[b.status]);
+        var so = (ORDER[a.status] == null ? 3 : ORDER[a.status]) - (ORDER[b.status] == null ? 3 : ORDER[b.status]);
+        if (so) return so;
+        var ai = (a.images && a.images.length) ? 1 : 0, bi = (b.images && b.images.length) ? 1 : 0;
+        if (ai !== bi) return bi - ai;
+        return ((b.images || []).length) - ((a.images || []).length);
       });
 
       var chips = ['הכל'].concat(makes).map(function (b) {
@@ -987,7 +994,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         '<div class="ym-head">' +
           '<div>' +
             '<h2>הדגמים שלנו</h2>' +
-            '<div class="ym-sub">' + all.filter(function (v) { return v.status !== 'sold'; }).length +
+            '<div class="ym-sub">' + everything.filter(function (v) { return v.status !== 'sold'; }).length +
               ' רכבים במלאי · מתעדכן ישירות מהמערכת</div>' +
           '</div>' +
           '<div class="ym-brands">' + chips + '</div>' +
@@ -1021,33 +1028,14 @@ document.addEventListener('DOMContentLoaded', async function() {
       }
     }
 
-    // קישור לעמוד המלאי — בתפריט ובפוטר. משכפלים קישור קיים כדי לרשת את העיצוב.
-    function addLink(container) {
-      if (!container) return;
-      var have = [].slice.call(container.querySelectorAll('a')).some(function (a) {
-        return (a.getAttribute('href') || '').indexOf('/stock') === 0;
-      });
-      if (have) return;
-      var proto = container.querySelector('a');
-      if (!proto) return;
-      var a = proto.cloneNode(true);
-      a.textContent = 'המלאי שלנו';
-      a.setAttribute('href', STOCK_URL);
-      a.removeAttribute('data-dc-tpl');
-      proto.parentNode.appendChild(a);
-    }
-
+    // אין קישור נפרד לעמוד המלאי בתפריט או בפוטר (החלטת ידידיה, 05/09/2026):
+    // מגיעים אליו רק דרך "הרכבים" ואז "לכל המלאי" בסקשן הדגמים.
+    // הכפתור "למלאי היד השנייה" בסקשן יד שנייה מוביל לעמוד המלאי כשהוא כבר מסונן ליד שנייה.
+    // העיצוב מרנדר אותו מחדש עם href="#lineup", ולכן מתקנים בכל ריצה.
     function addLinks() {
-      addLink(document.querySelector('[data-dc-tpl="18"]'));          // תפריט עליון
-      var footer = document.querySelector('[data-dc-tpl="153"]');     // עמודות הפוטר
-      if (footer) {
-        var col = [].slice.call(footer.children).filter(function (c) {
-          return /רכבים/.test((c.textContent || '').slice(0, 12));
-        })[0] || footer.children[0];
-        if (col) {
-          var holder = col.querySelector('a') ? col.querySelector('a').parentNode : null;
-          addLink(holder || col);
-        }
+      var used = document.querySelector('a[data-dc-tpl="80"]');
+      if (used && used.getAttribute('href') !== '/stock/?condition=used') {
+        used.setAttribute('href', '/stock/?condition=used');
       }
     }
 
