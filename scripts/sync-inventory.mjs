@@ -144,7 +144,13 @@ if (!res.ok) {
   console.error(`שגיאה במשיכת הגיליון: ${res.status} ${res.statusText}`);
   process.exit(1);
 }
-const rows = parseCSV(await res.text());
+const csvText = await res.text();
+// הגנה: אם המקור הוחלף/נפרץ ומחזיר משהו אחר לגמרי — לא נוגעים באתר
+if (csvText.length > 5 * 1024 * 1024 || /^\s*<(!doctype|html)/i.test(csvText)) {
+  console.error('התשובה מהמקור לא נראית כמו CSV של מלאי (גדולה מדי או HTML). לא נכתב דבר.');
+  process.exit(1);
+}
+const rows = parseCSV(csvText);
 if (rows.length < 2) {
   console.error('הגיליון ריק או מכיל שורת כותרות בלבד.');
   process.exit(1);
@@ -176,8 +182,13 @@ rows.slice(1).forEach((row, i) => {
   const imageIds = [...new Set(splitList(get(row, 'images')).map(driveId).filter(Boolean))];
   const year = toNumber(get(row, 'year'));
 
+  // המזהה הופך לשם תיקייה ברפו (assets/vehicles/<id>, stock/<id>) — רק תווים בטוחים
+  const safeId = String(get(row, 'id') || `${make}-${model}-${year ?? 'x'}-${lineNo}`)
+    .replace(/\s+/g, '-').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 80);
+  if (!safeId) { skipped.push({ line: lineNo, reason: 'מזהה לא תקין' }); return; }
+
   vehicles.push({
-    id: get(row, 'id') || `${make}-${model}-${year ?? 'x'}-${lineNo}`.replace(/\s+/g, '-'),
+    id: safeId,
     make,
     model,
     year: year && year > 1950 && year < 2100 ? year : null,
