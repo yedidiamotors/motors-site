@@ -43,7 +43,7 @@ jobs:
 
       - name: קיבוע השינוי
         run: |
-          PATHS="data/inventory.json assets sitemap.xml llms.txt stock"
+          PATHS="data/inventory.json data/site-images.json assets sitemap.xml llms.txt stock"
           if [[ -z "$(git status --porcelain -- $PATHS)" ]]; then
             echo "אין שינוי לקבע."
             exit 0
