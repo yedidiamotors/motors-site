@@ -205,6 +205,9 @@ const SITE_QUALITY = 82;
 function slotFor(fileName) {
   const base = String(fileName || '').replace(/\.[a-z0-9]+$/i, '');
   const key = base.toLowerCase().replace(/[\s\-_'"״׳]/g, '');
+  // סדרת הירו: "הירו", "הירו 2", "hero3"... → hero, hero-2, hero-3 — מצגת בראש הדף
+  const hero = key.match(/^(?:הירו|hero)(\d{1,2})?$/);
+  if (hero) return hero[1] && Number(hero[1]) > 1 ? `hero-${Number(hero[1])}` : 'hero';
   return SITE_SLOTS[key] || null;
 }
 
