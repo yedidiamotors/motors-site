@@ -2,5 +2,13 @@
   "story-finance": {
     "id": "1XvE2IqwtPPNJB31es8NZx6M8-txK9719",
     "path": "/assets/site/story-finance.webp"
+  },
+  "hero": {
+    "id": "1udAxhjo2SGZ9u1OQidK-iGnYZeRfxS6c",
+    "path": "/assets/site/hero.webp"
+  },
+  "hero-2": {
+    "id": "18tgY9qA3bvAf3Scw2RmDE17cZXF-mab2",
+    "path": "/assets/site/hero-2.webp"
   }
 }
