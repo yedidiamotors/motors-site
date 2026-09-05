@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he">
 <head>
   <meta charset="utf-8">
   <title>ידידיה מוטורס | סוכנות רכב ביבוא מקביל בקרית אתא</title>
@@ -29,8 +29,9 @@
 
     function ensure() {
       var root = document.documentElement;
+      // רק lang. אסור להוסיף dir="rtl" ל-<html>: העיצוב מסדר RTL בעצמו,
+      // וכפיית dir על השורש הזיזה את כל הפריסה והרחיבה את המסמך ל-10389px בנייד.
       if (root.getAttribute('lang') !== 'he') root.setAttribute('lang', 'he');
-      if (root.getAttribute('dir') !== 'rtl') root.setAttribute('dir', 'rtl');
       if (document.title !== TITLE) document.title = TITLE;
       if (document.querySelector('[data-ym-seo]')) return;
       var head = document.head || root;
