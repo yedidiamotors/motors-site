@@ -12,6 +12,8 @@ import { resolve, join } from 'node:path';
 import { tmpdir } from 'node:os';
 
 export const ASSET_DIR = 'assets/vehicles';
+export const SITE_ASSET_DIR = 'assets/site';
+const SITE_MAP_FILE = 'data/site-images.json';
 const WATERMARK_FILE = 'assets/watermark.png';
 
 // "לוגו חתימה במייל.png" בדרייב
@@ -183,4 +185,93 @@ export async function processImages({ root, vehicles, proxyBase, log = console.l
 
   log(`תמונות: ${converted} הומרו, ${reused} כבר היו, ${failed} נכשלו.`);
   return result;
+}
+
+
+/* ---------- תמונות העיצוב של האתר (לא תמונות רכבים) ---------- */
+
+// שם הקובץ בתיקיית "תמונות אתר/אתר" קובע לאיזה מקום בעיצוב התמונה נכנסת.
+// המזהים הם ה-id של רכיבי <image-slot> בעיצוב — יציבים גם בייצוא מחדש, בניגוד ל-data-dc-tpl.
+const SITE_SLOTS = {
+  'מימון': 'story-finance',      finance: 'story-finance',
+  'ידשנייה': 'story-used',       'ידשניה': 'story-used',     used: 'story-used',
+  'טריידאין': 'story-tradein',   tradein: 'story-tradein',
+  'אולם': 'showroom',            showroom: 'showroom',
+  'הירו': 'hero',                hero: 'hero',
+};
+const SITE_MAX_WIDTH = 1920;
+const SITE_QUALITY = 82;
+
+function slotFor(fileName) {
+  const base = String(fileName || '').replace(/\.[a-z0-9]+$/i, '');
+  const key = base.toLowerCase().replace(/[\s\-_'"״׳]/g, '');
+  return SITE_SLOTS[key] || null;
+}
+
+function convertSiteImage(srcPath, destPath) {
+  // בלי לוגו — זו תמונת עיצוב, לא תמונת מכירה
+  run(IM, [srcPath + '[0]', '-auto-orient', '-resize', `${SITE_MAX_WIDTH}x${SITE_MAX_WIDTH}>`,
+           '-strip', '-quality', String(SITE_QUALITY), 'webp:' + destPath]);
+}
+
+/** מחזיר את מפת ה-slot → נתיב, וכותב אותה ל-data/site-images.json. */
+export async function processSiteImages({ root, proxyBase, log = console.log }) {
+  const mapFile = resolve(root, SITE_MAP_FILE);
+  const prev = existsSync(mapFile) ? JSON.parse(readFileSync(mapFile, 'utf8')) : {};
+  if (!proxyBase) return prev;
+
+  const listUrl = proxyBase.replace(/inventory-image\?key=([^&]+)&id=$/, 'site-images?key=$1');
+  let files;
+  try {
+    const res = await fetch(listUrl, { redirect: 'follow' });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    files = (await res.json()).files || [];
+  } catch (e) {
+    log(`לא הצלחתי לקרוא את רשימת תמונות העיצוב (${e.message}) — משאיר את הקיימות.`);
+    return prev;
+  }
+
+  // הקובץ האחרון שהועלה לכל שם מנצח
+  const chosen = {};
+  for (const f of files) {
+    const slot = slotFor(f.name);
+    if (slot) chosen[slot] = f;
+  }
+
+  const dir = resolve(root, SITE_ASSET_DIR);
+  mkdirSync(dir, { recursive: true });
+  const next = {};
+  let converted = 0, reused = 0;
+
+  for (const [slot, f] of Object.entries(chosen)) {
+    const file = `${slot}.webp`;
+    const dest = join(dir, file);
+    const path = `/${SITE_ASSET_DIR}/${file}`;
+    if (prev[slot] && prev[slot].id === f.id && existsSync(dest)) {
+      next[slot] = { id: f.id, path }; reused++; continue;
+    }
+    const tmp = join(tmpdir(), `ym-site-${process.pid}-${f.id}`);
+    try {
+      await fetchToFile(proxyBase + f.id, tmp);
+      convertSiteImage(tmp, dest);
+      next[slot] = { id: f.id, path }; converted++;
+    } catch (e) {
+      log(`  תמונת עיצוב "${f.name}" נכשלה: ${String(e.message).split('\n')[0]}`);
+      if (prev[slot] && existsSync(dest)) next[slot] = prev[slot];
+    } finally {
+      rmSync(tmp, { force: true });
+    }
+  }
+
+  // קובץ שנמחק מהדרייב — נמחק גם מהאתר
+  if (existsSync(dir)) {
+    const keep = new Set(Object.values(next).map(v => v.path.split('/').pop()));
+    for (const f of readdirSync(dir)) if (!keep.has(f)) rmSync(join(dir, f), { force: true });
+  }
+
+  mkdirSync(resolve(root, 'data'), { recursive: true });
+  const json = JSON.stringify(next, null, 2) + '\n';
+  if (!existsSync(mapFile) || readFileSync(mapFile, 'utf8') !== json) writeFileSync(mapFile, json);
+  log(`תמונות עיצוב: ${converted} הומרו, ${reused} כבר היו, ${Object.keys(next).length} פעילות.`);
+  return next;
 }

@@ -12,7 +12,7 @@
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { processImages, imageProxyBase } from './images.mjs';
+import { processImages, processSiteImages, imageProxyBase } from './images.mjs';
 import { buildSeo } from './seo.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -207,6 +207,9 @@ const processed = await processImages({
   vehicles,
   proxyBase: imageProxyBase(SHEET_CSV_URL),
 });
+
+// תמונות העיצוב של האתר (מימון, יד שנייה, אולם...) — מתיקיית "תמונות אתר/אתר"
+await processSiteImages({ root: ROOT, proxyBase: imageProxyBase(SHEET_CSV_URL) });
 
 for (const v of vehicles) {
   // אם שלב התמונות לא רץ, לא מוחקים את מה שכבר קיים ברפו
