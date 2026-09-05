@@ -1047,14 +1047,55 @@ document.addEventListener('DOMContentLoaded', async function() {
     // תמונות העיצוב (מימון, יד שנייה, אולם...) — מגיעות מ-data/site-images.json,
     // שנבנה מתיקיית "תמונות אתר/אתר" בדרייב. מציבים אותן על רכיבי <image-slot> לפי id.
     var siteImages = null;
+    var heroShow = { sig: '', list: [], i: 0, timer: null };
+    function heroList() {
+      // hero, hero-2, hero-3... לפי סדר המספר
+      return Object.keys(siteImages || {})
+        .filter(function (k) { return /^hero(-\d+)?$/.test(k) && siteImages[k] && siteImages[k].path; })
+        .sort(function (a, b) { return (Number(a.split('-')[1]) || 1) - (Number(b.split('-')[1]) || 1); })
+        .map(function (k) { return siteImages[k].path; });
+    }
+    function heroSwap(slot, src) {
+      // מעבר רך: דהייה לשחור (רקע הסקשן), החלפה אחרי שהתמונה הבאה נטענה, ודהייה חזרה
+      var img = new Image();
+      img.onload = function () {
+        slot.style.transition = 'opacity .6s ease';
+        slot.style.opacity = '0';
+        setTimeout(function () { slot.setAttribute('src', src); slot.style.opacity = '1'; }, 600);
+      };
+      img.src = src;
+    }
     function applySiteImages() {
       if (!siteImages) return;
+      var list = heroList();
       Object.keys(siteImages).forEach(function (id) {
+        if (/^hero(-\d+)?$/.test(id)) return;     // ההירו מטופל למטה
         var slot = document.getElementById(id);
         var src = siteImages[id] && siteImages[id].path;
         if (!slot || !src || slot.tagName !== 'IMAGE-SLOT') return;
         if (slot.getAttribute('src') !== src) slot.setAttribute('src', src);
       });
+      // ההירו: אם הוא כבר מציג שקופית מהרשימה — לא נוגעים (המצגת מחליפה בעצמה,
+      // וה-observer שרץ אחרי כל שינוי לא צריך להחזיר אותה לשקופית הראשונה)
+      var heroSlot = document.getElementById('hero');
+      if (heroSlot && heroSlot.tagName === 'IMAGE-SLOT' && list.length &&
+          list.indexOf(heroSlot.getAttribute('src')) === -1) {
+        heroSlot.setAttribute('src', list[heroShow.i % list.length]);
+      }
+      // מצגת בראש הדף — רק אם יש יותר מתמונת הירו אחת
+      var sig = list.join('|');
+      if (sig !== heroShow.sig) {
+        heroShow.sig = sig; heroShow.list = list; heroShow.i = 0;
+        if (heroShow.timer) { clearInterval(heroShow.timer); heroShow.timer = null; }
+        if (list.length > 1) {
+          heroShow.timer = setInterval(function () {
+            var slot = document.getElementById('hero');
+            if (!slot || slot.tagName !== 'IMAGE-SLOT' || document.hidden) return;
+            heroShow.i = (heroShow.i + 1) % heroShow.list.length;
+            heroSwap(slot, heroShow.list[heroShow.i]);
+          }, 6000);
+        }
+      }
     }
     fetch('/data/site-images.json', { cache: 'no-cache' })
       .then(function (r) { return r.ok ? r.json() : {}; })
