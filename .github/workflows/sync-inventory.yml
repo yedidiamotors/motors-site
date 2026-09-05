@@ -36,19 +36,20 @@ jobs:
           fi
           convert -version | head -1
 
-      - name: משיכת הגיליון, המרת תמונות ובניית inventory.json
+      - name: משיכת הגיליון, המרת תמונות, בניית inventory.json ועמודי ה-SEO
         env:
           SHEET_CSV_URL: ${{ vars.SHEET_CSV_URL }}
         run: node scripts/sync-inventory.mjs
 
       - name: קיבוע השינוי
         run: |
-          if [[ -z "$(git status --porcelain data/inventory.json assets)" ]]; then
+          PATHS="data/inventory.json assets sitemap.xml llms.txt stock"
+          if [[ -z "$(git status --porcelain -- $PATHS)" ]]; then
             echo "אין שינוי לקבע."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data/inventory.json assets
-          git commit -m "עדכון מלאי ותמונות אוטומטי"
+          git add -A -- $PATHS
+          git commit -m "עדכון מלאי, תמונות ועמודי רכב"
           git push
