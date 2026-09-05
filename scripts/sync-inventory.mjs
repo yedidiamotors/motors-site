@@ -13,6 +13,7 @@ import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { processImages, imageProxyBase } from './images.mjs';
+import { buildSeo } from './seo.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, 'data/inventory.json');
@@ -222,10 +223,18 @@ const payload = {
 
 mkdirSync(dirname(OUT), { recursive: true });
 
-// כותבים רק אם משהו מהותי השתנה — כדי לא ליצור commit על כל הרצה
+// אם המלאי לא השתנה, שומרים על חותמת הזמן הקודמת — אחרת כל הרצה
+// הייתה מייצרת sitemap ו-llms.txt חדשים ו-commit מיותר כל חצי שעה.
+const unchanged = prev && JSON.stringify(prev.vehicles) === JSON.stringify(payload.vehicles);
+if (unchanged) payload.updated_at = prev.updated_at;
+
+// עמודי הרכבים, ה-sitemap ו-llms.txt נבנים בכל הרצה, גם כשאין שינוי —
+// כך שינוי בתבנית מתפשט לכל העמודים בלי להמתין לשינוי במלאי.
+buildSeo({ root: ROOT, payload });
+
 const next = JSON.stringify(payload, null, 2) + '\n';
-if (prev && JSON.stringify(prev.vehicles) === JSON.stringify(payload.vehicles)) {
-  console.log(`אין שינוי במלאי (${vehicles.length} רכבים). לא נכתב קובץ.`);
+if (unchanged) {
+  console.log(`אין שינוי במלאי (${vehicles.length} רכבים).`);
   process.exit(0);
 }
 
