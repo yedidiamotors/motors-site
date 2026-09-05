@@ -730,7 +730,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 
   /* ---------- מובייל ---------- */
   @media (max-width: 767px) {
-    html, body { overflow-x: hidden !important; }
+    /* הגלילה חייבת להישאר של ה-viewport. הבאנדל נותן ל-html/body height:100%, ו-overflow-x
+       על body הפך אותו לקונטיינר גלילה פנימי בגובה המסך — בנייד זה גלילה שלפעמים לא מגיבה
+       ושורת כתובת שלא נסגרת. overflow רק על html (מתפשט ל-viewport), וגבהים אוטומטיים. */
+    html { overflow-x: hidden !important; }
+    body { overflow: visible !important; }
+    html, body, #dc-root, #dc-root > .sc-host { height: auto !important; min-height: 100% !important; }
     [data-dc-tpl="5"] { overflow-x: hidden !important; }
     [data-dc-tpl="5"] img { max-width: 100% !important; }
     [data-dc-tpl="5"] image-slot, [data-dc-tpl="5"] image-slot img { object-fit: cover !important; }
