@@ -1039,6 +1039,23 @@ document.addEventListener('DOMContentLoaded', async function() {
       }
     }
 
+    // תמונות העיצוב (מימון, יד שנייה, אולם...) — מגיעות מ-data/site-images.json,
+    // שנבנה מתיקיית "תמונות אתר/אתר" בדרייב. מציבים אותן על רכיבי <image-slot> לפי id.
+    var siteImages = null;
+    function applySiteImages() {
+      if (!siteImages) return;
+      Object.keys(siteImages).forEach(function (id) {
+        var slot = document.getElementById(id);
+        var src = siteImages[id] && siteImages[id].path;
+        if (!slot || !src || slot.tagName !== 'IMAGE-SLOT') return;
+        if (slot.getAttribute('src') !== src) slot.setAttribute('src', src);
+      });
+    }
+    fetch('/data/site-images.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (j) { siteImages = j || {}; apply(); })
+      .catch(function () {});
+
     var pending = false;
     function apply() {
       if (pending) return;
@@ -1047,7 +1064,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       // והדגל pending היה נתקע ומשתיק את כל הקריאות הבאות.
       setTimeout(function () {
         pending = false;
-        try { render(); addLinks(); } catch (e) {}
+        try { render(); addLinks(); applySiteImages(); } catch (e) {}
       }, 0);
     }
 
