@@ -6,7 +6,7 @@
  * העיבוד נעשה ב-ImageMagick, שמותקן מראש על ubuntu-latest וקורא גם HEIC.
  */
 
-import { mkdirSync, existsSync, writeFileSync, readdirSync, rmSync, statSync } from 'node:fs';
+import { mkdirSync, existsSync, writeFileSync, readFileSync, readdirSync, rmSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
 import { tmpdir } from 'node:os';
