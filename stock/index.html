@@ -115,6 +115,24 @@
     font-size:20px;font-weight:700;color:var(--gold);
   }
   .price small{font-size:13px;color:var(--muted-2);font-weight:300}
+  .title a{color:inherit;text-decoration:none}
+  .title a:hover{color:var(--gold-hi)}
+  .actions{
+    margin-top:auto;padding-top:12px;border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  }
+  .actions a{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    padding:10px 14px;border-radius:8px;font-size:14px;font-weight:500;
+    text-decoration:none;transition:.2s;flex:1 1 auto;min-height:44px;
+  }
+  .actions .p{background:var(--gold);color:#0b0b0c}
+  .actions .p:hover{background:var(--gold-hi)}
+  .actions .w{background:#1f2a22;color:#6ee7a0;border:1px solid #2c4a35}
+  .actions .w:hover{background:#25352a}
+  .actions .m{flex:0 0 100%;justify-content:flex-start;padding:4px 0;min-height:0;
+    font-size:13px;color:var(--muted);font-weight:300}
+  .actions .m:hover{color:var(--fg)}
 
   .state{padding:70px 20px;text-align:center;color:var(--muted);font-weight:300}
   .state b{display:block;color:var(--fg);font-weight:500;font-size:17px;margin-bottom:6px}
@@ -278,13 +296,28 @@ function card(v, i){
       <span class="pill ${v.status}">${STATUS_HE[v.status] || ''}</span>
     </div>
     <div class="body">
-      <h2 class="title">${esc(v.make)} <span>${esc(v.model)}</span></h2>
+      <h2 class="title"><a href="${pageUrl(v)}">${esc(v.make)} <span>${esc(v.model)}</span></a></h2>
       ${specs.length ? `<div class="specs">${specs.map(s=>`<span class="spec">${esc(s)}</span>`).join('')}</div>` : ''}
       ${v.description ? `<p class="desc">${esc(v.description)}</p>` : ''}
-      <div class="price">${v.price != null ? nis(v.price) : 'לפרטים — צרו קשר'}${
-        v.price != null && v.status==='available' ? ' <small>כולל מע״מ</small>' : ''}</div>
+      ${v.price != null
+        ? `<div class="price">${nis(v.price)}${v.status==='available' ? ' <small>כולל מע״מ</small>' : ''}</div>`
+        : `<div class="actions">
+             <a class="p" href="${leadUrl(v)}">לפרטים — צרו קשר</a>
+             <a class="w" href="${waUrl(v)}" target="_blank" rel="noopener">וואטסאפ</a>
+             <a class="m" href="${pageUrl(v)}">כל הפרטים והתמונות ←</a>
+           </div>`}
     </div>
   </article>`;
+}
+
+/* קישורי פעולה לכל רכב: טופס הפנייה בדף הבית עם הרכב מסומן, וואטסאפ עם
+   טקסט מוכן, ועמוד הרכב. הזיהוי (id) הוא מזהה האתר — לא מספר רכב. */
+const WA = 'https://wa.me/972508991090';
+function label(v){ return [v.make, v.model, v.year].filter(Boolean).join(' '); }
+function pageUrl(v){ return '/stock/' + encodeURIComponent(v.id) + '/'; }
+function leadUrl(v){ return '/?car=' + encodeURIComponent(label(v) + ' (' + v.id + ')') + '#lead'; }
+function waUrl(v){
+  return WA + '?text=' + encodeURIComponent('שלום, אני מתעניין ב-' + label(v) + ' שראיתי באתר (מזהה ' + v.id + '). אשמח לפרטים.');
 }
 
 let VIEW = [];
