@@ -212,8 +212,8 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
   <p>המחיר נמסר בפנייה ישירה — לפרטים צרו קשר.</p>
 
   <div class="cta">
-    <a class="p" href="/#lead">בקשת הצעת מחיר</a>
-    <a class="s" href="${esc(BIZ.whatsapp)}" rel="noopener">וואטסאפ ${esc(BIZ.phoneHe)}</a>
+    <a class="p" href="/?car=${encodeURIComponent(vehicleTitle(v) + ' (' + v.id + ')')}#lead">בקשת הצעת מחיר</a>
+    <a class="s" href="${esc(BIZ.whatsapp)}?text=${encodeURIComponent('שלום, אני מתעניין ב-' + vehicleTitle(v) + ' שראיתי באתר (מזהה ' + v.id + '). אשמח לפרטים.')}" rel="noopener">וואטסאפ ${esc(BIZ.phoneHe)}</a>
     <a class="s" href="/stock/">חזרה למלאי</a>
   </div>
 </main>
