@@ -481,6 +481,35 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     function section() { return document.getElementById('lead'); }
 
+    /* רכב מדף המלאי: /?car=MERCEDES%20E350%202025%20(220351)#lead
+       נכנס לפנייה כהודעה, מסמן את המותג, ומציג שורה מעל הטופס. */
+    var CAR = '';
+    try { CAR = (new URLSearchParams(location.search).get('car') || '').trim().slice(0, 120); } catch (e) {}
+
+    function carNote() {
+      if (!CAR) return;
+      var p = parts();
+      if (!p) return;
+      if (!p.section.querySelector('[data-ym-car]')) {
+        var note = document.createElement('div');
+        note.setAttribute('data-ym-car', '');
+        note.style.cssText = 'margin:0 0 14px;padding:10px 14px;border-radius:8px;background:rgba(201,162,39,.12);' +
+          'border:1px solid rgba(201,162,39,.35);color:#f5f5f3;font-family:' + FONT + ';font-size:15px;direction:rtl;text-align:right;';
+        note.textContent = 'הפנייה לגבי: ' + CAR;
+        var anchor = p.name.closest('form') || p.name.parentNode;
+        anchor.parentNode.insertBefore(note, anchor);
+        if (p.brand) {
+          var make = CAR.split(' ')[0].toUpperCase();
+          for (var i = 0; i < p.brand.options.length; i++) {
+            if ((p.brand.options[i].value || p.brand.options[i].text).toUpperCase().indexOf(make) === 0) { p.brand.selectedIndex = i; break; }
+          }
+        }
+        if (location.hash === '#lead') {
+          setTimeout(function () { try { p.section.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) {} }, 300);
+        }
+      }
+    }
+
     function parts() {
       var s = section();
       if (!s) return null;
@@ -626,6 +655,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         phone:     phone,
         brand:     selectValue(p.brand, 'מותג'),
         interest:  selectValue(p.interest, 'מה מעניין אותכם?'),
+        message:   CAR ? 'מתעניין ברכב: ' + CAR : '',
         hp:        hp ? (hp.value || '') : '',
         page_url:  location.href
       };
@@ -692,9 +722,10 @@ document.addEventListener('DOMContentLoaded', async function() {
     var timer = setInterval(function () {
       tries++;
       honeypot();
+      carNote();
       if (tries > 120) clearInterval(timer);
     }, 500);
-    window.addEventListener('load', honeypot);
+    window.addEventListener('load', function () { honeypot(); carNote(); });
   })();
   </script>
 
