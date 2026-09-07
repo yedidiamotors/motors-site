@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T10:45:14.777Z",
+  "updated_at": "2026-09-07T17:45:41.469Z",
   "source": "google-sheet",
   "count": 34,
   "vehicles": [
@@ -211,7 +211,23 @@
         "חניה אוטומטית"
       ],
       "description": null,
-      "images": []
+      "images": [
+        "/assets/vehicles/495842/1CnsOiMVyWk_qBeeVXjfXWhSslW_DusNy.webp",
+        "/assets/vehicles/495842/152OG2xtTafFKGG90mW3z0oMJkSEUf-RA.webp",
+        "/assets/vehicles/495842/1MM2MCLjhSk10l9hdD2BE7me8LLaRxYEu.webp",
+        "/assets/vehicles/495842/1RyFXM-422aGLDBXAwoKGXI7Slr2uFZOb.webp",
+        "/assets/vehicles/495842/1WA4b1NUHspfo_bvOew-BlVI_pJXeschd.webp",
+        "/assets/vehicles/495842/1yR_xJUVxO6S3tF4_fChWxBkXY5wsJ28O.webp",
+        "/assets/vehicles/495842/1tkrzwE_kVuAeDJikQiveF52EBqywrTNB.webp",
+        "/assets/vehicles/495842/1lZngvngFLfzZpy53Iwcas5cGF97Tdy-4.webp",
+        "/assets/vehicles/495842/1awHxLTYLB3wc-DGp9TZZQCisTQJ3cUlU.webp",
+        "/assets/vehicles/495842/1kwkZq3VuUYJLh9SNgF0GTLMxytBHkIoN.webp",
+        "/assets/vehicles/495842/1XA-zBfWe2psvUgJt_VAjwcSCnaGlFWH2.webp",
+        "/assets/vehicles/495842/12tCF3MOwsnN_IHRzVZfsyrILuM-Ncabo.webp",
+        "/assets/vehicles/495842/1y_TbTCCJXFKzVyQdXyw9ek3IIe1f2Rpr.webp",
+        "/assets/vehicles/495842/1lzkT4bfXwCpEpNQzFtp7xofxf5cFqpNu.webp",
+        "/assets/vehicles/495842/1Dsi2IL8k5wyycveCTy5P_2Kn-q2tcder.webp"
+      ]
     },
     {
       "id": "412920",
@@ -480,7 +496,19 @@
         "הנעה מרחוק"
       ],
       "description": "ללא גג פנורמי",
-      "images": []
+      "images": [
+        "/assets/vehicles/413447/1__m8fgvKVGmN_JWYbD9HajdyOESo2hlI.webp",
+        "/assets/vehicles/413447/1wCjefrvQ-xQb2K7OmlTRZ3LwKZqsOjBI.webp",
+        "/assets/vehicles/413447/1yGjORaCKocNQ7hd0UNADbOYYzA0CWZE6.webp",
+        "/assets/vehicles/413447/1JRWlAqumJzmp4DaahVc8BLtTORElBqi5.webp",
+        "/assets/vehicles/413447/1T9M5N1aZPdb7sn9jWM48PSof97mMcJ9G.webp",
+        "/assets/vehicles/413447/16dDqehMkyKgi3XLBOHM0dKh4bZSyLvP0.webp",
+        "/assets/vehicles/413447/1iwDYDEtQEWNBLYC_U5neD8ET5oewGc2i.webp",
+        "/assets/vehicles/413447/1siXMR8VldorL61DLJQwoNFaevWgRGr_i.webp",
+        "/assets/vehicles/413447/1e_1cV11Z2lTumqDSQz54xU8T9E5lbik4.webp",
+        "/assets/vehicles/413447/1W1soFsw0A7fYQ0tj1SL2EBx1WFBAz98u.webp",
+        "/assets/vehicles/413447/1WqxZ-ObrXi3fE4VmlHbcVAkHq28cgw7P.webp"
+      ]
     },
     {
       "id": "412642",
@@ -502,7 +530,22 @@
       ],
       "description": null,
       "images": [
-        "/assets/vehicles/412642/1AsPGKidPuQItq91yjNQ9wYHcu7IBuoUD.webp"
+        "/assets/vehicles/412642/1AsPGKidPuQItq91yjNQ9wYHcu7IBuoUD.webp",
+        "/assets/vehicles/412642/1cJ34PIPisRUMCjOsfgk7vZH5_5hXOOQh.webp",
+        "/assets/vehicles/412642/1xfmdcSqUbxbOmRR-41ZfQzJ-U8oKmSkt.webp",
+        "/assets/vehicles/412642/18VVet7XEPm3KeXnBa62XhaOJo8P4jqi5.webp",
+        "/assets/vehicles/412642/1mueIPZq2tKiHvjv5v-KIWTNIN6-gq1BD.webp",
+        "/assets/vehicles/412642/1f_-qWGzcrwp_i8HX3maC24fzgIqHus4m.webp",
+        "/assets/vehicles/412642/1xkA4-bvSwiWEIixrI76EIg_b8uurLu5P.webp",
+        "/assets/vehicles/412642/1sNoVJcx_joL7cv1CcijE3_gJdauwfjA5.webp",
+        "/assets/vehicles/412642/1PB7B74R1v3U_yBzs-qt8QuTFN9xR2EvD.webp",
+        "/assets/vehicles/412642/1wGZ5LrTwYXF_Kt2fVk2KFs5oA62oDVjw.webp",
+        "/assets/vehicles/412642/1qHOaAlorlG5gyg_W_lgohEIOF5STzaKy.webp",
+        "/assets/vehicles/412642/1_iMkV_uQ-jdkq18gkL3VlFckshNWxX8e.webp",
+        "/assets/vehicles/412642/1raZBTvUCWOIn9orolKYBgUa8MgOxwvzV.webp",
+        "/assets/vehicles/412642/1XFjNfxomSQ1auMk7_HoVhyQWw2meIuje.webp",
+        "/assets/vehicles/412642/1d3C5aAC2eCThKaj7vIy6axAMyz_aN309.webp",
+        "/assets/vehicles/412642/1M5toslnZhIvtCSQOZG3khEoQEXFSJOX9.webp"
       ]
     },
     {
