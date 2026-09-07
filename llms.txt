@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-09-07T10:17:34.864Z · 33 רכבים בסך הכל, 30 לא מכורים.
+עודכן: 2026-09-07T10:45:14.777Z · 34 רכבים בסך הכל, 31 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -31,6 +31,7 @@
 - [CHEVROLET SILVERADO EV TRAIL BOSS MR 2026](https://www.yedidia-motors.com/stock/412532/): 2026 · אפור מט · חדש · זמין · תקינה פדרלית, נקודת עיגון, חניה אוטומטית, הנעה מרחוק · בלי גג פנורמי
 - [CHEVROLET SILVERADO EV TRAIL BOSS PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413055/): 2026 · לבן פנינה · חדש · נמכר · תקינה פדרלית, נקודת עיגון, הנעה מרחוק · עם גג פנורמי
 - [CHEVROLET SAVANA MAX 2018](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SAVANA-MAX-2018-8JEKT/): 2018 · לבן · יד שנייה · 225,000 ק״מ · זמין · יד 2
+- [CHEVROLET SILVERADO LTZ + 2021](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/): 2021 · לבן · יד שנייה · 161,000 ק״מ · זמין · יד 1
 - [CHEVROLET SILVERADO LTZ + 2022](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/): 2022 · לבן · יד שנייה · 155,000 ק״מ · זמין · יד 1
 - [CHEVROLET SILVERADO 4WT 2025](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/): 2025 · לבן · יד שנייה · 42,000 ק״מ · זמין · יד 1
 

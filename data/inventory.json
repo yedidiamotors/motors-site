@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-07T10:17:34.864Z",
+  "updated_at": "2026-09-07T10:45:14.777Z",
   "source": "google-sheet",
-  "count": 33,
+  "count": 34,
   "vehicles": [
     {
       "id": "220351",
@@ -591,6 +591,43 @@
       ],
       "description": null,
       "images": []
+    },
+    {
+      "id": "TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ",
+      "make": "CHEVROLET",
+      "model": "SILVERADO LTZ +",
+      "year": 2021,
+      "trim": null,
+      "color": "לבן",
+      "km": 161000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "יד 1"
+      ],
+      "description": null,
+      "images": [
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1yyjvMOlEaXyj2JQ87x5UuFAe5ESK-VdW.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1sG_x5JuyQU0L700e22S-Hxn09CJrlv5A.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1HvCDItIHF5FKc5wt_eO2DUbxvEufzehb.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1Qz_QP5SYuaoY0tDR8eEsUZpe0HDCooNf.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1EPUq2kGUZCAiD-3pAuG3lUXiC5MWgTFa.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1qQJNu5mlRw2oX9aIC5cGKqX81NZzAvNQ.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1neeiGbxNt3kRGo_QL9Q0KVPe0vIYPkm5.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1tXFANGr_HZPe0fOwfXt_NEd67YyT1H8A.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1EyaDEhqQukyV-RzSGtNnqedvxgr8d6tv.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/18sJEpO4GFza1EFkSLVetcsQWfwCoTPFg.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1g3TMQsaFWMa8PK8XMrwQo8CPeLmhb9Th.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1d61ZL3gsaW-D6KzIhIDEYbmg9PlXJdCw.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1h-bE6LIAT5V6tVwFF6cI0lMpqOal6qvO.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1wToSv4O9pHEIbUP6k8voxnI4ekn-GYoR.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/16F18bLAAO1S7bSS47Q0HLpeiSuPTw7fR.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1NXwGfx8Bi8mEzvQ2AZ2MLg0bFbucVRcP.webp"
+      ]
     },
     {
       "id": "TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6",
