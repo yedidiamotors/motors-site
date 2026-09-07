@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-09-07T07:19:46.693Z · 33 רכבים בסך הכל, 30 לא מכורים.
+עודכן: 2026-09-07T09:19:14.052Z · 34 רכבים בסך הכל, 31 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -64,6 +64,10 @@
 - [RAM LIMITED 2022](https://www.yedidia-motors.com/stock/TI-RAM-LIMITED-2022-LHA3W/): 2022 · שחור · יד שנייה · 212,000 ק״מ · זמין · יד 2
 - [RAM LARAMIE 2024](https://www.yedidia-motors.com/stock/TI-RAM-LARAMIE-2024-Y7ZN3/): 2024 · לבן · יד שנייה · 103,000 ק״מ · זמין · יד 2
 - [RAM LARAMIE 2024](https://www.yedidia-motors.com/stock/TI-RAM-LARAMIE-2024-WU7DW/): 2024 · שחור · יד שנייה · 107,000 ק״מ · זמין · יד 2
+
+### SUBARU
+
+- [SUBARU Forester 2022](https://www.yedidia-motors.com/stock/TI-SUBARU-FORESTER-2022-HGP3Z/): 2022 · ירוק · יד שנייה · 152,000 ק״מ · זמין · יד 1
 
 ## יצירת קשר
 
