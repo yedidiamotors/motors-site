@@ -284,8 +284,13 @@ function card(v, i){
     v.engine, v.drivetrain, v.condition,
   ].filter(Boolean);
 
+  // הכרטיס טוען את הגרסה הקטנה (600px). אם היא עוד לא נוצרה עבור הרכב הזה —
+  // נופלים חזרה לתמונה המלאה, כדי שכרטיס לעולם לא יישאר ריק.
+  const full = v.images[0];
+  const thumb = full ? full.replace(/\.webp$/, '@600.webp') : '';
   const shot = v.images.length
-    ? `<img src="${esc(v.images[0])}" alt="${esc(v.make+' '+v.model)}" loading="lazy">
+    ? `<img src="${esc(thumb)}" alt="${esc(v.make+' '+v.model)}" loading="lazy" decoding="async"
+            onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='${esc(full)}';}">
        ${v.images.length>1 ? `<span class="shots-n">${v.images.length} תמונות</span>` : ''}`
     : `<div class="none">אין תמונה</div>`;
 
