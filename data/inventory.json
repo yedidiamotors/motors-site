@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-07T17:45:41.469Z",
+  "updated_at": "2026-09-07T18:20:42.827Z",
   "source": "google-sheet",
-  "count": 34,
+  "count": 35,
   "vehicles": [
     {
       "id": "220351",
@@ -546,6 +546,42 @@
         "/assets/vehicles/412642/1XFjNfxomSQ1auMk7_HoVhyQWw2meIuje.webp",
         "/assets/vehicles/412642/1d3C5aAC2eCThKaj7vIy6axAMyz_aN309.webp",
         "/assets/vehicles/412642/1M5toslnZhIvtCSQOZG3khEoQEXFSJOX9.webp"
+      ]
+    },
+    {
+      "id": "408805",
+      "make": "GMC",
+      "model": "SIERRA EV ELEVATION PREMIUM ER 18",
+      "year": 2026,
+      "trim": null,
+      "color": "לבן",
+      "km": 0,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "חדש",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "תקינה פדרלית",
+        "נקודת עיגון"
+      ],
+      "description": "'גאנט",
+      "images": [
+        "/assets/vehicles/408805/1HD-EqtfmI05OJ83dnkSpsRpKlU5wEuCk.webp",
+        "/assets/vehicles/408805/17IE7MDRZqHfKEQufp4FvoIgiEM9z3vzw.webp",
+        "/assets/vehicles/408805/1YSU78iJcb6Zeo805eHCzr-QAuiuq1vjK.webp",
+        "/assets/vehicles/408805/1njLbt2GG4AnsX-NQ_m7Auh8E-V4cajtO.webp",
+        "/assets/vehicles/408805/16NcpnxP4DS03KKTtQXX3umh358xC9wQe.webp",
+        "/assets/vehicles/408805/1CZv9ql1kTfgicMii6E_UMH31qVtACLXw.webp",
+        "/assets/vehicles/408805/16bBwyQfkXSA6lZwe_lOfoPKkCdgGJxJ5.webp",
+        "/assets/vehicles/408805/1xm5ElxN3YqmBqpJhjExXe2eFH2eDiurh.webp",
+        "/assets/vehicles/408805/1Y33bvWQ5my3WF3Fx3RVqH3DG9mH5BoIV.webp",
+        "/assets/vehicles/408805/1OHgEoiHVY2Tq_vzqLeh-hC6-ZKq830bT.webp",
+        "/assets/vehicles/408805/1Wy2bfyRu7gvOidY8hO9x2vhW5ZiNJrFQ.webp",
+        "/assets/vehicles/408805/18AQ23EJAIxfQQXKzQ4XO_nAYWTJD4i_x.webp",
+        "/assets/vehicles/408805/1MwmnOdeXhRLia-64yp-1WJKSKa_-2Dtm.webp",
+        "/assets/vehicles/408805/1zXyhdANUtqt5ve9NixDOI1WI5spXPbTt.webp"
       ]
     },
     {
