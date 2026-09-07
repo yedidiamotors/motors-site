@@ -20,7 +20,10 @@ const WATERMARK_FILE = 'assets/watermark.png';
 const LOGO_FILE_ID = '1KvsmM_-ZwTXFHB7V8UAQUE7-vK2qMsw6';
 
 const MAX_WIDTH = 1400;
+const THUMB_WIDTH = 600;      // תמונת הכרטיס — הגלריה ממשיכה לטעון את המלאה
+const THUMB_SUFFIX = '@600';
 const WEBP_QUALITY = 78;
+const THUMB_QUALITY = 72;
 const WM_WIDTH_RATIO = 0.22;   // רוחב הלוגו ביחס לרוחב התמונה
 const WM_OPACITY = 0.42;
 const WM_MARGIN_RATIO = 0.03;
@@ -99,6 +102,14 @@ export function convertOne(srcPath, watermarkPath, destPath) {
   return destPath;
 }
 
+// התמונה הקטנה נגזרת מהתמונה המלאה שכבר עברה המרה והטבעה —
+// כך הלוגו נשאר יחסי ואין צורך להוריד שוב מהדרייב.
+export function makeThumb(fullPath, thumbPath) {
+  run(IM, [fullPath, '-resize', `${THUMB_WIDTH}x${THUMB_WIDTH}>`,
+           '-strip', '-quality', String(THUMB_QUALITY), 'webp:' + thumbPath]);
+  return thumbPath;
+}
+
 async function loadWatermark(root, proxyBase) {
   const cached = resolve(root, WATERMARK_FILE);
   if (existsSync(cached)) return cached;
@@ -147,19 +158,33 @@ export async function processImages({ root, vehicles, proxyBase, log = console.l
 
     for (const id of ids) {
       const file = `${id}.webp`;
+      const thumbFile = `${id}${THUMB_SUFFIX}.webp`;
       const dest = join(dir, file);
-      if (existsSync(dest) && statSync(dest).size > 0) {
+      const thumbDest = join(dir, thumbFile);
+
+      // התמונה הקטנה נבנית גם כשהמלאה כבר קיימת — כך רכבים ותיקים
+      // מקבלים אותה בהרצה הראשונה אחרי השינוי, בלי הורדה מחדש.
+      const haveFull = existsSync(dest) && statSync(dest).size > 0;
+      if (haveFull) {
+        if (!(existsSync(thumbDest) && statSync(thumbDest).size > 0)) {
+          try { makeThumb(dest, thumbDest); }
+          catch (e) { log(`  תמונה קטנה ל-${id} נכשלה: ${String(e.message).split('\n')[0]}`); }
+        }
         reused++; paths.push(`/${ASSET_DIR}/${v.id}/${file}`); continue;
       }
+
       const tmp = join(tmpdir(), `ym-src-${process.pid}-${id}`);
       try {
         await fetchToFile(proxyBase + id, tmp);
         convertOne(tmp, watermarkPath, dest);
+        try { makeThumb(dest, thumbDest); }
+        catch (e) { log(`  תמונה קטנה ל-${id} נכשלה: ${String(e.message).split('\n')[0]}`); }
         converted++;
         paths.push(`/${ASSET_DIR}/${v.id}/${file}`);
       } catch (e) {
         failed++;
         rmSync(dest, { force: true });
+        rmSync(thumbDest, { force: true });
         log(`  תמונה ${id} של ${v.id} נכשלה: ${String(e.message).split('\n')[0]}`);
       } finally {
         rmSync(tmp, { force: true });
@@ -177,7 +202,12 @@ export async function processImages({ root, vehicles, proxyBase, log = console.l
       const dir = join(base, name);
       if (!statSync(dir).isDirectory()) continue;
       if (!live.has(name)) { rmSync(dir, { recursive: true, force: true }); continue; }
-      const keep = new Set((result[name] || []).map(p => p.split('/').pop()));
+      const keep = new Set();
+      for (const p of (result[name] || [])) {
+        const f = p.split('/').pop();
+        keep.add(f);
+        keep.add(f.replace(/\.webp$/, THUMB_SUFFIX + '.webp'));   // אחרת הניקוי היה מוחק אותן מיד
+      }
       for (const f of readdirSync(dir)) if (!keep.has(f)) rmSync(join(dir, f), { force: true });
       if (!readdirSync(dir).length) rmSync(dir, { recursive: true, force: true });
     }
