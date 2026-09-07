@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-04T20:42:49.974Z",
+  "updated_at": "2026-09-07T06:25:07.607Z",
   "source": "google-sheet",
   "count": 34,
   "vehicles": [
@@ -681,7 +681,7 @@
       "year": 2016,
       "trim": null,
       "color": "לבן",
-      "km": 155000,
+      "km": 169000,
       "price": null,
       "currency": "ILS",
       "status": "available",
