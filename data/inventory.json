@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-07T06:25:07.607Z",
+  "updated_at": "2026-09-07T07:19:46.693Z",
   "source": "google-sheet",
-  "count": 34,
+  "count": 33,
   "vehicles": [
     {
       "id": "220351",
@@ -277,29 +277,6 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
-    },
-    {
-      "id": "414051",
-      "make": "CHEVROLET",
-      "model": "SILVERADO EV LT ER",
-      "year": 2026,
-      "trim": null,
-      "color": "אפור",
-      "km": 0,
-      "price": null,
-      "currency": "ILS",
-      "status": "sold",
-      "condition": "חדש",
-      "engine": null,
-      "drivetrain": null,
-      "features": [
-        "תקינה קנדית",
-        "נקודת עיגון",
-        "חניה אוטומטית",
-        "הנעה מרחוק"
-      ],
-      "description": "ללא חבילת פלוס",
       "images": []
     },
     {
