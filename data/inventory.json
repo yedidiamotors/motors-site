@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-07T18:20:42.827Z",
+  "updated_at": "2026-09-08T06:49:34.151Z",
   "source": "google-sheet",
-  "count": 35,
+  "count": 34,
   "vehicles": [
     {
       "id": "220351",
@@ -783,26 +783,6 @@
       "drivetrain": null,
       "features": [
         "יד 1"
-      ],
-      "description": null,
-      "images": []
-    },
-    {
-      "id": "TI-RAM-LIMITED-2022-LHA3W",
-      "make": "RAM",
-      "model": "LIMITED",
-      "year": 2022,
-      "trim": null,
-      "color": "שחור",
-      "km": 212000,
-      "price": null,
-      "currency": "ILS",
-      "status": "available",
-      "condition": "יד שנייה",
-      "engine": null,
-      "drivetrain": null,
-      "features": [
-        "יד 2"
       ],
       "description": null,
       "images": []
