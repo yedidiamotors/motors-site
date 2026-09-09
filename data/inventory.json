@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-09T11:17:27.436Z",
+  "updated_at": "2026-09-09T11:44:18.743Z",
   "source": "google-sheet",
-  "count": 33,
+  "count": 32,
   "vehicles": [
     {
       "id": "220351",
@@ -821,41 +821,6 @@
         "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1oZcujC0I5M4Da1BfClHdyptIbUPIMAmI.webp",
         "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1TepuWiOgyVU9U5YeDtqZIegRU-nT4rN8.webp",
         "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1bK0ZZswtBx_BDnyRvL8lSTQlPJbFA8vU.webp"
-      ]
-    },
-    {
-      "id": "TI-SUBARU-FORESTER-2022-HGP3Z",
-      "make": "SUBARU",
-      "model": "Forester",
-      "year": 2022,
-      "trim": null,
-      "color": "ירוק",
-      "km": 152000,
-      "price": null,
-      "currency": "ILS",
-      "status": "available",
-      "condition": "יד שנייה",
-      "engine": null,
-      "drivetrain": null,
-      "features": [
-        "יד 1"
-      ],
-      "description": null,
-      "images": [
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1yaqGZGg7p-h04vgPbeaeG3Y48FUhzJ3s.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1GVJl34W83cENd1w148niFoVXjT-QnfRM.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1RTtFPEnkj-vTTi7QdbAOG5iXnk0ebJdF.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1JstG58ejm3c_b8fVkxI01HcMZVDQIhBr.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1C6QRUIWVBKph0irNIgJD1bbK5rDKrVC0.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1lNICGjYSneoynd_WLvnm-iipOXmC5b1y.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1Ng1O8RzwtBLLkcBBg_hDwCPFv8si_fjt.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1jJTQhQPXUOuB2I7ii625AGKtnjzxTWwq.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1xU6hj4wI8qyOHaSHvhri6UbsbhEx_keN.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/13tTHux90LOaRfZ2qoAGwrizq1sjq6ejM.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1jKyp9KsRqC9coOByfcIiELFFpszyIxRK.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1BD_mybjz541MBWDFJbqwGa5-uoJ0ug_C.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1Ghattn-BxFZ1bcmxQiv1j9Mc05_Zi8wi.webp",
-        "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1xvo5gVyVAhwWhfkH906KG2XacuQtwOTa.webp"
       ]
     }
   ]
