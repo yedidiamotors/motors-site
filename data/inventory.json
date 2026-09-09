@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-08T06:49:34.151Z",
+  "updated_at": "2026-09-09T11:17:27.436Z",
   "source": "google-sheet",
-  "count": 34,
+  "count": 33,
   "vehicles": [
     {
       "id": "220351",
@@ -432,29 +432,6 @@
       "images": []
     },
     {
-      "id": "412532",
-      "make": "CHEVROLET",
-      "model": "SILVERADO EV TRAIL BOSS MR",
-      "year": 2026,
-      "trim": null,
-      "color": "אפור מט",
-      "km": 0,
-      "price": null,
-      "currency": "ILS",
-      "status": "available",
-      "condition": "חדש",
-      "engine": null,
-      "drivetrain": null,
-      "features": [
-        "תקינה פדרלית",
-        "נקודת עיגון",
-        "חניה אוטומטית",
-        "הנעה מרחוק"
-      ],
-      "description": "בלי גג פנורמי",
-      "images": []
-    },
-    {
       "id": "413055",
       "make": "CHEVROLET",
       "model": "SILVERADO EV TRAIL BOSS PREMIUM ER",
@@ -520,7 +497,7 @@
       "km": 0,
       "price": null,
       "currency": "ILS",
-      "status": "available",
+      "status": "sold",
       "condition": "חדש",
       "engine": null,
       "drivetrain": null,
