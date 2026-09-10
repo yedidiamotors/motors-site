@@ -13,6 +13,18 @@ import { resolve, join } from 'node:path';
 
 export const SITE = 'https://www.yedidia-motors.com';
 
+// מדריכים לקונים (guides/) — נבנים מחוץ ל-Action (scratchpad/guides-build.mjs); כאן רק לרשימות
+export const GUIDES = [
+  ['parallel-import', 'יבוא מקביל, יבוא אישי ויבואן רשמי — מה ההבדל'],
+  ['us-vs-canada-spec', 'תקינה אמריקאית מול תקינה קנדית'],
+  ['license-for-pickups', 'איזה רישיון נהיגה צריך לטנדר אמריקאי'],
+  ['warranty-and-service', 'אחריות, שירות וחלפים לרכב ביבוא מקביל'],
+  ['trade-in', 'טרייד-אין: איך עובד התהליך'],
+  ['financing', 'מימון רכב — מה חשוב לבדוק'],
+  ['electric-pickups-israel', 'טנדרים חשמליים בישראל: טעינה, מיסוי וטווח'],
+  ['buying-used-safely', 'איך קונים רכב יד שנייה בבטחה'],
+];
+
 export const BIZ = {
   name: 'ידידיה מוטורס',
   nameEn: 'Yedidia Motors',
@@ -187,6 +199,7 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
   .legal-links button.link{background:none;border:0;color:var(--muted);font:inherit;cursor:pointer;padding:0}
   h1{font-size:clamp(24px,4vw,38px);margin:26px 0 6px;letter-spacing:-.02em}
   .sub{color:var(--muted);margin:0 0 22px}
+  .lead{font-size:18px;line-height:1.7;margin:-8px 0 26px;max-width:720px}
   .gal{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:28px}
   table{border-collapse:collapse;width:100%;max-width:560px}
   th,td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line);font-weight:400}
@@ -208,6 +221,7 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
 <main class="wrap" id="main" tabindex="-1">
   <h1>${esc(vehicleTitle(v))}</h1>
   <p class="sub">${esc([v.color, v.condition, STATUS_HE[v.status]].filter(Boolean).join(' · '))}</p>
+  ${v.description && v.description.length > 60 ? `<p class="lead">${esc(v.description)}</p>` : ''}
 
   ${gallery ? `<div class="gal">\n      ${gallery}\n    </div>` : '<div class="none">אין עדיין תמונות לרכב הזה. צרו קשר ונשלח לכם תמונות עדכניות.</div>'}
 
@@ -215,7 +229,7 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
   <table>${specs.map(([k, val]) => `<tr><th>${esc(k)}</th><td>${esc(val)}</td></tr>`).join('')}</table>
 
   ${(v.features || []).length ? `<h2>אביזרים</h2>\n  <ul>${v.features.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
-  ${v.description ? `<h2>תיאור</h2>\n  <p>${esc(v.description)}</p>` : ''}
+  ${v.description && v.description.length <= 60 ? `<h2>תיאור</h2>\n  <p>${esc(v.description)}</p>` : ''}
 
   <h2>מחיר</h2>
   <p>המחיר נמסר בפנייה ישירה — לפרטים צרו קשר.</p>
@@ -306,6 +320,8 @@ function sitemap(vehicles, updatedAt) {
     { loc: SITE + '/', pri: '1.0', freq: 'weekly' },
     { loc: SITE + '/stock/', pri: '0.9', freq: 'hourly' },
     ...vehicles.map(v => ({ loc: vehicleUrl(v), pri: '0.7', freq: 'weekly' })),
+    { loc: SITE + '/guides/', pri: '0.8', freq: 'monthly' },
+    ...GUIDES.map(([slug]) => ({ loc: SITE + '/guides/' + slug + '/', pri: '0.7', freq: 'monthly' })),
     ...['privacy', 'terms', 'cookies', 'accessibility', 'disclaimer'].map(s => ({ loc: SITE + '/legal/' + s + '/', pri: '0.2', freq: 'yearly' })),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -351,6 +367,10 @@ function llms(vehicles, updatedAt) {
 - [המלאי שלנו](${SITE}/stock/): כל הרכבים, עם סינון לפי יצרן, סטטוס וחדש/יד שנייה.
 - [רכבי יד שנייה](${SITE}/stock/?condition=used) · [רכבים חדשים](${SITE}/stock/?condition=new)
 - [inventory.json](${SITE}/data/inventory.json): המלאי כקובץ JSON, מתעדכן אוטומטית.
+
+## מדריכים לקונים
+
+${GUIDES.map(([slug, t]) => `- [${t}](${SITE}/guides/${slug}/)`).join('\n')}
 
 ## המלאי לפי יצרן
 
