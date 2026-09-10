@@ -15,6 +15,17 @@
 - [רכבי יד שנייה](https://www.yedidia-motors.com/stock/?condition=used) · [רכבים חדשים](https://www.yedidia-motors.com/stock/?condition=new)
 - [inventory.json](https://www.yedidia-motors.com/data/inventory.json): המלאי כקובץ JSON, מתעדכן אוטומטית.
 
+## מדריכים לקונים
+
+- [יבוא מקביל, יבוא אישי ויבואן רשמי — מה ההבדל](https://www.yedidia-motors.com/guides/parallel-import/)
+- [תקינה אמריקאית מול תקינה קנדית](https://www.yedidia-motors.com/guides/us-vs-canada-spec/)
+- [איזה רישיון נהיגה צריך לטנדר אמריקאי](https://www.yedidia-motors.com/guides/license-for-pickups/)
+- [אחריות, שירות וחלפים לרכב ביבוא מקביל](https://www.yedidia-motors.com/guides/warranty-and-service/)
+- [טרייד-אין: איך עובד התהליך](https://www.yedidia-motors.com/guides/trade-in/)
+- [מימון רכב — מה חשוב לבדוק](https://www.yedidia-motors.com/guides/financing/)
+- [טנדרים חשמליים בישראל: טעינה, מיסוי וטווח](https://www.yedidia-motors.com/guides/electric-pickups-israel/)
+- [איך קונים רכב יד שנייה בבטחה](https://www.yedidia-motors.com/guides/buying-used-safely/)
+
 ## המלאי לפי יצרן
 
 ### BMW
