@@ -1,8 +1,48 @@
 {
-  "updated_at": "2026-09-10T10:46:31.737Z",
+  "updated_at": "2026-09-10T17:16:25.737Z",
   "source": "google-sheet",
-  "count": 34,
+  "count": 40,
   "vehicles": [
+    {
+      "id": "604899",
+      "make": "GMC",
+      "model": "HUMMER EV 2X PICKUP",
+      "year": 2026,
+      "trim": null,
+      "color": "לבן",
+      "km": 0,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "חדש",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "תקינה קנדית"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "605037",
+      "make": "GMC",
+      "model": "HUMMER EV 2X PICKUP",
+      "year": 2026,
+      "trim": null,
+      "color": "לבן",
+      "km": 0,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "חדש",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "תקינה קנדית"
+      ],
+      "description": null,
+      "images": []
+    },
     {
       "id": "220351",
       "make": "MERCEDES",
@@ -384,6 +424,50 @@
       "images": []
     },
     {
+      "id": "413563",
+      "make": "CHEVROLET",
+      "model": "SILVERADO EV LT PLUS ER",
+      "year": 2026,
+      "trim": null,
+      "color": "בלו סמוק",
+      "km": 0,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "חדש",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "תקינה פדרלית",
+        "נקודת עיגון",
+        "הנעה מרחוק"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "414671",
+      "make": "CHEVROLET",
+      "model": "SILVERADO LT EV MR",
+      "year": 2026,
+      "trim": null,
+      "color": "בלו סמוק",
+      "km": 0,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "חדש",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "תקינה קנדית",
+        "נקודת עיגון",
+        "הנעה מרחוק"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
       "id": "410292",
       "make": "CHEVROLET",
       "model": "SILVERADO EV TRAIL BOSS MR 2026",
@@ -452,6 +536,52 @@
         "הנעה מרחוק"
       ],
       "description": "עם גג פנורמי",
+      "images": []
+    },
+    {
+      "id": "417238",
+      "make": "GMC",
+      "model": "SIERRA DENALI EV MR",
+      "year": 2026,
+      "trim": null,
+      "color": "אפור בטון",
+      "km": 0,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "חדש",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "תקינה פדרלית",
+        "נקודת עיגון",
+        "חניה אוטומטית",
+        "הנעה מרחוק"
+      ],
+      "description": null,
+      "images": []
+    },
+    {
+      "id": "416023",
+      "make": "GMC",
+      "model": "SIERRA DENALI EV MR",
+      "year": 2026,
+      "trim": null,
+      "color": "לבן פנינה",
+      "km": 0,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "חדש",
+      "engine": null,
+      "drivetrain": null,
+      "features": [
+        "תקינה קנדית",
+        "נקודת עיגון",
+        "חניה אוטומטית",
+        "הנעה מרחוק"
+      ],
+      "description": null,
       "images": []
     },
     {
