@@ -21,6 +21,8 @@ export const BIZ = {
   country: 'IL',
   phone: '+972-50-899-1090',
   phoneHe: '050-899-1090',
+  landline: '+972-4-841-9413',
+  landlineHe: '04-8419413',
   whatsapp: 'https://wa.me/972508991090',
   facebook: 'https://www.facebook.com/Yedidia.Motors',
   maps: 'https://maps.google.com/?q=' + encodeURIComponent('המעפילים 1 קרית אתא'),
@@ -71,7 +73,7 @@ export function dealerLd() {
     name: BIZ.name,
     alternateName: BIZ.nameEn,
     url: SITE + '/',
-    telephone: BIZ.phone,
+    telephone: [BIZ.landline, BIZ.phone],
     address: {
       '@type': 'PostalAddress',
       streetAddress: BIZ.street,
@@ -226,7 +228,7 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
 </main>
 
 <footer><div class="wrap">
-  ${esc(BIZ.name)} · ${esc(BIZ.street)}, ${esc(BIZ.city)} · ${esc(BIZ.hoursHe)} · <a href="${esc(BIZ.whatsapp)}" rel="noopener">${esc(BIZ.phoneHe)}</a>
+  ${esc(BIZ.name)} · ${esc(BIZ.street)}, ${esc(BIZ.city)} · ${esc(BIZ.hoursHe)} · טלפון <a href="tel:${esc(BIZ.landline)}">${esc(BIZ.landlineHe)}</a> · וואטסאפ <a href="${esc(BIZ.whatsapp)}" rel="noopener">${esc(BIZ.phoneHe)}</a>
   <nav class="legal-links" aria-label="מידע משפטי">
     <a href="/legal/privacy/">מדיניות פרטיות</a>
     <a href="/legal/terms/">תנאי שימוש</a>
@@ -336,7 +338,7 @@ function llms(vehicles, updatedAt) {
   return `# ${BIZ.name} (${BIZ.nameEn})
 
 > סוכנות רכב ביבוא מקביל ב${BIZ.city}. רכבים חדשים, רכבי טרייד-אין ורכבי יד שנייה נבדקים.
-> כתובת: ${BIZ.street}, ${BIZ.city}. טלפון/וואטסאפ: ${BIZ.phoneHe}. שעות: ${BIZ.hoursHe}.
+> כתובת: ${BIZ.street}, ${BIZ.city}. טלפון אולם התצוגה: ${BIZ.landlineHe}. וואטסאפ: ${BIZ.phoneHe}. שעות: ${BIZ.hoursHe}.
 
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: ${BIZ.brands.join(', ')} (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
