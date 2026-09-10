@@ -154,6 +154,8 @@ function vehiclePage(v) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${esc(url)}">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<script src="/assets/site.js" defer></script>
 <meta property="og:type" content="product">
 <meta property="og:site_name" content="${esc(BIZ.name)}">
 <meta property="og:locale" content="he_IL">
@@ -176,6 +178,11 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
   .bar{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:16px;flex-wrap:wrap}
   .brand{text-decoration:none;color:inherit;font-weight:900}
   nav{font-size:14px;color:var(--muted)}
+  a:focus-visible,button:focus-visible{outline:3px solid #ddb838;outline-offset:2px}
+  .legal-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;margin-top:10px}
+  .legal-links a{color:var(--muted);text-decoration:none}
+  .legal-links a:hover{color:var(--fg)}
+  .legal-links button.link{background:none;border:0;color:var(--muted);font:inherit;cursor:pointer;padding:0}
   h1{font-size:clamp(24px,4vw,38px);margin:26px 0 6px;letter-spacing:-.02em}
   .sub{color:var(--muted);margin:0 0 22px}
   .gal{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-bottom:28px}
@@ -196,7 +203,7 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
   <nav><a href="/">דף הבית</a> · <a href="/stock/">המלאי שלנו</a></nav>
 </div></header>
 
-<main class="wrap">
+<main class="wrap" id="main" tabindex="-1">
   <h1>${esc(vehicleTitle(v))}</h1>
   <p class="sub">${esc([v.color, v.condition, STATUS_HE[v.status]].filter(Boolean).join(' · '))}</p>
 
@@ -220,6 +227,14 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
 
 <footer><div class="wrap">
   ${esc(BIZ.name)} · ${esc(BIZ.street)}, ${esc(BIZ.city)} · ${esc(BIZ.hoursHe)} · <a href="${esc(BIZ.whatsapp)}" rel="noopener">${esc(BIZ.phoneHe)}</a>
+  <nav class="legal-links" aria-label="מידע משפטי">
+    <a href="/legal/privacy/">מדיניות פרטיות</a>
+    <a href="/legal/terms/">תנאי שימוש</a>
+    <a href="/legal/cookies/">עוגיות</a>
+    <a href="/legal/accessibility/">הצהרת נגישות</a>
+    <a href="/legal/disclaimer/">הצהרת אחריות — מפרטים ומלאי</a>
+    <button class="link" type="button" data-ym-cookie-settings>הגדרות עוגיות</button>
+  </nav>
 </div></footer>
 </body>
 </html>
@@ -289,6 +304,7 @@ function sitemap(vehicles, updatedAt) {
     { loc: SITE + '/', pri: '1.0', freq: 'weekly' },
     { loc: SITE + '/stock/', pri: '0.9', freq: 'hourly' },
     ...vehicles.map(v => ({ loc: vehicleUrl(v), pri: '0.7', freq: 'weekly' })),
+    ...['privacy', 'terms', 'cookies', 'accessibility', 'disclaimer'].map(s => ({ loc: SITE + '/legal/' + s + '/', pri: '0.2', freq: 'yearly' })),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
