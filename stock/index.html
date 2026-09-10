@@ -260,6 +260,7 @@
 <footer>
   <div class="wrap">המלאי מתעדכן אוטומטית. לפרטים ותיאום נסיעת מבחן — <a href="/#lead">צרו קשר</a>, טלפון <a href="tel:+97248419413">04-8419413</a> או וואטסאפ <a href="https://wa.me/972508991090" rel="noopener">050-899-1090</a>.
   <nav class="legal-links" aria-label="מידע משפטי">
+    <a href="/guides/">מדריכים לקונים</a>
     <a href="/legal/privacy/">מדיניות פרטיות</a>
     <a href="/legal/terms/">תנאי שימוש</a>
     <a href="/legal/cookies/">עוגיות</a>
@@ -432,8 +433,10 @@ fetch('../data/inventory.json?t=' + Date.now())
       const o = document.createElement('option'); o.value = o.textContent = m; sel.appendChild(o);
     });
     // /stock/?condition=used מגיע ישירות לרכבי יד שנייה
-    const wanted = new URLSearchParams(location.search).get('condition');
+    const params = new URLSearchParams(location.search);
+    const wanted = params.get('condition');
     if (wanted === 'new' || wanted === 'used') document.getElementById('f-condition').value = wanted;
+    if (params.get('q')) document.getElementById('f-q').value = params.get('q').slice(0, 60);
 
     if (d.updated_at){
       document.getElementById('stamp').textContent =
