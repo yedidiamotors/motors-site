@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  var GA_ID = '';                       // מזהה המדידה של Google Analytics 4 (G-XXXXXXXX). ריק = בלי אנליטיקס ובלי באנר.
+  var GA_ID = 'G-WDDVLHQXTF';           // מזהה המדידה של Google Analytics 4 (נכס "www.yedidia-motors.com", זרם 15755697610). ריק = בלי אנליטיקס ובלי באנר.
   var CONSENT_KEY = 'ym_consent';
   var A11Y_KEY = 'ym_a11y';
   var CONSENT_TTL = 365 * 24 * 3600 * 1000;
