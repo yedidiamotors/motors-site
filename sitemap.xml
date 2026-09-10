@@ -187,6 +187,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.yedidia-motors.com/stock/TI-BMW-X1-2016-8S229/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.yedidia-motors.com/stock/TI-RAM-LIMITED-2021-MVO6W/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -200,6 +206,12 @@
   </url>
   <url>
     <loc>https://www.yedidia-motors.com/stock/TI-RAM-LARAMIE-2024-WU7DW/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.yedidia-motors.com/stock/TI-SUBARU-FORESTER-2022-HGP3Z/</loc>
     <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
