@@ -1,0 +1,52 @@
+/* עמודים משפטיים — ידידיה מוטורס. אותה שפה חזותית של דף המלאי. */
+:root{
+  --bg:#0b0b0c; --bg-2:#141416; --bg-3:#1b1b1e;
+  --line:#2a2a2e; --fg:#f5f5f3; --muted:#a1a1aa; --muted-2:#8b8b93;
+  --gold:#c9a227; --gold-hi:#ddb838; --max:820px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:"Heebo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--gold-hi)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold-hi);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;top:-60px;right:16px;background:var(--gold);color:#000;padding:10px 16px;border-radius:8px;z-index:100;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{text-decoration:none;color:var(--fg);display:flex;flex-direction:column;line-height:1.05}
+.brand b{font-size:19px;font-weight:900;letter-spacing:.02em}
+.brand small{color:var(--gold);font-size:10px;letter-spacing:.28em;font-weight:500}
+nav.top a{color:var(--muted);text-decoration:none;margin-inline-start:18px;font-size:15px}
+nav.top a:hover{color:var(--fg)}
+main{padding:44px 0 64px}
+h1{font-size:clamp(28px,5vw,40px);font-weight:900;letter-spacing:-.02em;margin:0 0 6px}
+.meta{color:var(--muted-2);font-size:14px;margin:0 0 28px}
+h2{font-size:22px;font-weight:700;margin:36px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:18px;font-weight:700;margin:22px 0 6px}
+p{margin:0 0 14px}
+ul,ol{padding-inline-start:22px;margin:0 0 14px}
+li{margin-bottom:6px}
+table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px}
+th,td{text-align:start;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;white-space:nowrap}
+.box{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:18px 0}
+.box b{color:var(--gold-hi)}
+.toc{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:0 0 28px;font-size:15px}
+.toc ol{margin:6px 0 0;columns:2;column-gap:28px}
+.toc a{color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--fg)}
+.legal-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;margin-top:10px}
+.legal-links a{color:var(--muted);text-decoration:none}
+.legal-links a:hover,.legal-links a[aria-current]{color:var(--fg)}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:14px}
+button.link{background:none;border:0;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;padding:0}
+button.link:hover{color:var(--fg)}
+@media (max-width:640px){.toc ol{columns:1}.bar{flex-direction:column;align-items:flex-start;gap:8px}nav.top a{margin:0 0 0 14px}
+  table{display:block;overflow-x:auto;max-width:100%}th{white-space:normal}
+  body{font-size:16px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
