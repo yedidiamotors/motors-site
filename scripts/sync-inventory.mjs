@@ -14,6 +14,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { processImages, processSiteImages, imageProxyBase } from './images.mjs';
 import { buildSeo } from './seo.mjs';
+import { buildShareImages } from './share.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, 'data/inventory.json');
@@ -227,6 +228,9 @@ for (const v of vehicles) {
   v.images = processed ? (processed[v.id] || []) : (prevImages.get(v.id) || []);
   delete v.imageIds;
 }
+
+// תמונת מודעה 1200×630 לכל רכב (og:image לוואטסאפ/פייסבוק + קובץ להורדה)
+try { buildShareImages({ root: ROOT, vehicles }); } catch (e) { console.log('תמונות מודעה דולגו: ' + e.message); }
 
 const payload = {
   updated_at: new Date().toISOString(),

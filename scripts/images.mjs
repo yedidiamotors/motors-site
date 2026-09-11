@@ -202,7 +202,7 @@ export async function processImages({ root, vehicles, proxyBase, log = console.l
       const dir = join(base, name);
       if (!statSync(dir).isDirectory()) continue;
       if (!live.has(name)) { rmSync(dir, { recursive: true, force: true }); continue; }
-      const keep = new Set();
+      const keep = new Set(['share.jpg']);   // תמונת המודעה (scripts/share.mjs) חיה באותה תיקייה
       for (const p of (result[name] || [])) {
         const f = p.split('/').pop();
         keep.add(f);

@@ -145,6 +145,18 @@ function breadcrumbLd(v) {
 
 /* ---------- עמוד רכב ---------- */
 
+/* טקסט מודעה מוכן לוואטסאפ/פייסבוק — אותו טקסט משמש לכפתורי השיתוף ולהעתקה */
+export function adText(v) {
+  const bits = [v.condition, v.color, v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null, ...(v.features || [])].filter(Boolean);
+  return [
+    `🚘 ${vehicleTitle(v)}`,
+    bits.join(' · '),
+    v.description || '',
+    v.status === 'sold' ? 'נמכר — אבל יש עוד במלאי.' : `${STATUS_HE[v.status] === 'בדרך' ? 'בדרך לארץ' : 'במלאי'} בידידיה מוטורס, ${BIZ.city}. לפרטים ותיאום נסיעת מבחן: ${BIZ.landlineHe}`,
+    vehicleUrl(v),
+  ].filter(Boolean).join('\n');
+}
+
 function vehiclePage(v) {
   const title = `${vehicleTitle(v)}${v.color ? ' · ' + v.color : ''} | ${BIZ.name}`;
   const desc = vehicleDescription(v);
@@ -176,8 +188,15 @@ function vehiclePage(v) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${esc(url)}">
-${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.images[0])}">` : ''}
-<meta name="twitter:card" content="${v.images && v.images.length ? 'summary_large_image' : 'summary'}">
+${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image)}">
+<meta property="og:image:secure_url" content="${esc(SITE + v.share_image)}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(vehicleTitle(v))} — ידידיה מוטורס">` : (v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.images[0])}">` : '')}
+<meta name="twitter:card" content="${(v.share_image || (v.images && v.images.length)) ? 'summary_large_image' : 'summary'}">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(desc)}">${v.share_image ? `\n<meta name="twitter:image" content="${esc(SITE + v.share_image)}">` : ''}
 <script type="application/ld+json">${JSON.stringify(vehicleLd(v))}</script>
 <script type="application/ld+json">${JSON.stringify(breadcrumbLd(v))}</script>
 <style>
@@ -207,6 +226,13 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
   ul{padding-inline-start:20px;color:var(--muted)}
   .cta{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
   .cta a{display:inline-block;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:500}
+  .share{margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+  .share h2{margin-top:0}
+  .share-row a,.share-row button{display:inline-block;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:500;font-family:inherit;font-size:15px;cursor:pointer}
+  .share-row .w{background:#1f2a22;color:#6ee7a0;border:1px solid #2c4a35}
+  .share-row .f{background:#1b2a3a;color:#8ab4f8;border:1px solid #2c4a6b}
+  .share-row .s{background:var(--bg-2);color:var(--fg);border:1px solid var(--line)}
+  #ad-text{width:100%;margin-top:14px;background:var(--bg-2);color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:12px;font:300 14px/1.6 inherit;font-family:inherit;direction:rtl;resize:vertical}
   .p{background:var(--gold);color:#0b0b0c}
   .s{border:1px solid var(--line);color:var(--fg)}
   .none{background:var(--bg-3);border:1px solid var(--line);border-radius:10px;padding:40px;text-align:center;color:var(--muted)}
@@ -239,6 +265,29 @@ ${v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.i
     <a class="s" href="${esc(BIZ.whatsapp)}?text=${encodeURIComponent('שלום, אני מתעניין ב-' + vehicleTitle(v) + ' שראיתי באתר (מזהה ' + v.id + '). אשמח לפרטים.')}" rel="noopener">וואטסאפ ${esc(BIZ.phoneHe)}</a>
     <a class="s" href="/stock/">חזרה למלאי</a>
   </div>
+
+  <section class="share" aria-label="שיתוף ופרסום הרכב">
+    <h2>שיתוף הרכב</h2>
+    <p class="sub">כשמדביקים את הקישור בוואטסאפ או בפייסבוק, המודעה מופיעה לבד — תמונה, כותרת ותיאור. אפשר גם לשלוח טקסט מוכן או להוריד את תמונת המודעה.</p>
+    <div class="cta share-row">
+      <a class="w" href="https://wa.me/?text=${encodeURIComponent(adText(v))}" target="_blank" rel="noopener">שיתוף בוואטסאפ</a>
+      <a class="f" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" target="_blank" rel="noopener">שיתוף בפייסבוק</a>
+      <button class="s" type="button" data-copy-ad>העתקת טקסט המודעה</button>${v.share_image ? `
+      <a class="s" href="${esc(v.share_image)}" download="${esc((vehicleTitle(v) + ' - ידידיה מוטורס').replace(/[\\/:*?"<>|]+/g, ' '))}.jpg">הורדת תמונת המודעה</a>` : ''}
+    </div>
+    <textarea id="ad-text" readonly rows="6" aria-label="טקסט המודעה">${esc(adText(v))}</textarea>
+  </section>
+  <script>
+  (function () {
+    var b = document.querySelector('[data-copy-ad]'), t = document.getElementById('ad-text');
+    if (!b || !t) return;
+    b.addEventListener('click', function () {
+      var done = function () { var l = b.textContent; b.textContent = 'הועתק ✓'; setTimeout(function () { b.textContent = l; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t.value).then(done, function () { t.select(); document.execCommand('copy'); done(); });
+      else { t.select(); document.execCommand('copy'); done(); }
+    });
+  })();
+  </script>
 </main>
 
 <footer><div class="wrap">
