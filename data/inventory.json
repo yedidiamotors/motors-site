@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-11T06:13:47.167Z",
+  "updated_at": "2026-09-11T06:14:36.941Z",
   "source": "google-sheet",
   "count": 40,
   "vehicles": [
@@ -21,7 +21,8 @@
         "תקינה קנדית"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/604899/share.jpg"
     },
     {
       "id": "605037",
@@ -41,7 +42,8 @@
         "תקינה קנדית"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/605037/share.jpg"
     },
     {
       "id": "220351",
@@ -62,7 +64,8 @@
         "חניה אוטומטית"
       ],
       "description": "ואקום / 20\" / וילונות / (מסאז', קירור+חימום מושבים, חימום ידיות, חבילת בישום)",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/220351/share.jpg"
     },
     {
       "id": "223052",
@@ -83,7 +86,8 @@
         "חניה אוטומטית"
       ],
       "description": "ואקום / 20\" / וילונות / (מסאז', קירור+חימום מושבים, חימום ידיות, חבילת בישום)",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/223052/share.jpg"
     },
     {
       "id": "229081",
@@ -104,7 +108,8 @@
         "חניה אוטומטית"
       ],
       "description": "ואקום / 21\" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/229081/share.jpg"
     },
     {
       "id": "229179",
@@ -125,7 +130,8 @@
         "חניה אוטומטית"
       ],
       "description": "ואקום / 21\" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/229179/share.jpg"
     },
     {
       "id": "229313",
@@ -146,7 +152,8 @@
         "חניה אוטומטית"
       ],
       "description": "21\" / חבילת USB / ללא וילונות / חימום+איוורור מושבים קדמי / חימום מושבים אחורי",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/229313/share.jpg"
     },
     {
       "id": "221484",
@@ -167,7 +174,8 @@
         "חניה אוטומטית"
       ],
       "description": "ואקום / 21\" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/221484/share.jpg"
     },
     {
       "id": "258011",
@@ -188,7 +196,8 @@
         "חניה אוטומטית"
       ],
       "description": "מסך כפול / גאמט 21",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/258011/share.jpg"
     },
     {
       "id": "258245",
@@ -209,7 +218,8 @@
         "חניה אוטומטית"
       ],
       "description": "מסך כפול / גאנט 20",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/258245/share.jpg"
     },
     {
       "id": "257709",
@@ -230,7 +240,8 @@
         "חניה אוטומטית"
       ],
       "description": "מסך כפול / גאמט 21",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/257709/share.jpg"
     },
     {
       "id": "495842",
@@ -267,7 +278,8 @@
         "/assets/vehicles/495842/1y_TbTCCJXFKzVyQdXyw9ek3IIe1f2Rpr.webp",
         "/assets/vehicles/495842/1lzkT4bfXwCpEpNQzFtp7xofxf5cFqpNu.webp",
         "/assets/vehicles/495842/1Dsi2IL8k5wyycveCTy5P_2Kn-q2tcder.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/495842/share.jpg"
     },
     {
       "id": "412920",
@@ -289,7 +301,8 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/412920/share.jpg"
     },
     {
       "id": "413810",
@@ -311,7 +324,8 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/413810/share.jpg"
     },
     {
       "id": "414331",
@@ -333,7 +347,8 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/414331/share.jpg"
     },
     {
       "id": "412956",
@@ -355,7 +370,8 @@
         "הנעה מרחוק"
       ],
       "description": "גג פנורמי",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/412956/share.jpg"
     },
     {
       "id": "415561",
@@ -377,7 +393,8 @@
         "הנעה מרחוק"
       ],
       "description": "גג פנורמי",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/415561/share.jpg"
     },
     {
       "id": "415662",
@@ -399,7 +416,8 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/415662/share.jpg"
     },
     {
       "id": "413288",
@@ -421,7 +439,8 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/413288/share.jpg"
     },
     {
       "id": "413563",
@@ -443,7 +462,8 @@
         "הנעה מרחוק"
       ],
       "description": "ללא בדליינר",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/413563/share.jpg"
     },
     {
       "id": "414671",
@@ -465,7 +485,8 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/414671/share.jpg"
     },
     {
       "id": "410292",
@@ -491,7 +512,8 @@
       "images": [
         "/assets/vehicles/410292/1aKzh8A9fOl-jCxIrge0gqKpFs83X-nAh.webp",
         "/assets/vehicles/410292/1ukYeruPVka-rwd2qXeSCtyE-rihIzMCH.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/410292/share.jpg"
     },
     {
       "id": "412562",
@@ -514,7 +536,8 @@
         "הנעה מרחוק"
       ],
       "description": "בלי גג פנורמי ללא בדליינר",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/412562/share.jpg"
     },
     {
       "id": "413055",
@@ -536,7 +559,8 @@
         "הנעה מרחוק"
       ],
       "description": "עם גג פנורמי",
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/413055/share.jpg"
     },
     {
       "id": "417238",
@@ -559,7 +583,8 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/417238/share.jpg"
     },
     {
       "id": "416023",
@@ -582,7 +607,8 @@
         "הנעה מרחוק"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/416023/share.jpg"
     },
     {
       "id": "413447",
@@ -616,7 +642,8 @@
         "/assets/vehicles/413447/1e_1cV11Z2lTumqDSQz54xU8T9E5lbik4.webp",
         "/assets/vehicles/413447/1W1soFsw0A7fYQ0tj1SL2EBx1WFBAz98u.webp",
         "/assets/vehicles/413447/1WqxZ-ObrXi3fE4VmlHbcVAkHq28cgw7P.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/413447/share.jpg"
     },
     {
       "id": "412642",
@@ -654,7 +681,8 @@
         "/assets/vehicles/412642/1XFjNfxomSQ1auMk7_HoVhyQWw2meIuje.webp",
         "/assets/vehicles/412642/1d3C5aAC2eCThKaj7vIy6axAMyz_aN309.webp",
         "/assets/vehicles/412642/1M5toslnZhIvtCSQOZG3khEoQEXFSJOX9.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/412642/share.jpg"
     },
     {
       "id": "408805",
@@ -690,7 +718,8 @@
         "/assets/vehicles/408805/18AQ23EJAIxfQQXKzQ4XO_nAYWTJD4i_x.webp",
         "/assets/vehicles/408805/1MwmnOdeXhRLia-64yp-1WJKSKa_-2Dtm.webp",
         "/assets/vehicles/408805/1zXyhdANUtqt5ve9NixDOI1WI5spXPbTt.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/408805/share.jpg"
     },
     {
       "id": "TI-MERCEDES-S500-2021-4YKD6",
@@ -722,7 +751,8 @@
         "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1GXlQkbRMfVnelQ5Fyo8Y0exDZAaWZ3q1.webp",
         "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1rMGLXfKOiCvExTXCzB64Pj3MVmF531Up.webp",
         "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/1m4fIhYcDWJOkuIlzJnqtjXnDF8BYnNfH.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/TI-MERCEDES-S500-2021-4YKD6/share.jpg"
     },
     {
       "id": "TI-MERCEDES-GLC-300E-2021-7THAS",
@@ -757,7 +787,8 @@
         "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1sdxrBB57eo7aN1MgYF5bRIb1nxsl_qcG.webp",
         "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1OiP9VkSj_I2AQvjyXLX83yr5F2YbxwoK.webp",
         "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/1WFy3pbz-YmNv_CYQEQeJ2g8Ey1BJeOv3.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/TI-MERCEDES-GLC-300E-2021-7THAS/share.jpg"
     },
     {
       "id": "TI-CHEVROLET-SAVANA-MAX-2018-8JEKT",
@@ -777,7 +808,8 @@
         "יד 2"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/TI-CHEVROLET-SAVANA-MAX-2018-8JEKT/share.jpg"
     },
     {
       "id": "TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ",
@@ -814,7 +846,8 @@
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1wToSv4O9pHEIbUP6k8voxnI4ekn-GYoR.webp",
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/16F18bLAAO1S7bSS47Q0HLpeiSuPTw7fR.webp",
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1NXwGfx8Bi8mEzvQ2AZ2MLg0bFbucVRcP.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/share.jpg"
     },
     {
       "id": "TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6",
@@ -839,7 +872,8 @@
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1lQ0FpMviLSSAWugqkuehzrCY3TGSlAIG.webp",
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1YAtYnbfrmSZmLRCZ_2HdyvFaDbSHwaws.webp",
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1cs2k2jd2T7MCfdhqZ34oiqKyYsQqLEE9.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/share.jpg"
     },
     {
       "id": "TI-CHEVROLET-SILVERADO-4WT-2025-MK21E",
@@ -873,7 +907,8 @@
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1b49HvD0fsHkRx0lvamAert_6IlBXj4kZ.webp",
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1ktPdFOe_GDUSInaWZzIqxnTO3M3jt6Lf.webp",
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/1q9KnkKt7-rgTFCQjlmijXs8XcRZURWWX.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/share.jpg"
     },
     {
       "id": "TI-BMW-X1-2016-8S229",
@@ -893,7 +928,8 @@
         "יד 2"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/TI-BMW-X1-2016-8S229/share.jpg"
     },
     {
       "id": "TI-RAM-LIMITED-2021-MVO6W",
@@ -913,7 +949,8 @@
         "יד 1"
       ],
       "description": null,
-      "images": []
+      "images": [],
+      "share_image": "/assets/vehicles/TI-RAM-LIMITED-2021-MVO6W/share.jpg"
     },
     {
       "id": "TI-RAM-LARAMIE-2024-Y7ZN3",
@@ -943,7 +980,8 @@
         "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1BDxBq_xMrROrLqBvJbckG-CSCaJLtMg4.webp",
         "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1UB9NByyXXvf_3tyGx48jHPBpdxPdbPPl.webp",
         "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/1kvzPEBC6p5xakAQUW6rWeOF93AKGfq5o.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/TI-RAM-LARAMIE-2024-Y7ZN3/share.jpg"
     },
     {
       "id": "TI-RAM-LARAMIE-2024-WU7DW",
@@ -972,7 +1010,8 @@
         "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1oZcujC0I5M4Da1BfClHdyptIbUPIMAmI.webp",
         "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1TepuWiOgyVU9U5YeDtqZIegRU-nT4rN8.webp",
         "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/1bK0ZZswtBx_BDnyRvL8lSTQlPJbFA8vU.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/TI-RAM-LARAMIE-2024-WU7DW/share.jpg"
     },
     {
       "id": "TI-SUBARU-FORESTER-2022-HGP3Z",
@@ -1007,7 +1046,8 @@
         "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1BD_mybjz541MBWDFJbqwGa5-uoJ0ug_C.webp",
         "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1Ghattn-BxFZ1bcmxQiv1j9Mc05_Zi8wi.webp",
         "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1xvo5gVyVAhwWhfkH906KG2XacuQtwOTa.webp"
-      ]
+      ],
+      "share_image": "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/share.jpg"
     }
   ]
 }
