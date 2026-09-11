@@ -66,8 +66,10 @@ export function vehicleTitle(v) {
 function vehicleDescription(v) {
   const bits = [
     v.condition,
+    v.trim,
     v.color,
     v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null,
+    v.engine, v.drivetrain, v.body,
     ...(v.features || []),
     v.description,
   ].filter(Boolean);
@@ -128,6 +130,15 @@ function vehicleLd(v) {
   if (v.km != null) ld.mileageFromOdometer = { '@type': 'QuantitativeValue', value: v.km, unitCode: 'KMT' };
   if (v.description) ld.description = v.description;
   if (v.images && v.images.length) ld.image = v.images.map(p => SITE + p);
+  // מפרט שפוענח ממספר השלדה (NHTSA vPIC) — 11/09/2026
+  if (v.trim) ld.vehicleConfiguration = v.trim;
+  if (v.body) ld.bodyType = v.body;
+  if (v.fuel) ld.fuelType = v.fuel;
+  if (v.transmission) ld.vehicleTransmission = v.transmission;
+  if (v.drivetrain) ld.driveWheelConfiguration = v.drivetrain;
+  if (v.doors) ld.numberOfDoors = v.doors;
+  if (v.engine) ld.vehicleEngine = { '@type': 'EngineSpecification', name: v.engine, ...(v.fuel ? { fuelType: v.fuel } : {}) };
+  if (v.plant) ld.countryOfOrigin = v.plant;
   return ld;
 }
 
@@ -147,10 +158,12 @@ function breadcrumbLd(v) {
 
 /* טקסט מודעה מוכן לוואטסאפ/פייסבוק — אותו טקסט משמש לכפתורי השיתוף ולהעתקה */
 export function adText(v) {
-  const bits = [v.condition, v.color, v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null, ...(v.features || [])].filter(Boolean);
+  const bits = [v.condition, v.trim, v.color, v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null, ...(v.features || [])].filter(Boolean);
+  const spec = [v.engine, v.drivetrain, v.transmission, v.body].filter(Boolean);
   return [
     `🚘 ${vehicleTitle(v)}`,
     bits.join(' · '),
+    spec.join(' · '),
     v.description || '',
     v.status === 'sold' ? 'נמכר — אבל יש עוד במלאי.' : `${STATUS_HE[v.status] === 'בדרך' ? 'בדרך לארץ' : 'במלאי'} בידידיה מוטורס, ${BIZ.city}. לפרטים ותיאום נסיעת מבחן: ${BIZ.landlineHe}`,
     vehicleUrl(v),
@@ -162,9 +175,11 @@ function vehiclePage(v) {
   const desc = vehicleDescription(v);
   const url = vehicleUrl(v);
   const specs = [
-    ['יצרן', v.make], ['דגם', v.model], ['שנה', v.year], ['גימור', v.trim], ['צבע', v.color],
+    ['יצרן', v.make], ['דגם', v.model], ['שנת דגם', v.year], ['גימור', v.trim], ['סדרה', v.series && v.series !== v.trim ? v.series : null],
+    ['צבע', v.color],
     ['קילומטראז׳', v.km != null ? num(v.km) + ' ק״מ' : null],
-    ['מצב הרכב', v.condition], ['מנוע', v.engine], ['הנעה', v.drivetrain],
+    ['מצב הרכב', v.condition], ['מרכב', v.body], ['מנוע', v.engine], ['דלק', v.fuel], ['הנעה', v.drivetrain],
+    ['תיבת הילוכים', v.transmission], ['דלתות', v.doors], ['משקל כולל מותר', v.gvwr], ['ארץ ייצור', v.plant],
     ['סטטוס', STATUS_HE[v.status]], ['מזהה', v.id],
   ].filter(([, val]) => val !== null && val !== undefined && val !== '');
 
@@ -230,6 +245,8 @@ ${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image
   .share a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--muted);background:var(--bg-2)}
   .share a:hover,.share a:focus-visible{color:var(--fg);border-color:var(--gold)}
   .share svg{width:22px;height:22px;fill:currentColor}
+  .note{color:var(--muted);font-size:14px;margin:-6px 0 24px}
+  .note a{color:var(--muted)}
   .p{background:var(--gold);color:#0b0b0c}
   .s{border:1px solid var(--line);color:var(--fg)}
   .none{background:var(--bg-3);border:1px solid var(--line);border-radius:10px;padding:40px;text-align:center;color:var(--muted)}
@@ -250,6 +267,7 @@ ${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image
 
   <h2>מפרט</h2>
   <table>${specs.map(([k, val]) => `<tr><th>${esc(k)}</th><td>${esc(val)}</td></tr>`).join('')}</table>
+  ${v.spec_source === 'VIN' ? `<p class="note">שנת הדגם והמפרט פוענחו ממספר השלדה של הרכב הזה (מאגר NHTSA של משרד התחבורה האמריקאי). האבזור בפועל נקבע לפי הרכב באולם — ראו <a href="/legal/disclaimer/">הצהרת אחריות</a>.</p>` : ''}
 
   ${(v.features || []).length ? `<h2>אביזרים</h2>\n  <ul>${v.features.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
   ${v.description && v.description.length <= 60 ? `<h2>תיאור</h2>\n  <p>${esc(v.description)}</p>` : ''}
