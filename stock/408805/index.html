@@ -53,13 +53,10 @@
   ul{padding-inline-start:20px;color:var(--muted)}
   .cta{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
   .cta a{display:inline-block;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:500}
-  .share{margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line)}
-  .share h2{margin-top:0}
-  .share-row a,.share-row button{display:inline-block;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:500;font-family:inherit;font-size:15px;cursor:pointer}
-  .share-row .w{background:#1f2a22;color:#6ee7a0;border:1px solid #2c4a35}
-  .share-row .f{background:#1b2a3a;color:#8ab4f8;border:1px solid #2c4a6b}
-  .share-row .s{background:var(--bg-2);color:var(--fg);border:1px solid var(--line)}
-  #ad-text{width:100%;margin-top:14px;background:var(--bg-2);color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:12px;font:300 14px/1.6 inherit;font-family:inherit;direction:rtl;resize:vertical}
+  .share{display:flex;gap:10px;align-items:center;margin:-12px 0 28px}
+  .share a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--muted);background:var(--bg-2)}
+  .share a:hover,.share a:focus-visible{color:var(--fg);border-color:var(--gold)}
+  .share svg{width:22px;height:22px;fill:currentColor}
   .p{background:var(--gold);color:#0b0b0c}
   .s{border:1px solid var(--line);color:var(--fg)}
   .none{background:var(--bg-3);border:1px solid var(--line);border-radius:10px;padding:40px;text-align:center;color:var(--muted)}
@@ -110,32 +107,10 @@
     <a class="s" href="/stock/">חזרה למלאי</a>
   </div>
 
-  <section class="share" aria-label="שיתוף ופרסום הרכב">
-    <h2>שיתוף הרכב</h2>
-    <p class="sub">כשמדביקים את הקישור בוואטסאפ או בפייסבוק, המודעה מופיעה לבד — תמונה, כותרת ותיאור. אפשר גם לשלוח טקסט מוכן או להוריד את תמונת המודעה.</p>
-    <div class="cta share-row">
-      <a class="w" href="https://wa.me/?text=%F0%9F%9A%98%20GMC%20SIERRA%20EV%20ELEVATION%20PREMIUM%20ER%2018%202026%0A%D7%97%D7%93%D7%A9%20%C2%B7%20%D7%9C%D7%91%D7%9F%20%C2%B7%20%D7%AA%D7%A7%D7%99%D7%A0%D7%94%20%D7%A4%D7%93%D7%A8%D7%9C%D7%99%D7%AA%20%C2%B7%20%D7%A0%D7%A7%D7%95%D7%93%D7%AA%20%D7%A2%D7%99%D7%92%D7%95%D7%9F%0A'%D7%92%D7%90%D7%A0%D7%98%0A%D7%91%D7%9E%D7%9C%D7%90%D7%99%20%D7%91%D7%99%D7%93%D7%99%D7%93%D7%99%D7%94%20%D7%9E%D7%95%D7%98%D7%95%D7%A8%D7%A1%2C%20%D7%A7%D7%A8%D7%99%D7%AA%20%D7%90%D7%AA%D7%90.%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%AA%D7%99%D7%90%D7%95%D7%9D%20%D7%A0%D7%A1%D7%99%D7%A2%D7%AA%20%D7%9E%D7%91%D7%97%D7%9F%3A%2004-8419413%0Ahttps%3A%2F%2Fwww.yedidia-motors.com%2Fstock%2F408805%2F" target="_blank" rel="noopener">שיתוף בוואטסאפ</a>
-      <a class="f" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.yedidia-motors.com%2Fstock%2F408805%2F" target="_blank" rel="noopener">שיתוף בפייסבוק</a>
-      <button class="s" type="button" data-copy-ad>העתקת טקסט המודעה</button>
-      <a class="s" href="/assets/vehicles/408805/share.jpg" download="GMC SIERRA EV ELEVATION PREMIUM ER 18 2026 - ידידיה מוטורס.jpg">הורדת תמונת המודעה</a>
-    </div>
-    <textarea id="ad-text" readonly rows="6" aria-label="טקסט המודעה">🚘 GMC SIERRA EV ELEVATION PREMIUM ER 18 2026
-חדש · לבן · תקינה פדרלית · נקודת עיגון
-&#39;גאנט
-במלאי בידידיה מוטורס, קרית אתא. לפרטים ותיאום נסיעת מבחן: 04-8419413
-https://www.yedidia-motors.com/stock/408805/</textarea>
-  </section>
-  <script>
-  (function () {
-    var b = document.querySelector('[data-copy-ad]'), t = document.getElementById('ad-text');
-    if (!b || !t) return;
-    b.addEventListener('click', function () {
-      var done = function () { var l = b.textContent; b.textContent = 'הועתק ✓'; setTimeout(function () { b.textContent = l; }, 1800); };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t.value).then(done, function () { t.select(); document.execCommand('copy'); done(); });
-      else { t.select(); document.execCommand('copy'); done(); }
-    });
-  })();
-  </script>
+  <div class="share" aria-label="שיתוף">
+    <a href="https://wa.me/?text=%F0%9F%9A%98%20GMC%20SIERRA%20EV%20ELEVATION%20PREMIUM%20ER%2018%202026%0A%D7%97%D7%93%D7%A9%20%C2%B7%20%D7%9C%D7%91%D7%9F%20%C2%B7%20%D7%AA%D7%A7%D7%99%D7%A0%D7%94%20%D7%A4%D7%93%D7%A8%D7%9C%D7%99%D7%AA%20%C2%B7%20%D7%A0%D7%A7%D7%95%D7%93%D7%AA%20%D7%A2%D7%99%D7%92%D7%95%D7%9F%0A'%D7%92%D7%90%D7%A0%D7%98%0A%D7%91%D7%9E%D7%9C%D7%90%D7%99%20%D7%91%D7%99%D7%93%D7%99%D7%93%D7%99%D7%94%20%D7%9E%D7%95%D7%98%D7%95%D7%A8%D7%A1%2C%20%D7%A7%D7%A8%D7%99%D7%AA%20%D7%90%D7%AA%D7%90.%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%AA%D7%99%D7%90%D7%95%D7%9D%20%D7%A0%D7%A1%D7%99%D7%A2%D7%AA%20%D7%9E%D7%91%D7%97%D7%9F%3A%2004-8419413%0Ahttps%3A%2F%2Fwww.yedidia-motors.com%2Fstock%2F408805%2F" target="_blank" rel="noopener" aria-label="שיתוף בוואטסאפ" title="שיתוף בוואטסאפ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.yedidia-motors.com%2Fstock%2F408805%2F" target="_blank" rel="noopener" aria-label="שיתוף בפייסבוק" title="שיתוף בפייסבוק"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg></a>
+  </div>
 </main>
 
 <footer><div class="wrap">
