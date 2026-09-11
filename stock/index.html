@@ -304,7 +304,7 @@ function card(v, i){
   const specs = [
     v.year, v.trim, v.color,
     v.km != null ? num(v.km)+' ק״מ' : null,
-    v.engine, v.drivetrain, v.condition,
+    v.engine, v.drivetrain, v.body, v.condition,
   ].filter(Boolean);
 
   // הכרטיס טוען את הגרסה הקטנה (600px). אם היא עוד לא נוצרה עבור הרכב הזה —
@@ -361,7 +361,7 @@ function render(){
     if (cond && condOf(v) !== cond) return false;
     if (status && v.status !== status) return false;
     if (q){
-      const hay = [v.make,v.model,v.trim,v.color,v.engine,v.drivetrain,v.description,...(v.features||[])]
+      const hay = [v.make,v.model,v.trim,v.series,v.color,v.engine,v.drivetrain,v.fuel,v.body,v.transmission,v.description,...(v.features||[])]
         .filter(Boolean).join(' ').toLowerCase();
       if (!hay.includes(q)) return false;
     }
