@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-09-11T09:51:37.422Z · 40 רכבים בסך הכל, 36 לא מכורים.
+עודכן: 2026-09-11T14:45:04.220Z · 40 רכבים בסך הכל, 36 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -34,18 +34,18 @@
 
 ### CHEVROLET
 
-- [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/412920/): 2026 · לבן · חדש · זמין · תקינה קנדית, נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/413810/): 2026 · לבן · חדש · זמין · תקינה קנדית, נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/414331/): 2026 · לבן · חדש · זמין · תקינה קנדית, נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/412956/): 2026 · שחור · חדש · זמין · תקינה פדרלית, נקודת עיגון, הנעה מרחוק · גג פנורמי
-- [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/415561/): 2026 · שחור · חדש · זמין · תקינה פדרלית, נקודת עיגון, הנעה מרחוק · גג פנורמי
-- [CHEVROLET SILVERADO EV LT ER PLUS PACKAGE 2026](https://www.yedidia-motors.com/stock/415662/): 2026 · שחור · חדש · נמכר · תקינה פדרלית, נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/413288/): 2026 · אפור בטון · חדש · זמין · תקינה פדרלית, נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV LT PLUS ER 2026](https://www.yedidia-motors.com/stock/413563/): 2026 · בלו סמוק · חדש · זמין · תקינה פדרלית, נקודת עיגון, הנעה מרחוק · ללא בדליינר
-- [CHEVROLET SILVERADO LT EV MR 2026](https://www.yedidia-motors.com/stock/414671/): 2026 · בלו סמוק · חדש · זמין · תקינה קנדית, נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV TRAIL BOSS MR 2026 2026](https://www.yedidia-motors.com/stock/410292/): 2026 · כחול · חדש · נמכר · תקינה קנדית, נקודת עיגון, חניה אוטומטית, הנעה מרחוק
-- [CHEVROLET SILVERADO EV TRAIL BOSS PLUS ER 2026](https://www.yedidia-motors.com/stock/412562/): 2026 · אפור מט · חדש · זמין · תקינה פדרלית, נקודת עיגון, חניה אוטומטית, הנעה מרחוק · בלי גג פנורמי ללא בדליינר
-- [CHEVROLET SILVERADO EV TRAIL BOSS PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413055/): 2026 · לבן פנינה · חדש · נמכר · תקינה פדרלית, נקודת עיגון, הנעה מרחוק · עם גג פנורמי
+- [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/412920/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק
+- [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/413810/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק
+- [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/414331/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק
+- [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/412956/): 2026 · שחור · חדש · זמין · נקודת עיגון, הנעה מרחוק · גג פנורמי
+- [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/415561/): 2026 · שחור · חדש · זמין · נקודת עיגון, הנעה מרחוק · גג פנורמי
+- [CHEVROLET SILVERADO EV LT ER PLUS PACKAGE 2026](https://www.yedidia-motors.com/stock/415662/): 2026 · שחור · חדש · נמכר · נקודת עיגון, הנעה מרחוק
+- [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/413288/): 2026 · אפור בטון · חדש · זמין · נקודת עיגון, הנעה מרחוק
+- [CHEVROLET SILVERADO EV LT PLUS ER 2026](https://www.yedidia-motors.com/stock/413563/): 2026 · בלו סמוק · חדש · זמין · נקודת עיגון, הנעה מרחוק · ללא בדליינר
+- [CHEVROLET SILVERADO LT EV MR 2026](https://www.yedidia-motors.com/stock/414671/): 2026 · בלו סמוק · חדש · זמין · נקודת עיגון, הנעה מרחוק
+- [CHEVROLET SILVERADO EV TRAIL BOSS MR 2026 2026](https://www.yedidia-motors.com/stock/410292/): 2026 · כחול · חדש · נמכר · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
+- [CHEVROLET SILVERADO EV TRAIL BOSS PLUS ER 2026](https://www.yedidia-motors.com/stock/412562/): 2026 · אפור מט · חדש · זמין · נקודת עיגון, חניה אוטומטית, הנעה מרחוק · בלי גג פנורמי ללא בדליינר
+- [CHEVROLET SILVERADO EV TRAIL BOSS PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413055/): 2026 · לבן פנינה · חדש · נמכר · נקודת עיגון, הנעה מרחוק · עם גג פנורמי
 - [CHEVROLET SAVANA MAX 2018](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SAVANA-MAX-2018-8JEKT/): 2018 · לבן · יד שנייה · 225,000 ק״מ · זמין · יד 2
 - [CHEVROLET SILVERADO LTZ + 2021](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/): 2021 · לבן · יד שנייה · 161,000 ק״מ · זמין · יד 1
 - [CHEVROLET SILVERADO LTZ + 2022](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/): 2022 · לבן · יד שנייה · 155,000 ק״מ · זמין · יד 1
@@ -53,26 +53,26 @@
 
 ### GMC
 
-- [GMC HUMMER EV 2X PICKUP 2026](https://www.yedidia-motors.com/stock/604899/): 2026 · לבן · חדש · זמין · תקינה קנדית
-- [GMC HUMMER EV 2X PICKUP 2026](https://www.yedidia-motors.com/stock/605037/): 2026 · לבן · חדש · זמין · תקינה קנדית
-- [GMC SIERRA DENALI EV MR 2026](https://www.yedidia-motors.com/stock/417238/): 2026 · אפור בטון · חדש · זמין · תקינה פדרלית, נקודת עיגון, חניה אוטומטית, הנעה מרחוק
-- [GMC SIERRA DENALI EV MR 2026](https://www.yedidia-motors.com/stock/416023/): 2026 · לבן פנינה · חדש · זמין · תקינה קנדית, נקודת עיגון, חניה אוטומטית, הנעה מרחוק
-- [GMC SIERRA EV AT4 PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413447/): 2026 · לבן · חדש · זמין · תקינה פדרלית, נקודת עיגון, הנעה מרחוק · ללא גג פנורמי
-- [GMC SIERRA EV ELEVATION PREMIUM DARK ER 2026](https://www.yedidia-motors.com/stock/412642/): 2026 · שחור · חדש · נמכר · תקינה קנדית, נקודת עיגון
-- [GMC SIERRA EV ELEVATION PREMIUM ER 18 2026](https://www.yedidia-motors.com/stock/408805/): 2026 · לבן · חדש · זמין · תקינה פדרלית, נקודת עיגון · 'גאנט
+- [GMC HUMMER EV 2X PICKUP 2026](https://www.yedidia-motors.com/stock/604899/): 2026 · לבן · חדש · זמין
+- [GMC HUMMER EV 2X PICKUP 2026](https://www.yedidia-motors.com/stock/605037/): 2026 · לבן · חדש · זמין
+- [GMC SIERRA DENALI EV MR 2026](https://www.yedidia-motors.com/stock/417238/): 2026 · אפור בטון · חדש · זמין · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
+- [GMC SIERRA DENALI EV MR 2026](https://www.yedidia-motors.com/stock/416023/): 2026 · לבן פנינה · חדש · זמין · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
+- [GMC SIERRA EV AT4 PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413447/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק · ללא גג פנורמי
+- [GMC SIERRA EV ELEVATION PREMIUM DARK ER 2026](https://www.yedidia-motors.com/stock/412642/): 2026 · שחור · חדש · נמכר · נקודת עיגון
+- [GMC SIERRA EV ELEVATION PREMIUM ER 18 2026](https://www.yedidia-motors.com/stock/408805/): 2026 · לבן · חדש · זמין · נקודת עיגון · 'גאנט
 
 ### MERCEDES
 
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/220351/): 2026 · שחור מטאלי · חדש · זמין · תקינה קנדית, חניה אוטומטית · ואקום / 20" / וילונות / (מסאז', קירור+חימום מושבים, חימום ידיות, חבילת בישום)
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/223052/): 2026 · שחור מטאלי · חדש · זמין · תקינה קנדית, חניה אוטומטית · ואקום / 20" / וילונות / (מסאז', קירור+חימום מושבים, חימום ידיות, חבילת בישום)
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/229081/): 2026 · שחור מטאלי · חדש · זמין · תקינה קנדית, חניה אוטומטית · ואקום / 21" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/229179/): 2026 · שחור מטאלי · חדש · זמין · תקינה קנדית, חניה אוטומטית · ואקום / 21" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/229313/): 2026 · שחור מטאלי · חדש · זמין · תקינה קנדית, חניה אוטומטית · 21" / חבילת USB / ללא וילונות / חימום+איוורור מושבים קדמי / חימום מושבים אחורי
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/221484/): 2026 · שחור · חדש · זמין · תקינה קנדית, חניה אוטומטית · ואקום / 21" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/258011/): 2026 · שחור · חדש · זמין · תקינה קנדית, חניה אוטומטית · מסך כפול / גאמט 21
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/258245/): 2026 · שחור · חדש · זמין · תקינה קנדית, חניה אוטומטית · מסך כפול / גאנט 20
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/257709/): 2026 · שחור · חדש · זמין · תקינה קנדית, חניה אוטומטית · מסך כפול / גאמט 21
-- [MERCEDES GLC COUPE 300 4MATIC 2026](https://www.yedidia-motors.com/stock/495842/): 2026 · אפור בטון · חדש · זמין · תקינה קנדית, חניה אוטומטית
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/220351/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · ואקום / 20" / וילונות / (מסאז', קירור+חימום מושבים, חימום ידיות, חבילת בישום)
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/223052/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · ואקום / 20" / וילונות / (מסאז', קירור+חימום מושבים, חימום ידיות, חבילת בישום)
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/229081/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · ואקום / 21" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/229179/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · ואקום / 21" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/229313/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · 21" / חבילת USB / ללא וילונות / חימום+איוורור מושבים קדמי / חימום מושבים אחורי
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/221484/): 2026 · שחור · חדש · זמין · חניה אוטומטית · ואקום / 21" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/258011/): 2026 · שחור · חדש · זמין · חניה אוטומטית · מסך כפול / גאמט 21
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/258245/): 2026 · שחור · חדש · זמין · חניה אוטומטית · מסך כפול / גאנט 20
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/257709/): 2026 · שחור · חדש · זמין · חניה אוטומטית · מסך כפול / גאמט 21
+- [MERCEDES GLC COUPE 300 4MATIC 2026](https://www.yedidia-motors.com/stock/495842/): 2026 · אפור בטון · חדש · זמין · חניה אוטומטית
 - [MERCEDES S500 2021](https://www.yedidia-motors.com/stock/TI-MERCEDES-S500-2021-4YKD6/): 2021 · כסוף · יד שנייה · 120,000 ק״מ · זמין · יד 2
 - [MERCEDES GLC 300E 2021](https://www.yedidia-motors.com/stock/TI-MERCEDES-GLC-300E-2021-7THAS/): 2021 · כסף מטלי · יד שנייה · 102,000 ק״מ · זמין · יד 1
 
