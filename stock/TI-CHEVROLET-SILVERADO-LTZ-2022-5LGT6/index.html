@@ -57,8 +57,9 @@
   .share a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--muted);background:var(--bg-2)}
   .share a:hover,.share a:focus-visible{color:var(--fg);border-color:var(--gold)}
   .share svg{width:22px;height:22px;fill:currentColor}
-  .note{color:var(--muted);font-size:14px;margin:-6px 0 24px}
-  .note a{color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 8px;list-style:none}
+  .chips li{background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--fg)}
+  ul.eq{color:var(--fg);line-height:1.7}
   .p{background:var(--gold);color:#0b0b0c}
   .s{border:1px solid var(--line);color:var(--fg)}
   .none{background:var(--bg-3);border:1px solid var(--line);border-radius:10px;padding:40px;text-align:center;color:var(--muted)}
@@ -84,11 +85,11 @@
 
   <h2>מפרט</h2>
   <table><tr><th>יצרן</th><td>CHEVROLET</td></tr><tr><th>דגם</th><td>SILVERADO LTZ +</td></tr><tr><th>שנת דגם</th><td>2022</td></tr><tr><th>צבע</th><td>לבן</td></tr><tr><th>קילומטראז׳</th><td>155,000 ק״מ</td></tr><tr><th>מצב הרכב</th><td>יד שנייה</td></tr><tr><th>סטטוס</th><td>זמין</td></tr><tr><th>מזהה</th><td>TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6</td></tr></table>
-  
 
-  <h2>אביזרים</h2>
-  <ul><li>יד 1</li></ul>
   
+  
+  <h2>ברכב זה</h2>
+  <ul class="eq"><li>יד 1</li></ul>
 
   <h2>מחיר</h2>
   <p>המחיר נמסר בפנייה ישירה — לפרטים צרו קשר.</p>

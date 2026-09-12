@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-09-12T17:14:56.364Z · 28 רכבים בסך הכל, 24 לא מכורים.
+עודכן: 2026-09-12T17:23:15.574Z · 28 רכבים בסך הכל, 24 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -34,6 +34,10 @@
 
 ### CHEVROLET
 
+- [CHEVROLET SAVANA MAX 2018](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SAVANA-MAX-2018-8JEKT/): 2018 · לבן · יד שנייה · 225,000 ק״מ · זמין · יד 2
+- [CHEVROLET SILVERADO LTZ + 2021](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/): 2021 · לבן · יד שנייה · 161,000 ק״מ · זמין · יד 1
+- [CHEVROLET SILVERADO LTZ + 2022](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/): 2022 · לבן · יד שנייה · 155,000 ק״מ · זמין · יד 1
+- [CHEVROLET SILVERADO 4WT 2025](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/): 2025 · לבן · יד שנייה · 42,000 ק״מ · זמין · יד 1
 - [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/414331/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק
 - [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/415561/): 2026 · שחור · חדש · זמין · נקודת עיגון, הנעה מרחוק · גג פנורמי
 - [CHEVROLET SILVERADO EV LT ER PLUS PACKAGE 2026](https://www.yedidia-motors.com/stock/415662/): 2026 · שחור · חדש · נמכר · נקודת עיגון, הנעה מרחוק
@@ -43,10 +47,6 @@
 - [CHEVROLET SILVERADO EV TRAIL BOSS MR 2026 2026](https://www.yedidia-motors.com/stock/410292/): 2026 · כחול · חדש · נמכר · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
 - [CHEVROLET SILVERADO EV TRAIL BOSS PLUS ER 2026](https://www.yedidia-motors.com/stock/412562/): 2026 · אפור מט · חדש · זמין · נקודת עיגון, חניה אוטומטית, הנעה מרחוק · בלי גג פנורמי ללא בדליינר
 - [CHEVROLET SILVERADO EV TRAIL BOSS PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413055/): 2026 · לבן פנינה · חדש · נמכר · נקודת עיגון, הנעה מרחוק · עם גג פנורמי
-- [CHEVROLET SAVANA MAX 2018](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SAVANA-MAX-2018-8JEKT/): 2018 · לבן · יד שנייה · 225,000 ק״מ · זמין · יד 2
-- [CHEVROLET SILVERADO LTZ + 2021](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/): 2021 · לבן · יד שנייה · 161,000 ק״מ · זמין · יד 1
-- [CHEVROLET SILVERADO LTZ + 2022](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/): 2022 · לבן · יד שנייה · 155,000 ק״מ · זמין · יד 1
-- [CHEVROLET SILVERADO 4WT 2025](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/): 2025 · לבן · יד שנייה · 42,000 ק״מ · זמין · יד 1
 
 ### GMC
 
@@ -59,10 +59,10 @@
 
 ### MERCEDES
 
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/257709/): 2026 · שחור · חדש · זמין · חניה אוטומטית · מסך כפול / גאמט 21
-- [MERCEDES GLC COUPE 300 4MATIC 2026](https://www.yedidia-motors.com/stock/495842/): 2026 · אפור בטון · חדש · זמין · חניה אוטומטית
 - [MERCEDES S500 2021](https://www.yedidia-motors.com/stock/TI-MERCEDES-S500-2021-4YKD6/): 2021 · כסוף · יד שנייה · 120,000 ק״מ · זמין · יד 2
 - [MERCEDES GLC 300E 2021](https://www.yedidia-motors.com/stock/TI-MERCEDES-GLC-300E-2021-7THAS/): 2021 · כסף מטלי · יד שנייה · 102,000 ק״מ · זמין · יד 1
+- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/257709/): 2026 · שחור · חדש · זמין · חניה אוטומטית · מסך כפול / גאמט 21
+- [MERCEDES GLC COUPE 300 4MATIC 2026](https://www.yedidia-motors.com/stock/495842/): 2026 · אפור בטון · חדש · זמין · חניה אוטומטית
 
 ### RAM
 

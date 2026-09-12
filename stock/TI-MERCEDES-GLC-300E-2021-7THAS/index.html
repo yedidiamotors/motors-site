@@ -57,8 +57,9 @@
   .share a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--muted);background:var(--bg-2)}
   .share a:hover,.share a:focus-visible{color:var(--fg);border-color:var(--gold)}
   .share svg{width:22px;height:22px;fill:currentColor}
-  .note{color:var(--muted);font-size:14px;margin:-6px 0 24px}
-  .note a{color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 8px;list-style:none}
+  .chips li{background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--fg)}
+  ul.eq{color:var(--fg);line-height:1.7}
   .p{background:var(--gold);color:#0b0b0c}
   .s{border:1px solid var(--line);color:var(--fg)}
   .none{background:var(--bg-3);border:1px solid var(--line);border-radius:10px;padding:40px;text-align:center;color:var(--muted)}
@@ -93,12 +94,13 @@
     </div>
 
   <h2>מפרט</h2>
-  <table><tr><th>יצרן</th><td>MERCEDES</td></tr><tr><th>דגם</th><td>GLC 300E</td></tr><tr><th>שנת דגם</th><td>2021</td></tr><tr><th>צבע</th><td>כסף מטלי</td></tr><tr><th>קילומטראז׳</th><td>102,000 ק״מ</td></tr><tr><th>מצב הרכב</th><td>יד שנייה</td></tr><tr><th>סטטוס</th><td>זמין</td></tr><tr><th>מזהה</th><td>TI-MERCEDES-GLC-300E-2021-7THAS</td></tr></table>
-  
+  <table><tr><th>יצרן</th><td>MERCEDES</td></tr><tr><th>דגם</th><td>GLC 300E</td></tr><tr><th>שנת דגם</th><td>2021</td></tr><tr><th>צבע</th><td>כסף מטלי</td></tr><tr><th>קילומטראז׳</th><td>102,000 ק״מ</td></tr><tr><th>מצב הרכב</th><td>יד שנייה</td></tr><tr><th>הספק</th><td>255 כ״ס</td></tr><tr><th>0–100 קמ״ש</th><td>6.2 שניות</td></tr><tr><th>כושר גרירה</th><td>עד כ־1,590 ק״ג</td></tr><tr><th>סטטוס</th><td>זמין</td></tr><tr><th>מזהה</th><td>TI-MERCEDES-GLC-300E-2021-7THAS</td></tr></table>
 
-  <h2>אביזרים</h2>
-  <ul><li>יד 1</li></ul>
+  <h2>אבזור</h2>
+  <ul class="eq"><li>מנוע 2.0 ליטר טורבו 4 צילינדרים עם מערכת היברידית קלה 48V — 255 כ״ס, 295 ליברות-רגל</li><li>תיבת הילוכים אוטומטית 9G-TRONIC ‏9 הילוכים והנעה כפולה 4MATIC</li><li>0–100 קמ״ש בכ־6.2 שניות</li><li>לוח מחוונים דיגיטלי 12.3 אינץ׳ ומסך מגע מרכזי 11.9 אינץ׳ (MBUX)</li><li>Apple CarPlay ו־Android Auto אלחוטיים, טעינה אלחוטית לטלפון</li><li>מושבים קדמיים חשמליים מחוממים עם זיכרון</li><li>גג זכוכית פנורמי נפתח</li><li>פנסי LED</li><li>תאורת אווירה 64 צבעים</li><li>דלת תא מטען חשמלית</li><li>Blind Spot Assist והתרעת חוצה־תנועה אחורית</li><li>Active Brake Assist</li><li>PARKTRONIC עם חניה אוטומטית וחיישני חניה קדמיים ואחוריים</li><li>KEYLESS-GO — כניסה והתנעה ללא מפתח</li><li>כושר גרירה עד כ־1,590 ק״ג</li></ul>
   
+  <h2>ברכב זה</h2>
+  <ul class="eq"><li>יד 1</li></ul>
 
   <h2>מחיר</h2>
   <p>המחיר נמסר בפנייה ישירה — לפרטים צרו קשר.</p>
@@ -110,7 +112,7 @@
   </div>
 
   <div class="share" aria-label="שיתוף">
-    <a href="https://wa.me/?text=%F0%9F%9A%98%20MERCEDES%20GLC%20300E%202021%0A%D7%99%D7%93%20%D7%A9%D7%A0%D7%99%D7%99%D7%94%20%C2%B7%20%D7%9B%D7%A1%D7%A3%20%D7%9E%D7%98%D7%9C%D7%99%20%C2%B7%20102%2C000%20%D7%A7%D7%B4%D7%9E%20%C2%B7%20%D7%99%D7%93%201%0A%D7%91%D7%9E%D7%9C%D7%90%D7%99%20%D7%91%D7%99%D7%93%D7%99%D7%93%D7%99%D7%94%20%D7%9E%D7%95%D7%98%D7%95%D7%A8%D7%A1%2C%20%D7%A7%D7%A8%D7%99%D7%AA%20%D7%90%D7%AA%D7%90.%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%AA%D7%99%D7%90%D7%95%D7%9D%20%D7%A0%D7%A1%D7%99%D7%A2%D7%AA%20%D7%9E%D7%91%D7%97%D7%9F%3A%2004-8419413%0Ahttps%3A%2F%2Fwww.yedidia-motors.com%2Fstock%2FTI-MERCEDES-GLC-300E-2021-7THAS%2F" target="_blank" rel="noopener" aria-label="שיתוף בוואטסאפ" title="שיתוף בוואטסאפ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg></a>
+    <a href="https://wa.me/?text=%F0%9F%9A%98%20MERCEDES%20GLC%20300E%202021%0A%D7%99%D7%93%20%D7%A9%D7%A0%D7%99%D7%99%D7%94%20%C2%B7%20%D7%9B%D7%A1%D7%A3%20%D7%9E%D7%98%D7%9C%D7%99%20%C2%B7%20102%2C000%20%D7%A7%D7%B4%D7%9E%20%C2%B7%20%D7%99%D7%93%201%0A%E2%9C%94%20%D7%9E%D7%A0%D7%95%D7%A2%202.0%20%D7%9C%D7%99%D7%98%D7%A8%20%D7%98%D7%95%D7%A8%D7%91%D7%95%204%20%D7%A6%D7%99%D7%9C%D7%99%D7%A0%D7%93%D7%A8%D7%99%D7%9D%20%D7%A2%D7%9D%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%94%D7%99%D7%91%D7%A8%D7%99%D7%93%D7%99%D7%AA%20%D7%A7%D7%9C%D7%94%2048V%20%E2%80%94%20255%20%D7%9B%D7%B4%D7%A1%2C%20295%20%D7%9C%D7%99%D7%91%D7%A8%D7%95%D7%AA-%D7%A8%D7%92%D7%9C%0A%E2%9C%94%20%D7%AA%D7%99%D7%91%D7%AA%20%D7%94%D7%99%D7%9C%D7%95%D7%9B%D7%99%D7%9D%20%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%98%D7%99%D7%AA%209G-TRONIC%20%E2%80%8F9%20%D7%94%D7%99%D7%9C%D7%95%D7%9B%D7%99%D7%9D%20%D7%95%D7%94%D7%A0%D7%A2%D7%94%20%D7%9B%D7%A4%D7%95%D7%9C%D7%94%204MATIC%0A%E2%9C%94%200%E2%80%93100%20%D7%A7%D7%9E%D7%B4%D7%A9%20%D7%91%D7%9B%D6%BE6.2%20%D7%A9%D7%A0%D7%99%D7%95%D7%AA%0A%D7%91%D7%9E%D7%9C%D7%90%D7%99%20%D7%91%D7%99%D7%93%D7%99%D7%93%D7%99%D7%94%20%D7%9E%D7%95%D7%98%D7%95%D7%A8%D7%A1%2C%20%D7%A7%D7%A8%D7%99%D7%AA%20%D7%90%D7%AA%D7%90.%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%AA%D7%99%D7%90%D7%95%D7%9D%20%D7%A0%D7%A1%D7%99%D7%A2%D7%AA%20%D7%9E%D7%91%D7%97%D7%9F%3A%2004-8419413%0Ahttps%3A%2F%2Fwww.yedidia-motors.com%2Fstock%2FTI-MERCEDES-GLC-300E-2021-7THAS%2F" target="_blank" rel="noopener" aria-label="שיתוף בוואטסאפ" title="שיתוף בוואטסאפ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg></a>
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.yedidia-motors.com%2Fstock%2FTI-MERCEDES-GLC-300E-2021-7THAS%2F" target="_blank" rel="noopener" aria-label="שיתוף בפייסבוק" title="שיתוף בפייסבוק"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg></a>
   </div>
 </main>
