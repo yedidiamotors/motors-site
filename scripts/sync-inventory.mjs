@@ -79,6 +79,8 @@ const HEADERS = {
   gvwr:        ['משקל כולל', 'gvwr'],
   plant:       ['ארץ ייצור', 'plant', 'country'],
   specSource:  ['מקור מפרט', 'spec source'],
+  seats:       ['מושבים', 'seats'],
+  safety:      ['אבזור בטיחות', 'בטיחות', 'safety'],
   features:    ['אביזרים', 'תוספות', 'features'],
   description: ['תיאור', 'description', 'הערות'],
   images:      ['תמונות', 'images', 'קישורי תמונות', 'תמונה'],
@@ -218,13 +220,94 @@ rows.slice(1).forEach((row, i) => {
     doors: toNumber(get(row, 'doors')),
     gvwr: get(row, 'gvwr'),
     plant: get(row, 'plant'),
+    seats: toNumber(get(row, 'seats')),
+    safety: mergeAirbags(splitList(get(row, 'safety'))),
     spec_source: get(row, 'specSource') || null,
-    features: splitList(get(row, 'features')),
+    // "תקינה קנדית/פדרלית" היא מידע פנימי — לא מוצג ללקוחות (ידידיה, 11/09/2026)
+    features: splitList(get(row, 'features')).filter(f => !/^תקינה/.test(f)),
     description: get(row, 'description'),
     imageIds,
     images: [],
   });
 });
+
+// "כריות אוויר: קדמיות, צד, וילון" מגיע כפריט אחד עם פסיקים — splitList מפרק אותו; מאחדים בחזרה
+function mergeAirbags(list) {
+  const out = [];
+  let inBags = false;
+  for (const item of list) {
+    if (/^כריות אוויר/.test(item)) { out.push(item); inBags = true; continue; }
+    if (inBags && /^(קדמיות|צד|וילון|ברכיים)$/.test(item)) { out[out.length - 1] += ', ' + item; continue; }
+    inBags = false; out.push(item);
+  }
+  return out;
+}
+
+/* ---------- אבזור לפי גימור + איחוד זהים ---------- */
+
+function applyTrimEquipment(list) {
+  const path = resolve(ROOT, 'data/trim-equipment.json');
+  if (!existsSync(path)) return;
+  let entries = [];
+  try { entries = JSON.parse(readFileSync(path, 'utf8')).entries || []; } catch (e) { console.log('trim-equipment.json לא נקרא: ' + e.message); return; }
+  const up = s => String(s ?? '').toUpperCase().trim();
+  let hit = 0;
+  for (const v of list) {
+    // "AT4 20" / "Denali 24" — GM מקודד את גודל החישוקים בשם הגימור
+    const m = up(v.trim).match(/^(.*?)\s+(1[7-9]|2[0-6])$/);
+    const trimBase = m ? m[1] : up(v.trim);
+    if (m) { v.wheels_in = Number(m[2]); v.trim_raw = v.trim; v.trim = m[1].trim() ? v.trim.replace(/\s+\d+$/, '') : v.trim; }
+    const e = entries.find(e => {
+      const mt = e.match || {};
+      if (mt.make && !new RegExp(mt.make, 'i').test(up(v.make))) return false;
+      if (mt.model && !new RegExp(mt.model, 'i').test(up(v.model))) return false;
+      if (mt.trim && !new RegExp(mt.trim, 'i').test(trimBase)) return false;
+      return true;
+    });
+    if (!e) continue;
+    const variant = (e.variants || {})[trimBase] || null;
+    // גרסת סוללה לפי שם הדגם בגיליון (ER/MR), וחבילות (PLUS/PREMIUM) שמופיעות בשם הדגם
+    const mv = (e.model_variants || []).find(x => new RegExp(x.match, 'i').test(up(v.model))) || null;
+    let equipment = (mv && mv.standard) || (variant && variant.standard) || e.standard || [];
+    for (const [word, lines] of Object.entries(e.packages || {})) {
+      if (new RegExp('\\b' + word + '\\b', 'i').test(up(v.model))) equipment = equipment.concat(lines);
+    }
+    v.equipment = equipment;
+    v.perf = Object.assign({}, e.perf || {}, (variant && variant.perf) || {}, (mv && mv.perf) || {});
+    v.equipment_slug = e.slug;
+    hit++;
+  }
+  console.log(`אבזור לפי גימור: ${hit}/${list.length} רכבים הותאמו.`);
+}
+
+function dedupeIdentical(list) {
+  const RANK = { available: 0, in_transit: 1, sold: 2 };
+  const groups = new Map();
+  const out = [];
+  for (const v of list) {
+    const isNew = /חדש/.test(v.condition || '') && !/^TI-/.test(v.id);
+    if (!isNew) { out.push(v); continue; }
+    const key = [v.make, v.model, v.year, v.trim, v.color].map(x => String(x ?? '').toUpperCase().trim()).join('|');
+    if (!groups.has(key)) { groups.set(key, []); }
+    groups.get(key).push(v);
+  }
+  for (const members of groups.values()) {
+    members.sort((a, b) => a.id.localeCompare(b.id));
+    const rep = members[0];
+    if (members.length > 1) {
+      rep.units = members.length;
+      rep.units_available = members.filter(m => m.status === 'available').length;
+      rep.status = members.map(m => m.status).sort((a, b) => (RANK[a] ?? 9) - (RANK[b] ?? 9))[0];
+      rep.images = [...new Set(members.flatMap(m => m.images || []))];
+      rep.description = rep.description || members.map(m => m.description).find(Boolean) || null;
+      rep.merged_ids = members.slice(1).map(m => m.id);
+    }
+    out.push(rep);
+  }
+  const merged = list.length - out.length;
+  if (merged) console.log(`איחוד רכבים זהים: ${merged} יחידות אוחדו לתוך ${[...groups.values()].filter(g => g.length > 1).length} כרטיסים.`);
+  return out;
+}
 
 /* ---------- המרת התמונות ואחסונן ברפו ---------- */
 
@@ -246,14 +329,26 @@ for (const v of vehicles) {
   delete v.imageIds;
 }
 
+/* ---------- אבזור לפי רמת גימור (data/trim-equipment.json) ---------- */
+
+applyTrimEquipment(vehicles);
+
+/* ---------- איחוד רכבים זהים ---------- */
+// ידידיה (11/09/2026): "אם יש את אותו הרכב מספר פעמים במלאי באותו הצבע מספיק שהוא יופיע פעם אחת,
+// וברגע שייגמר נרשום נמכר. הרכב הוא אותו הרכב." — רק לרכבים חדשים; יד שנייה נשארת פרטנית.
+// המזהה של הקבוצה הוא הקטן מבין המזהים (יציב כל עוד הרכב בגיליון), התמונות מאוחדות,
+// והסטטוס: זמין אם יש אחד זמין → בדרך אם יש אחד בדרך → אחרת נמכר.
+const publicVehicles = dedupeIdentical(vehicles);
+
 // תמונת מודעה 1200×630 לכל רכב (og:image לוואטסאפ/פייסבוק + קובץ להורדה)
-try { buildShareImages({ root: ROOT, vehicles }); } catch (e) { console.log('תמונות מודעה דולגו: ' + e.message); }
+try { buildShareImages({ root: ROOT, vehicles: publicVehicles }); } catch (e) { console.log('תמונות מודעה דולגו: ' + e.message); }
 
 const payload = {
   updated_at: new Date().toISOString(),
   source: 'google-sheet',
-  count: vehicles.length,
-  vehicles,
+  count: publicVehicles.length,
+  units: vehicles.length,
+  vehicles: publicVehicles,
 };
 
 mkdirSync(dirname(OUT), { recursive: true });
@@ -269,7 +364,7 @@ buildSeo({ root: ROOT, payload });
 
 const next = JSON.stringify(payload, null, 2) + '\n';
 if (unchanged) {
-  console.log(`אין שינוי במלאי (${vehicles.length} רכבים).`);
+  console.log(`אין שינוי במלאי (${publicVehicles.length} רכבים, ${vehicles.length} יחידות).`);
   process.exit(0);
 }
 

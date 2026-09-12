@@ -139,6 +139,7 @@ function vehicleLd(v) {
   if (v.doors) ld.numberOfDoors = v.doors;
   if (v.engine) ld.vehicleEngine = { '@type': 'EngineSpecification', name: v.engine, ...(v.fuel ? { fuelType: v.fuel } : {}) };
   if (v.plant) ld.countryOfOrigin = v.plant;
+  if (v.seats) ld.vehicleSeatingCapacity = v.seats;
   return ld;
 }
 
@@ -160,10 +161,12 @@ function breadcrumbLd(v) {
 export function adText(v) {
   const bits = [v.condition, v.trim, v.color, v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null, ...(v.features || [])].filter(Boolean);
   const spec = [v.engine, v.drivetrain, v.transmission, v.body].filter(Boolean);
+  const eq = (v.equipment || []).slice(0, 3);
   return [
     `🚘 ${vehicleTitle(v)}`,
     bits.join(' · '),
     spec.join(' · '),
+    eq.length ? '✔ ' + eq.join('\n✔ ') : '',
     v.description || '',
     v.status === 'sold' ? 'נמכר — אבל יש עוד במלאי.' : `${STATUS_HE[v.status] === 'בדרך' ? 'בדרך לארץ' : 'במלאי'} בידידיה מוטורס, ${BIZ.city}. לפרטים ותיאום נסיעת מבחן: ${BIZ.landlineHe}`,
     vehicleUrl(v),
@@ -174,12 +177,20 @@ function vehiclePage(v) {
   const title = `${vehicleTitle(v)}${v.color ? ' · ' + v.color : ''} | ${BIZ.name}`;
   const desc = vehicleDescription(v);
   const url = vehicleUrl(v);
+  const perf = v.perf || {};
   const specs = [
     ['יצרן', v.make], ['דגם', v.model], ['שנת דגם', v.year], ['גימור', v.trim], ['סדרה', v.series && v.series !== v.trim ? v.series : null],
     ['צבע', v.color],
     ['קילומטראז׳', v.km != null ? num(v.km) + ' ק״מ' : null],
     ['מצב הרכב', v.condition], ['מרכב', v.body], ['מנוע', v.engine], ['דלק', v.fuel], ['הנעה', v.drivetrain],
-    ['תיבת הילוכים', v.transmission], ['דלתות', v.doors], ['משקל כולל מותר', v.gvwr], ['ארץ ייצור', v.plant],
+    ['תיבת הילוכים', v.transmission], ['דלתות', v.doors], ['מושבים', v.seats],
+    ['חישוקים', v.wheels_in ? v.wheels_in + ' אינץ׳' : null],
+    ['הספק', perf.hp && !/כ״ס/.test(v.engine || '') ? num(perf.hp) + ' כ״ס' : null],
+    ['טווח נסיעה', perf.range_km ? 'עד כ־' + num(perf.range_km) + ' ק״מ (הערכת יצרן)' : null],
+    ['טעינה מהירה', perf.dc_kw ? 'עד ' + perf.dc_kw + ' קילוואט DC' : null],
+    ['0–100 קמ״ש', perf.accel_0_100 ? perf.accel_0_100 + ' שניות' : null],
+    ['כושר גרירה', perf.towing_kg ? 'עד כ־' + num(perf.towing_kg) + ' ק״ג' : null],
+    ['משקל כולל מותר', v.gvwr], ['ארץ ייצור', v.plant],
     ['סטטוס', STATUS_HE[v.status]], ['מזהה', v.id],
   ].filter(([, val]) => val !== null && val !== undefined && val !== '');
 
@@ -245,8 +256,9 @@ ${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image
   .share a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--muted);background:var(--bg-2)}
   .share a:hover,.share a:focus-visible{color:var(--fg);border-color:var(--gold)}
   .share svg{width:22px;height:22px;fill:currentColor}
-  .note{color:var(--muted);font-size:14px;margin:-6px 0 24px}
-  .note a{color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 8px;list-style:none}
+  .chips li{background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--fg)}
+  ul.eq{color:var(--fg);line-height:1.7}
   .p{background:var(--gold);color:#0b0b0c}
   .s{border:1px solid var(--line);color:var(--fg)}
   .none{background:var(--bg-3);border:1px solid var(--line);border-radius:10px;padding:40px;text-align:center;color:var(--muted)}
@@ -267,10 +279,10 @@ ${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image
 
   <h2>מפרט</h2>
   <table>${specs.map(([k, val]) => `<tr><th>${esc(k)}</th><td>${esc(val)}</td></tr>`).join('')}</table>
-  ${v.spec_source === 'VIN' ? `<p class="note">שנת הדגם והמפרט פוענחו ממספר השלדה של הרכב הזה (מאגר NHTSA של משרד התחבורה האמריקאי). האבזור בפועל נקבע לפי הרכב באולם — ראו <a href="/legal/disclaimer/">הצהרת אחריות</a>.</p>` : ''}
 
-  ${(v.features || []).length ? `<h2>אביזרים</h2>\n  <ul>${v.features.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
-  ${v.description && v.description.length <= 60 ? `<h2>תיאור</h2>\n  <p>${esc(v.description)}</p>` : ''}
+  ${(v.equipment || []).length ? `<h2>אבזור</h2>\n  <ul class="eq">${v.equipment.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
+  ${(v.safety || []).length ? `<h2>בטיחות ועזרי נהיגה</h2>\n  <ul class="chips">${v.safety.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
+  ${((v.features || []).length || (v.description && v.description.length <= 60)) ? `<h2>ברכב זה</h2>\n  <ul class="eq">${[...(v.features || []), ...(v.description && v.description.length <= 60 ? [v.description] : [])].map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
 
   <h2>מחיר</h2>
   <p>המחיר נמסר בפנייה ישירה — לפרטים צרו קשר.</p>
@@ -446,6 +458,13 @@ export function buildSeo({ root, payload, log = console.log }) {
     const dir = join(stockDir, v.id);
     mkdirSync(dir, { recursive: true });
     writeFileSync(join(dir, 'index.html'), vehiclePage(v));
+    // רכבים זהים שאוחדו לכרטיס הזה — קישור ישן שלהם מפנה לכרטיס המאוחד
+    for (const mid of (v.merged_ids || [])) {
+      live.add(mid);
+      const mdir = join(stockDir, mid);
+      mkdirSync(mdir, { recursive: true });
+      writeFileSync(join(mdir, 'index.html'), `<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><title>${esc(vehicleTitle(v))}</title><link rel="canonical" href="${esc(vehicleUrl(v))}"><meta http-equiv="refresh" content="0;url=/stock/${encodeURIComponent(v.id)}/"><meta name="robots" content="noindex"></head><body><a href="/stock/${encodeURIComponent(v.id)}/">${esc(vehicleTitle(v))}</a></body></html>\n`);
+    }
   }
 
   // ניקוי עמודים של רכבים שכבר לא במלאי
