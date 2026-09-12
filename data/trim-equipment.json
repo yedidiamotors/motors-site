@@ -1,0 +1,440 @@
+{
+  "_readme": "אבזור סטנדרטי לפי רמת גימור — נאסף מאתרי היצרנים, מדבקות חלון של סוחרים בארה\"ב, Edmunds ו-GM Authority (09/2026). scripts/sync-inventory.mjs מתאים כל רכב לרשומה לפי יצרן/דגם/גימור (מה-VIN) ומוסיף v.equipment + v.perf. 'variants' — הבדלים לפי קוד גימור מדויק. 'optional' נשמר לתיעוד ולא מוצג באתר (לא ידוע אם הרכב הספציפי כולל אותו). כשמגיע דגם חדש למלאי — להוסיף רשומה כאן. 'model_variants' — התאמה לפי שם הדגם בגיליון (ER = Extended Range, MR = Max Range); 'packages' — מילה בשם הדגם בגיליון (PLUS / PREMIUM) מוסיפה את תוכן החבילה.",
+  "entries": [
+    {
+      "slug": "hummer-ev-2x",
+      "match": {
+        "make": "GMC",
+        "model": "HUMMER",
+        "trim": "2X"
+      },
+      "perf": {
+        "range_km": 508,
+        "hp": 570,
+        "dc_kw": 350,
+        "towing_kg": 5490
+      },
+      "standard": [
+        "שני מנועים חשמליים, הנעה e4WD — 570 כ״ס",
+        "טווח נסיעה עד כ־508 ק״מ (316 מייל, הערכת היצרן)",
+        "טעינה מהירה DC עד 350 קילוואט (ארכיטקטורת 800 וולט); מטען AC מובנה 19.2 קילוואט",
+        "מתלי אוויר אדפטיביים Air Ride כולל מצב Extract (הגבהה של כ־15 ס״מ)",
+        "היגוי ארבעה גלגלים עם CrabWalk — נסיעה אלכסונית",
+        "Super Cruise — נהיגה ללא ידיים בכבישים ממופים (מנוי ל־3 שנים)",
+        "מסך מרכזי 13.4 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
+        "מערכת שמע Bose Premium ‏14 רמקולים",
+        "מושבים קדמיים חשמליים 12 כיווני, מחוממים ומאווררים; מושבים אחוריים מחוממים",
+        "הגה מחומם ובקרת אקלים תלת־אזורית",
+        "גג Infinity Roof עם פאנלי Sky Panels נשלפים",
+        "חישוקי 22 אינץ׳ עם צמיגי All-Terrain",
+        "דלת ארגז MultiPro רב־תפקודית ותא מטען קדמי חשמלי (eTrunk)",
+        "טעינה אלחוטית לטלפון וחניה אוטומטית משופרת"
+      ],
+      "optional": [
+        "פאנלי גג שקופים Transparent Sky Panels",
+        "חבילת Extreme Off-Road — 635 כ״ס, צמיגי 35 אינץ׳, מיגון תחתי מלא, נעילות דיפרנציאל ומצלמות UltraVision"
+      ],
+      "sources": [
+        "https://www.gmc.com/electric/hummer-ev/pickup-truck",
+        "https://www.edmunds.com/gmc/hummer-ev/2026/trims/"
+      ]
+    },
+    {
+      "slug": "sierra-ev-denali",
+      "match": {
+        "make": "GMC",
+        "model": "SIERRA",
+        "trim": "DENALI"
+      },
+      "perf": {
+        "range_km": 769,
+        "hp": 760,
+        "dc_kw": 350,
+        "towing_kg": 5670
+      },
+      "standard": [
+        "סוללת Max Range — טווח עד כ־769 ק״מ (478 מייל, הערכת היצרן)",
+        "שני מנועים, הנעה e4WD — 760 כ״ס ו־785 ליברות-רגל במצב Max Power",
+        "טעינה מהירה DC עד 350 קילוואט (800 וולט) — כ־160 ק״מ ב־10 דקות; מטען AC 19.2 קילוואט",
+        "Energy Transfer Pro — הזנת חשמל החוצה עד 10.2 קילוואט (הזנת בית/כלים)",
+        "מתלי אוויר אדפטיביים Air Ride עם בקרת שיכוך רציפה",
+        "היגוי ארבעה גלגלים עם CrabWalk",
+        "Super Cruise — נהיגה ללא ידיים בכבישים ממופים, כולל בגרירה (OnStar ל־3 שנים)",
+        "מסך מרכזי 16.8 אינץ׳ עם Google Built-in, לוח מחוונים 11 אינץ׳ ותצוגה עילית 14 אינץ׳",
+        "מושבים קדמיים חשמליים, מחוממים ומאווררים; מושבים אחוריים חיצוניים מחוממים",
+        "גג זכוכית פנורמי קבוע",
+        "מערכת שמע Bose",
+        "MultiPro Midgate — פתח בין הארגז לתא הנוסעים (אורך מטען עד 3.3 מ׳) ודלת ארגז MultiPro שש־תפקודית",
+        "תא מטען קדמי חשמלי (eTrunk) וציפוי ארגז מותז",
+        "מצלמות HD Surround Vision, מראה־מצלמה אחורית, מצלמת ארגז ומערכת גרירה ProGrade"
+      ],
+      "optional": [
+        "כיסוי ארגז קשיח מתקפל",
+        "מטען ביתי GM PowerUp 2"
+      ],
+      "sources": [
+        "https://www.gmc.com/electric/sierra-ev/denali",
+        "https://news.gmc.com/newsroom.detail.html/Pages/news/us/en/2025/mar/0327-2026-gmc-sierra-ev.html"
+      ]
+    },
+    {
+      "slug": "sierra-ev-at4",
+      "match": {
+        "make": "GMC",
+        "model": "SIERRA",
+        "trim": "AT4"
+      },
+      "perf": {
+        "range_km": 628,
+        "hp": 625,
+        "dc_kw": 300,
+        "towing_kg": 5580
+      },
+      "standard": [
+        "סוללת Extended Range — טווח עד כ־628 ק״מ (390 מייל, הערכת היצרן)",
+        "שני מנועים, הנעה e4WD — 625 כ״ס ו־775 ליברות-רגל",
+        "טעינה מהירה DC עד 300 קילוואט",
+        "הגבהת שלדה של 5 ס״מ עם מתלים ייעודיים לשטח ומצב Terrain",
+        "צמיגי All-Terrain בקוטר 35 אינץ׳",
+        "היגוי ארבעה גלגלים עם CrabWalk",
+        "Super Cruise — נהיגה ללא ידיים בכבישים ממופים (OnStar ל־3 שנים)",
+        "מסך מרכזי 16.8 אינץ׳ עם Google Built-in, לוח מחוונים 11 אינץ׳ ותצוגה עילית 14 אינץ׳",
+        "מושבים קדמיים חשמליים, מחוממים ומאווררים; מושבים אחוריים חיצוניים מחוממים",
+        "מערכת שמע Bose ‏7 רמקולים עם סאב־וופר",
+        "ווי חילוץ קדמיים אדומים וסמל GMC מואר",
+        "דלת ארגז MultiPro שש־תפקודית, ציפוי ארגז מותז ותא מטען קדמי חשמלי (eTrunk)",
+        "Energy Transfer — הזנת חשמל החוצה עד 7.2 קילוואט"
+      ],
+      "optional": [
+        "סוללת Max Range (769 ק״מ, 725 כ״ס, 350 קילוואט DC)",
+        "חבילת AT4 Premium — MultiPro Midgate + חבילת Technology",
+        "גג זכוכית פנורמי"
+      ],
+      "sources": [
+        "https://www.gmc.com/electric/sierra-ev/at4",
+        "https://www.kbb.com/gmc/sierra-ev/2026/at4-extended-range"
+      ],
+      "packages": {
+        "PREMIUM": [
+          "חבילת AT4 Premium: MultiPro Midgate — פתח בין הארגז לתא הנוסעים, מצלמת ארגז, מראה־מצלמה אחורית ומערכת גרירה ProGrade"
+        ]
+      }
+    },
+    {
+      "slug": "sierra-ev-elevation",
+      "match": {
+        "make": "GMC",
+        "model": "SIERRA",
+        "trim": "ELEVATION"
+      },
+      "perf": {
+        "range_km": 455,
+        "hp": 605,
+        "dc_kw": 220,
+        "towing_kg": 5670
+      },
+      "standard": [
+        "טווח עד כ־455 ק״מ (283 מייל, EPA) בסוללת Standard Range; Extended Range: עד כ־660 ק״מ",
+        "שני מנועים, הנעה e4WD — 605 כ״ס (Extended Range: 645 כ״ס)",
+        "טעינה מהירה DC עד 220 קילוואט (Extended Range: עד 300 קילוואט)",
+        "מסך מרכזי 16.8 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
+        "מושב נהג חשמלי 10 כיווני מחומם עם תמיכה לומברית; מושב נוסע מחומם",
+        "הגה מחומם",
+        "דלת ארגז MultiPro שש־תפקודית",
+        "תא מטען קדמי חשמלי (eTrunk)",
+        "עיצוב פנים After Dark",
+        "מעל 16 מערכות בטיחות וסיוע לנהג, כולל בלימת חירום בצמתים",
+        "בקרת שיוט אדפטיבית ומצלמות HD Surround Vision",
+        "כושר גרירה עד כ־5,670 ק״ג"
+      ],
+      "optional": [
+        "סוללת Extended Range",
+        "Super Cruise",
+        "חבילת Comfort & Convenience — מושבים מאווררים, Bose",
+        "חבילת Elevation Premium — MultiPro Midgate"
+      ],
+      "sources": [
+        "https://www.gmc.com/electric/sierra-ev/elevation"
+      ],
+      "packages": {
+        "PREMIUM": [
+          "חבילת Elevation Premium: MultiPro Midgate — פתח בין הארגז לתא הנוסעים, מצלמות HD Surround Vision, ציפוי ארגז מותז"
+        ]
+      },
+      "model_variants": [
+        {
+          "match": "\\bER\\b",
+          "perf": {
+            "range_km": 660,
+            "hp": 645,
+            "dc_kw": 300,
+            "towing_kg": 5670
+          },
+          "standard": [
+            "סוללת Extended Range — טווח עד כ־660 ק״מ (410 מייל, הערכת היצרן)",
+            "שני מנועים, הנעה e4WD — 645 כ״ס ו־765 ליברות-רגל",
+            "טעינה מהירה DC עד 300 קילוואט",
+            "מסך מרכזי 16.8 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
+            "מושב נהג חשמלי 10 כיווני מחומם עם תמיכה לומברית; מושב נוסע מחומם",
+            "הגה מחומם",
+            "דלת ארגז MultiPro שש־תפקודית",
+            "תא מטען קדמי חשמלי (eTrunk)",
+            "עיצוב פנים After Dark",
+            "מעל 16 מערכות בטיחות וסיוע לנהג, כולל בלימת חירום בצמתים",
+            "בקרת שיוט אדפטיבית ומצלמות HD Surround Vision",
+            "כושר גרירה עד כ־5,670 ק״ג"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "silverado-ev-wt",
+      "match": {
+        "make": "CHEVROLET",
+        "model": "SILVERADO",
+        "trim": "WT"
+      },
+      "perf": {
+        "range_km": 793,
+        "hp": 510,
+        "dc_kw": 350,
+        "towing_kg": 5670
+      },
+      "standard": [
+        "סוללת Max Range — טווח עד כ־793 ק״מ (493 מייל, EPA)",
+        "שני מנועים, הנעה 4WD — 510 כ״ס ו־580 ליברות-רגל",
+        "טעינה מהירה DC עד 350 קילוואט (800 וולט) — כ־160 ק״מ ב־10 דקות; מטען AC 19.2 קילוואט",
+        "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
+        "ריפוד Evotex (דמוי עור), בקרת אקלים דו־אזורית",
+        "תא מטען קדמי נעול (eTrunk)",
+        "מצלמות HD Surround Vision",
+        "Chevy Safety Assist — בלימת חירום אוטומטית משופרת, התרעת התנגשות, שמירת נתיב, IntelliBeam",
+        "בקרת שיוט אדפטיבית והכוונת וו גרירה (Hitch Guidance)",
+        "כניסה והתנעה ללא מפתח, פנסי LED, מראות חשמליות מחוממות",
+        "כושר גרירה עד כ־5,670 ק״ג"
+      ],
+      "optional": [
+        "חבילת WT Plus — הזנת חשמל החוצה 7.2 קילוואט, דלת ארגז Multi-Flex",
+        "חבילת Custom — חישוקי 22 אינץ׳"
+      ],
+      "sources": [
+        "https://news.chevrolet.com/newsroom.detail.html/Pages/news/us/en/2025/may/0521-Trail-Boss-joins-2026-Chevrolet-Silverado-EV.html"
+      ]
+    },
+    {
+      "slug": "silverado-ev-lt",
+      "match": {
+        "make": "CHEVROLET",
+        "model": "SILVERADO",
+        "trim": "^[0-9]LT$"
+      },
+      "perf": {
+        "range_km": 660,
+        "hp": 645,
+        "dc_kw": 300,
+        "towing_kg": 5670
+      },
+      "standard": [
+        "סוללת Extended Range — טווח עד כ־660 ק״מ (410 מייל, EPA)",
+        "שני מנועים, הנעה 4WD — 645 כ״ס ו־765 ליברות-רגל במצב WOW",
+        "טעינה מהירה DC עד 300 קילוואט; מטען AC מובנה 11.5 קילוואט",
+        "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
+        "תאורת LED מלאה כולל סמל Bowtie קדמי מואר",
+        "תא מטען קדמי חשמלי (eTrunk) עם מכסה מנוע חשמלי",
+        "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
+        "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision, בקר בלמי גרור",
+        "כניסה והתנעה ללא מפתח, התנעה מרחוק, Hitch Guidance",
+        "כושר גרירה עד כ־5,670 ק״ג"
+      ],
+      "variants": {
+        "4LT": {
+          "perf": {
+            "range_km": 769,
+            "hp": 760,
+            "dc_kw": 350,
+            "towing_kg": 5670
+          },
+          "standard": [
+            "סוללת Max Range — טווח עד כ־769 ק״מ (478 מייל, הערכת היצרן)",
+            "שני מנועים, הנעה 4WD — 760 כ״ס",
+            "טעינה מהירה DC עד 350 קילוואט; מטען AC מובנה 19.2 קילוואט",
+            "חישוקי 22 אינץ׳ בעיבוד מכני",
+            "מושבים קדמיים חשמליים 12 כיווני, מחוממים ומאווררים; מושבים אחוריים מחוממים",
+            "מערכת שמע Bose",
+            "Super Cruise — נהיגה ללא ידיים בכבישים ממופים",
+            "דלת ארגז Multi-Flex",
+            "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
+            "תא מטען קדמי חשמלי (eTrunk) עם מכסה מנוע חשמלי",
+            "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
+            "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision, בקר בלמי גרור",
+            "כושר גרירה עד כ־5,670 ק״ג"
+          ]
+        }
+      },
+      "optional": [
+        "חבילת Plus — מושבים מחוממים ומאווררים, Multi-Flex",
+        "חבילת Premium — Super Cruise, תצוגה עילית, Multi-Flex Midgate",
+        "גג זכוכית פנורמי"
+      ],
+      "sources": [
+        "https://www.chevrolet.com/electric/silverado-ev",
+        "https://www.edmunds.com/chevrolet/silverado-ev/2026/trims/"
+      ],
+      "packages": {
+        "PLUS": [
+          "חבילת Plus: מושבים קדמיים חשמליים מחוממים ומאווררים, מושבים אחוריים מחוממים, דלת ארגז Multi-Flex, הזנת חשמל החוצה"
+        ],
+        "PREMIUM": [
+          "חבילת Premium: Super Cruise — נהיגה ללא ידיים בכבישים ממופים, תצוגה עילית 14 אינץ׳, Multi-Flex Midgate — פתח בין הארגז לתא הנוסעים, מטען AC 19.2 קילוואט, חניה אוטומטית משופרת, ציפוי ארגז"
+        ]
+      }
+    },
+    {
+      "slug": "silverado-ev-trail-boss",
+      "match": {
+        "make": "CHEVROLET",
+        "model": "SILVERADO",
+        "trim": "^[0-9]TR$"
+      },
+      "perf": {
+        "range_km": 660,
+        "hp": 625,
+        "dc_kw": 300,
+        "towing_kg": 5670
+      },
+      "standard": [
+        "סוללת Extended Range — טווח עד כ־660 ק״מ (410 מייל, הערכת היצרן)",
+        "שני מנועים, הנעה 4WD — 625 כ״ס ו־775 ליברות-רגל",
+        "טעינה מהירה DC עד 300 קילוואט",
+        "הגבהת שלדה 5 ס״מ עם מתלי High Stance ובקרת ריבאונד הידראולית — מרווח גחון גבוה ב־24%",
+        "צמיגי All-Terrain בקוטר 35 אינץ׳",
+        "היגוי ארבעה גלגלים עם מצב Sidewinder (נסיעה אלכסונית) ומצב Terrain",
+        "חזית בזווית גישה גבוהה ווי חילוץ קדמיים אדומים",
+        "עיצוב פנים ייחודי עם תפרים אדומים",
+        "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
+        "תא מטען קדמי חשמלי (eTrunk), פנסי LED, תאורת ארגז LED",
+        "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
+        "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision",
+        "כושר גרירה עד כ־5,670 ק״ג, מטען עד כ־950 ק״ג"
+      ],
+      "variants": {
+        "3TR": {
+          "perf": {
+            "range_km": 769,
+            "hp": 725,
+            "dc_kw": 350,
+            "towing_kg": 5670
+          },
+          "standard": [
+            "סוללת Max Range — טווח עד כ־769 ק״מ (478 מייל, הערכת היצרן)",
+            "שני מנועים, הנעה 4WD — 725 כ״ס ו־775 ליברות-רגל",
+            "טעינה מהירה DC עד 350 קילוואט",
+            "הגבהת שלדה 5 ס״מ עם מתלי High Stance ובקרת ריבאונד הידראולית",
+            "צמיגי All-Terrain בקוטר 35 אינץ׳",
+            "היגוי ארבעה גלגלים עם מצב Sidewinder ומצב Terrain",
+            "חזית בזווית גישה גבוהה ווי חילוץ קדמיים אדומים",
+            "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
+            "תא מטען קדמי חשמלי (eTrunk), פנסי LED, תאורת ארגז LED",
+            "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
+            "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision",
+            "כושר גרירה עד כ־5,670 ק״ג"
+          ]
+        }
+      },
+      "optional": [
+        "חבילת Plus — מושבים מחוממים ומאווררים, Multi-Flex",
+        "חבילת Premium — Super Cruise, תצוגה עילית, Multi-Flex Midgate",
+        "גג זכוכית פנורמי"
+      ],
+      "sources": [
+        "https://news.chevrolet.com/newsroom.detail.html/Pages/news/us/en/2025/may/0521-Trail-Boss-joins-2026-Chevrolet-Silverado-EV.html"
+      ],
+      "packages": {
+        "PLUS": [
+          "חבילת Plus: מושבים קדמיים חשמליים מחוממים ומאווררים, מושבים אחוריים מחוממים, דלת ארגז Multi-Flex, הזנת חשמל החוצה"
+        ],
+        "PREMIUM": [
+          "חבילת Premium: Super Cruise — נהיגה ללא ידיים בכבישים ממופים, תצוגה עילית 14 אינץ׳, Multi-Flex Midgate — פתח בין הארגז לתא הנוסעים, מטען AC 19.2 קילוואט, חניה אוטומטית משופרת, ציפוי ארגז"
+        ]
+      }
+    },
+    {
+      "slug": "e350-4matic",
+      "match": {
+        "make": "MERCEDES",
+        "model": "E ?350"
+      },
+      "perf": {
+        "hp": 255,
+        "accel_0_100": 6.1
+      },
+      "standard": [
+        "מנוע 2.0 ליטר טורבו 4 צילינדרים עם מערכת היברידית קלה 48V — 255 כ״ס, 295 ליברות-רגל",
+        "תיבת הילוכים אוטומטית 9G-TRONIC ‏9 הילוכים והנעה כפולה 4MATIC",
+        "0–100 קמ״ש בכ־6.1 שניות",
+        "MBUX דור שלישי — לוח מחוונים דיגיטלי 12.3 אינץ׳ ומסך מגע מרכזי 14.4 אינץ׳",
+        "Apple CarPlay ו־Android Auto אלחוטיים, טעינה אלחוטית לטלפון",
+        "מושבים קדמיים חשמליים מחוממים עם זיכרון ותמיכה לומברית",
+        "גג פנורמי עם חלון נפתח וסוכך חשמלי",
+        "פנסי LED עם אלומת גבוה אוטומטית",
+        "תאורת אווירה אקטיבית 64 צבעים",
+        "Blind Spot Assist עם Exit Warning Assist",
+        "Active Brake Assist ו־ATTENTION ASSIST",
+        "PARKTRONIC עם חניה אוטומטית (Active Parking Assist) ומצלמת 360°",
+        "KEYLESS-GO — כניסה והתנעה ללא מפתח"
+      ],
+      "optional": [
+        "MBUX Superscreen — מסך לנוסע הקדמי",
+        "חבילת Driver Assistance — DISTRONIC אקטיבי, Active Steering Assist",
+        "Burmester 4D Surround",
+        "AIRMATIC — מתלי אוויר",
+        "מושבים מאווררים / Multicontour עם עיסוי",
+        "AMG Line, DIGITAL LIGHT"
+      ],
+      "sources": [
+        "https://www.edmunds.com/mercedes-benz/e-class/2026/st-402082290/features-specs/",
+        "https://www.mbusa.com/content/mb-nafta/en_us/vehicles/model/e-class/sedan/e350w4.html"
+      ]
+    },
+    {
+      "slug": "glc300-coupe",
+      "match": {
+        "make": "MERCEDES",
+        "model": "GLC"
+      },
+      "perf": {
+        "hp": 255,
+        "accel_0_100": 6.2,
+        "towing_kg": 1590
+      },
+      "standard": [
+        "מנוע 2.0 ליטר טורבו 4 צילינדרים עם מערכת היברידית קלה 48V — 255 כ״ס, 295 ליברות-רגל",
+        "תיבת הילוכים אוטומטית 9G-TRONIC ‏9 הילוכים והנעה כפולה 4MATIC",
+        "0–100 קמ״ש בכ־6.2 שניות",
+        "לוח מחוונים דיגיטלי 12.3 אינץ׳ ומסך מגע מרכזי 11.9 אינץ׳ (MBUX)",
+        "Apple CarPlay ו־Android Auto אלחוטיים, טעינה אלחוטית לטלפון",
+        "מושבים קדמיים חשמליים מחוממים עם זיכרון",
+        "גג זכוכית פנורמי נפתח",
+        "פנסי LED",
+        "תאורת אווירה 64 צבעים",
+        "דלת תא מטען חשמלית",
+        "Blind Spot Assist והתרעת חוצה־תנועה אחורית",
+        "Active Brake Assist",
+        "PARKTRONIC עם חניה אוטומטית וחיישני חניה קדמיים ואחוריים",
+        "KEYLESS-GO — כניסה והתנעה ללא מפתח",
+        "כושר גרירה עד כ־1,590 ק״ג"
+      ],
+      "optional": [
+        "חבילת Driver Assistance",
+        "DISTRONIC — בקרת שיוט אדפטיבית",
+        "AMG Line",
+        "Pinnacle — Burmester 3D, תצוגה עילית, DIGITAL LIGHT",
+        "מושבים מאווררים, הגה מחומם",
+        "חישוקי 20 אינץ׳, ריפוד עור"
+      ],
+      "sources": [
+        "https://www.edmunds.com/mercedes-benz/glc-coupe/2026/st-402082767/features-specs/"
+      ]
+    }
+  ]
+}
