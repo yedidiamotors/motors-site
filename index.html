@@ -7,6 +7,65 @@
   <meta name="description" content="ידידיה מוטורס — סוכנות רכב ביבוא מקביל בקרית אתא. רכבים חדשים, טרייד-אין ורכבי יד שנייה נבדקים: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep ו-Ford. המעפילים 1, קרית אתא · 050-899-1090." data-ym-seo>
   <link rel="canonical" href="https://www.yedidia-motors.com/" data-ym-seo>
   <script src="/assets/site.js"></script>
+  <!-- מסך טעינה: לוגו פועם + פס זהב, נעלם אחרי ~2.2 שניות (העיצוב של ידידיה, 12/09/2026).
+       יושב מחוץ ל-bundle ומוזרק מחדש אחרי הפריסה (ה-bundle מחליף את ה-document) — לפי מלכודות 1 ו-7. -->
+  <link rel="preload" as="image" href="/assets/design/splash-logo.webp">
+  <style id="ym-splash-css">
+    #ym-splash{position:fixed;inset:0;z-index:2147483500;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;animation:ym-fade .5s ease var(--ym-splash-delay,2.2s) forwards;pointer-events:none}
+    #ym-splash img{width:min(220px,55vw);height:auto;display:block;animation:ym-pulse 1.4s ease-in-out infinite}
+    #ym-splash .bar{width:180px;height:2px;background:#222;overflow:hidden;position:relative}
+    #ym-splash .bar i{position:absolute;inset:0;background:linear-gradient(90deg,transparent,#C9A24A,transparent);animation:ym-sweep 1.2s ease-in-out infinite}
+    @keyframes ym-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.03);opacity:.85}}
+    @keyframes ym-sweep{0%{transform:translateX(-140%)}100%{transform:translateX(140%)}}
+    @keyframes ym-fade{to{opacity:0;visibility:hidden}}
+    @media (prefers-reduced-motion:reduce){#ym-splash img,#ym-splash .bar i{animation:none}}
+  </style>
+  <script>
+  (function () {
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    var SHOW = reduce ? 600 : 2200, FADE = 500, CAP = 8000;
+    var start = Date.now(), done = false, fadeAt = 0;
+    var cssEl = document.getElementById('ym-splash-css');
+    var CSS = cssEl ? cssEl.textContent : '';
+    // הדף האמיתי מוכן כשה-bundle פרס את #dc-root; עד אז המסך נשאר (עם תקרה של 8 שניות)
+    function rendered() { return !!document.querySelector('#dc-root .sc-host, #dc-root'); }
+    function build() {
+      var d = document.createElement('div');
+      d.id = 'ym-splash'; d.setAttribute('role', 'status'); d.setAttribute('aria-label', 'טוען');
+      d.style.setProperty('--ym-splash-delay', fadeAt ? Math.max(0, fadeAt - Date.now()) / 1000 + 's' : '999s');
+      d.innerHTML = '<img src="/assets/design/splash-logo.webp" alt="Yedidia Motors" width="220" height="220"><div class="bar"><i></i></div>';
+      return d;
+    }
+    function arm() {
+      if (fadeAt) return;
+      fadeAt = Math.max(Date.now(), start + SHOW);
+      var el = document.getElementById('ym-splash');
+      if (el) el.style.setProperty('--ym-splash-delay', (fadeAt - Date.now()) / 1000 + 's');
+    }
+    function ensure() {
+      if (done) return;
+      if (!fadeAt && (rendered() || Date.now() - start > CAP)) arm();
+      if (fadeAt && Date.now() > fadeAt + FADE) { finish(); return; }
+      if (!document.getElementById('ym-splash-css')) {
+        var st = document.createElement('style'); st.id = 'ym-splash-css'; st.textContent = CSS;
+        (document.head || document.documentElement).appendChild(st);
+      }
+      if (!document.getElementById('ym-splash')) (document.body || document.documentElement).appendChild(build());
+    }
+    var obs = null, timer = null;
+    function finish() {
+      done = true;
+      var el = document.getElementById('ym-splash'); if (el && el.parentNode) el.parentNode.removeChild(el);
+      var st = document.getElementById('ym-splash-css'); if (st && st.parentNode) st.parentNode.removeChild(st);
+      if (obs) { try { obs.disconnect(); } catch (e) {} }
+      if (timer) clearInterval(timer);
+    }
+    ensure();
+    try { obs = new MutationObserver(ensure); obs.observe(document, { childList: true, subtree: false }); } catch (e) {}
+    timer = setInterval(ensure, 100);
+  })();
+  </script>
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" data-ym-seo>
   <meta property="og:type" content="website" data-ym-seo>
   <meta property="og:site_name" content="ידידיה מוטורס" data-ym-seo>
