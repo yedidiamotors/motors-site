@@ -11,7 +11,7 @@
        יושב מחוץ ל-bundle ומוזרק מחדש אחרי הפריסה (ה-bundle מחליף את ה-document) — לפי מלכודות 1 ו-7. -->
   <link rel="preload" as="image" href="/assets/design/splash-logo.webp">
   <style id="ym-splash-css">
-    #ym-splash{position:fixed;inset:0;z-index:2147483500;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;animation:ym-fade .5s ease var(--ym-splash-delay,2.2s) forwards;pointer-events:none}
+    #ym-splash{position:fixed;inset:0;z-index:2147483500;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;animation:ym-fade .4s ease var(--ym-splash-delay,999s) forwards;pointer-events:none}
     #ym-splash img{width:min(220px,55vw);height:auto;display:block;animation:ym-pulse 1.4s ease-in-out infinite}
     #ym-splash .bar{width:180px;height:2px;background:#222;overflow:hidden;position:relative}
     #ym-splash .bar i{position:absolute;inset:0;background:linear-gradient(90deg,transparent,#C9A24A,transparent);animation:ym-sweep 1.2s ease-in-out infinite}
@@ -24,7 +24,12 @@
   (function () {
     var reduce = false;
     try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-    var SHOW = reduce ? 600 : 2200, FADE = 500, CAP = 8000;
+    // המסך נשאר כל עוד הדף נטען, ומינימום 0.9 שניות כדי שלא יהבהב (ידידיה 12/09: 2.2 שניות קבועות היו יותר מדי).
+    // מוצג פעם אחת בכל ביקור (sessionStorage) — חזרה לדף הבית מתוך האתר לא מציגה אותו שוב.
+    var seen = false;
+    try { seen = !!sessionStorage.getItem('ym_splash'); sessionStorage.setItem('ym_splash', '1'); } catch (e) {}
+    if (seen) return;
+    var SHOW = reduce ? 400 : 900, FADE = 400, CAP = 8000;
     var start = Date.now(), done = false, fadeAt = 0;
     var dbg = window.__ymSplash = { start: start, reduce: reduce, show: SHOW };
     var cssEl = document.getElementById('ym-splash-css');
