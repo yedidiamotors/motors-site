@@ -26,6 +26,7 @@
     try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
     var SHOW = reduce ? 600 : 2200, FADE = 500, CAP = 8000;
     var start = Date.now(), done = false, fadeAt = 0;
+    var dbg = window.__ymSplash = { start: start, reduce: reduce, show: SHOW };
     var cssEl = document.getElementById('ym-splash-css');
     var CSS = cssEl ? cssEl.textContent : '';
     // הדף האמיתי מוכן כשה-bundle פרס את #dc-root; עד אז המסך נשאר (עם תקרה של 8 שניות)
@@ -40,6 +41,7 @@
     function arm() {
       if (fadeAt) return;
       fadeAt = Math.max(Date.now(), start + SHOW);
+      dbg.armedAt = Date.now(); dbg.fadeAt = fadeAt; dbg.rendered = rendered();
       var el = document.getElementById('ym-splash');
       if (el) el.style.setProperty('--ym-splash-delay', (fadeAt - Date.now()) / 1000 + 's');
     }
@@ -55,7 +57,7 @@
     }
     var obs = null, timer = null;
     function finish() {
-      done = true;
+      done = true; dbg.finishedAt = Date.now();
       var el = document.getElementById('ym-splash'); if (el && el.parentNode) el.parentNode.removeChild(el);
       var st = document.getElementById('ym-splash-css'); if (st && st.parentNode) st.parentNode.removeChild(st);
       if (obs) { try { obs.disconnect(); } catch (e) {} }
