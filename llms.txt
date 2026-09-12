@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-09-11T14:45:04.220Z · 40 רכבים בסך הכל, 36 לא מכורים.
+עודכן: 2026-09-12T17:14:56.364Z · 28 רכבים בסך הכל, 24 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -34,10 +34,7 @@
 
 ### CHEVROLET
 
-- [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/412920/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/413810/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק
 - [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/414331/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/412956/): 2026 · שחור · חדש · זמין · נקודת עיגון, הנעה מרחוק · גג פנורמי
 - [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/415561/): 2026 · שחור · חדש · זמין · נקודת עיגון, הנעה מרחוק · גג פנורמי
 - [CHEVROLET SILVERADO EV LT ER PLUS PACKAGE 2026](https://www.yedidia-motors.com/stock/415662/): 2026 · שחור · חדש · נמכר · נקודת עיגון, הנעה מרחוק
 - [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/413288/): 2026 · אפור בטון · חדש · זמין · נקודת עיגון, הנעה מרחוק
@@ -53,7 +50,6 @@
 
 ### GMC
 
-- [GMC HUMMER EV 2X PICKUP 2026](https://www.yedidia-motors.com/stock/604899/): 2026 · לבן · חדש · זמין
 - [GMC HUMMER EV 2X PICKUP 2026](https://www.yedidia-motors.com/stock/605037/): 2026 · לבן · חדש · זמין
 - [GMC SIERRA DENALI EV MR 2026](https://www.yedidia-motors.com/stock/417238/): 2026 · אפור בטון · חדש · זמין · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
 - [GMC SIERRA DENALI EV MR 2026](https://www.yedidia-motors.com/stock/416023/): 2026 · לבן פנינה · חדש · זמין · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
@@ -63,14 +59,6 @@
 
 ### MERCEDES
 
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/220351/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · ואקום / 20" / וילונות / (מסאז', קירור+חימום מושבים, חימום ידיות, חבילת בישום)
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/223052/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · ואקום / 20" / וילונות / (מסאז', קירור+חימום מושבים, חימום ידיות, חבילת בישום)
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/229081/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · ואקום / 21" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/229179/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · ואקום / 21" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/229313/): 2026 · שחור מטאלי · חדש · זמין · חניה אוטומטית · 21" / חבילת USB / ללא וילונות / חימום+איוורור מושבים קדמי / חימום מושבים אחורי
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/221484/): 2026 · שחור · חדש · זמין · חניה אוטומטית · ואקום / 21" / וילונות / מושבים קדמי חימום+איוורור/ מושבים אחורי חימום
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/258011/): 2026 · שחור · חדש · זמין · חניה אוטומטית · מסך כפול / גאמט 21
-- [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/258245/): 2026 · שחור · חדש · זמין · חניה אוטומטית · מסך כפול / גאנט 20
 - [MERCEDES E350 2026](https://www.yedidia-motors.com/stock/257709/): 2026 · שחור · חדש · זמין · חניה אוטומטית · מסך כפול / גאמט 21
 - [MERCEDES GLC COUPE 300 4MATIC 2026](https://www.yedidia-motors.com/stock/495842/): 2026 · אפור בטון · חדש · זמין · חניה אוטומטית
 - [MERCEDES S500 2021](https://www.yedidia-motors.com/stock/TI-MERCEDES-S500-2021-4YKD6/): 2021 · כסוף · יד שנייה · 120,000 ק״מ · זמין · יד 2
