@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-12T17:23:15.574Z",
+  "updated_at": "2026-09-13T19:14:18.125Z",
   "source": "google-sheet",
   "count": 28,
   "units": 28,
@@ -660,6 +660,7 @@
       ],
       "description": null,
       "images": [
+        "/assets/vehicles/495842/1lzkT4bfXwCpEpNQzFtp7xofxf5cFqpNu.webp",
         "/assets/vehicles/495842/1CnsOiMVyWk_qBeeVXjfXWhSslW_DusNy.webp",
         "/assets/vehicles/495842/152OG2xtTafFKGG90mW3z0oMJkSEUf-RA.webp",
         "/assets/vehicles/495842/1MM2MCLjhSk10l9hdD2BE7me8LLaRxYEu.webp",
@@ -668,12 +669,9 @@
         "/assets/vehicles/495842/1yR_xJUVxO6S3tF4_fChWxBkXY5wsJ28O.webp",
         "/assets/vehicles/495842/1tkrzwE_kVuAeDJikQiveF52EBqywrTNB.webp",
         "/assets/vehicles/495842/1lZngvngFLfzZpy53Iwcas5cGF97Tdy-4.webp",
-        "/assets/vehicles/495842/1awHxLTYLB3wc-DGp9TZZQCisTQJ3cUlU.webp",
         "/assets/vehicles/495842/1kwkZq3VuUYJLh9SNgF0GTLMxytBHkIoN.webp",
-        "/assets/vehicles/495842/1XA-zBfWe2psvUgJt_VAjwcSCnaGlFWH2.webp",
         "/assets/vehicles/495842/12tCF3MOwsnN_IHRzVZfsyrILuM-Ncabo.webp",
         "/assets/vehicles/495842/1y_TbTCCJXFKzVyQdXyw9ek3IIe1f2Rpr.webp",
-        "/assets/vehicles/495842/1lzkT4bfXwCpEpNQzFtp7xofxf5cFqpNu.webp",
         "/assets/vehicles/495842/1Dsi2IL8k5wyycveCTy5P_2Kn-q2tcder.webp"
       ],
       "equipment": [
