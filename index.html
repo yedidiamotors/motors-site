@@ -25,10 +25,14 @@
     var reduce = false;
     try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
     // המסך נשאר כל עוד הדף נטען, ומינימום 0.9 שניות כדי שלא יהבהב (ידידיה 12/09: 2.2 שניות קבועות היו יותר מדי).
-    // מוצג פעם אחת בכל ביקור (sessionStorage) — חזרה לדף הבית מתוך האתר לא מציגה אותו שוב.
-    var seen = false;
-    try { seen = !!sessionStorage.getItem('ym_splash'); sessionStorage.setItem('ym_splash', '1'); } catch (e) {}
-    if (seen) return;
+    // מוצג בכניסה לאתר וברענון; לא מוצג כשמגיעים לדף הבית מקישור פנימי (המלאי, מדריך, אחורה) — ידידיה 13/09.
+    var internal = false;
+    try {
+      var nav = performance.getEntriesByType('navigation')[0];
+      var fromSite = document.referrer && new URL(document.referrer).origin === location.origin;
+      internal = !!nav && nav.type !== 'reload' && (nav.type === 'back_forward' || fromSite);
+    } catch (e) {}
+    if (internal) return;
     var SHOW = reduce ? 400 : 900, FADE = 400, CAP = 8000;
     var start = Date.now(), done = false, fadeAt = 0;
     var dbg = window.__ymSplash = { start: start, reduce: reduce, show: SHOW };
