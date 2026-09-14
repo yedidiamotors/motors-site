@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-09-13T19:14:18.125Z · 28 רכבים בסך הכל, 24 לא מכורים.
+עודכן: 2026-09-14T10:46:07.798Z · 27 רכבים בסך הכל, 24 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -54,7 +54,6 @@
 - [GMC SIERRA DENALI EV MR 2026](https://www.yedidia-motors.com/stock/417238/): 2026 · אפור בטון · חדש · זמין · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
 - [GMC SIERRA DENALI EV MR 2026](https://www.yedidia-motors.com/stock/416023/): 2026 · לבן פנינה · חדש · זמין · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
 - [GMC SIERRA EV AT4 PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413447/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק · ללא גג פנורמי
-- [GMC SIERRA EV ELEVATION PREMIUM DARK ER 2026](https://www.yedidia-motors.com/stock/412642/): 2026 · שחור · חדש · נמכר · נקודת עיגון
 - [GMC SIERRA EV ELEVATION PREMIUM ER 18 2026](https://www.yedidia-motors.com/stock/408805/): 2026 · לבן · חדש · זמין · נקודת עיגון · 'גאנט
 
 ### MERCEDES
