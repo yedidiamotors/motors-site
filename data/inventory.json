@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16T09:17:45.570Z",
+  "updated_at": "2026-09-16T13:46:49.326Z",
   "source": "google-sheet",
   "count": 28,
   "units": 28,
@@ -314,7 +314,7 @@
       "year": 2022,
       "trim": null,
       "color": "שחור",
-      "km": 212000,
+      "km": 216000,
       "price": null,
       "currency": "ILS",
       "status": "available",
