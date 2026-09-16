@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T10:46:07.798Z",
+  "updated_at": "2026-09-16T06:23:20.029Z",
   "source": "google-sheet",
   "count": 27,
   "units": 27,
@@ -308,37 +308,6 @@
       "share_image": "/assets/vehicles/TI-BMW-X1-2016-8S229/share.jpg"
     },
     {
-      "id": "TI-RAM-LIMITED-2021-MVO6W",
-      "make": "RAM",
-      "model": "LIMITED",
-      "year": 2021,
-      "trim": null,
-      "color": "לבן",
-      "km": 112000,
-      "price": null,
-      "currency": "ILS",
-      "status": "available",
-      "condition": "יד שנייה",
-      "engine": null,
-      "drivetrain": null,
-      "series": null,
-      "fuel": null,
-      "transmission": null,
-      "body": null,
-      "doors": null,
-      "gvwr": null,
-      "plant": null,
-      "seats": null,
-      "safety": [],
-      "spec_source": null,
-      "features": [
-        "יד 1"
-      ],
-      "description": null,
-      "images": [],
-      "share_image": "/assets/vehicles/TI-RAM-LIMITED-2021-MVO6W/share.jpg"
-    },
-    {
       "id": "TI-RAM-LARAMIE-2024-Y7ZN3",
       "make": "RAM",
       "model": "LARAMIE",
@@ -464,6 +433,37 @@
         "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/1xvo5gVyVAhwWhfkH906KG2XacuQtwOTa.webp"
       ],
       "share_image": "/assets/vehicles/TI-SUBARU-FORESTER-2022-HGP3Z/share.jpg"
+    },
+    {
+      "id": "TI-RAM-LIMITED-2021-MVO6W",
+      "make": "RAM",
+      "model": "LIMITED",
+      "year": 2021,
+      "trim": null,
+      "color": "לבן",
+      "km": 112000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "series": null,
+      "fuel": null,
+      "transmission": null,
+      "body": null,
+      "doors": null,
+      "gvwr": null,
+      "plant": null,
+      "seats": null,
+      "safety": [],
+      "spec_source": null,
+      "features": [
+        "יד 1"
+      ],
+      "description": null,
+      "images": [],
+      "share_image": "/assets/vehicles/TI-RAM-LIMITED-2021-MVO6W/share.jpg"
     },
     {
       "id": "605037",
