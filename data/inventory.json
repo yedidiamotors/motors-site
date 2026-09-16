@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-16T06:23:20.029Z",
+  "updated_at": "2026-09-16T09:17:45.570Z",
   "source": "google-sheet",
-  "count": 27,
-  "units": 27,
+  "count": 28,
+  "units": 28,
   "vehicles": [
     {
       "id": "TI-MERCEDES-S500-2021-4YKD6",
@@ -306,6 +306,37 @@
       "description": null,
       "images": [],
       "share_image": "/assets/vehicles/TI-BMW-X1-2016-8S229/share.jpg"
+    },
+    {
+      "id": "TI-RAM-LIMITED-2022-LHA3W",
+      "make": "RAM",
+      "model": "LIMITED",
+      "year": 2022,
+      "trim": null,
+      "color": "שחור",
+      "km": 212000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "series": null,
+      "fuel": null,
+      "transmission": null,
+      "body": null,
+      "doors": null,
+      "gvwr": null,
+      "plant": null,
+      "seats": null,
+      "safety": [],
+      "spec_source": null,
+      "features": [
+        "יד 2"
+      ],
+      "description": null,
+      "images": [],
+      "share_image": "/assets/vehicles/TI-RAM-LIMITED-2022-LHA3W/share.jpg"
     },
     {
       "id": "TI-RAM-LARAMIE-2024-Y7ZN3",
