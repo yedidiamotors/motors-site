@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-17T08:19:26.227Z",
+  "updated_at": "2026-09-17T12:22:50.310Z",
   "source": "google-sheet",
-  "count": 28,
-  "units": 28,
+  "count": 29,
+  "units": 29,
   "vehicles": [
     {
       "id": "TI-MERCEDES-S500-2021-4YKD6",
@@ -306,6 +306,37 @@
       "description": null,
       "images": [],
       "share_image": "/assets/vehicles/TI-BMW-X1-2016-8S229/share.jpg"
+    },
+    {
+      "id": "TI-RAM-LIMITED-2021-SBJ9E",
+      "make": "RAM",
+      "model": "LIMITED",
+      "year": 2021,
+      "trim": null,
+      "color": "כסף מטלי",
+      "km": 225000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "series": null,
+      "fuel": null,
+      "transmission": null,
+      "body": null,
+      "doors": null,
+      "gvwr": null,
+      "plant": null,
+      "seats": null,
+      "safety": [],
+      "spec_source": null,
+      "features": [
+        "יד 1"
+      ],
+      "description": null,
+      "images": [],
+      "share_image": "/assets/vehicles/TI-RAM-LIMITED-2021-SBJ9E/share.jpg"
     },
     {
       "id": "TI-RAM-LIMITED-2022-LHA3W",
