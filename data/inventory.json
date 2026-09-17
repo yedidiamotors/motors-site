@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16T13:46:49.326Z",
+  "updated_at": "2026-09-17T08:19:26.227Z",
   "source": "google-sheet",
   "count": 28,
   "units": 28,
@@ -576,7 +576,7 @@
       "model": "E350",
       "year": 2026,
       "trim": "E350 4MATIC",
-      "color": "שחור",
+      "color": "שחור מטאלי",
       "km": 0,
       "price": null,
       "currency": "ILS",
