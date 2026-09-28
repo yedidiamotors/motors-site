@@ -31,12 +31,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/</loc>
-    <lastmod>2026-09-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -80,6 +74,12 @@
   </url>
   <url>
     <loc>https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

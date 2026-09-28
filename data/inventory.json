@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T11:17:48.515Z",
+  "updated_at": "2026-09-28T13:49:40.245Z",
   "source": "google-sheet",
   "count": 27,
   "units": 27,
@@ -146,42 +146,6 @@
       "description": null,
       "images": [],
       "share_image": "/assets/vehicles/TI-CHEVROLET-SAVANA-MAX-2018-8JEKT/share.jpg"
-    },
-    {
-      "id": "TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6",
-      "make": "CHEVROLET",
-      "model": "SILVERADO LTZ +",
-      "year": 2022,
-      "trim": null,
-      "color": "לבן",
-      "km": 155000,
-      "price": null,
-      "currency": "ILS",
-      "status": "available",
-      "condition": "יד שנייה",
-      "engine": null,
-      "drivetrain": null,
-      "series": null,
-      "fuel": null,
-      "transmission": null,
-      "body": null,
-      "doors": null,
-      "gvwr": null,
-      "plant": null,
-      "seats": null,
-      "safety": [],
-      "spec_source": null,
-      "features": [
-        "יד 1"
-      ],
-      "description": null,
-      "images": [
-        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1UFP3MjIuUSj-Bi9q8gSc4AuwbroRcdNm.webp",
-        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1lQ0FpMviLSSAWugqkuehzrCY3TGSlAIG.webp",
-        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1YAtYnbfrmSZmLRCZ_2HdyvFaDbSHwaws.webp",
-        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1cs2k2jd2T7MCfdhqZ34oiqKyYsQqLEE9.webp"
-      ],
-      "share_image": "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/share.jpg"
     },
     {
       "id": "TI-CHEVROLET-SILVERADO-4WT-2025-MK21E",
@@ -495,6 +459,42 @@
         "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/1NXwGfx8Bi8mEzvQ2AZ2MLg0bFbucVRcP.webp"
       ],
       "share_image": "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2021-ZYQUQ/share.jpg"
+    },
+    {
+      "id": "TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6",
+      "make": "CHEVROLET",
+      "model": "SILVERADO LTZ +",
+      "year": 2022,
+      "trim": null,
+      "color": "לבן",
+      "km": 155000,
+      "price": null,
+      "currency": "ILS",
+      "status": "available",
+      "condition": "יד שנייה",
+      "engine": null,
+      "drivetrain": null,
+      "series": null,
+      "fuel": null,
+      "transmission": null,
+      "body": null,
+      "doors": null,
+      "gvwr": null,
+      "plant": null,
+      "seats": null,
+      "safety": [],
+      "spec_source": null,
+      "features": [
+        "יד 1"
+      ],
+      "description": null,
+      "images": [
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1UFP3MjIuUSj-Bi9q8gSc4AuwbroRcdNm.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1lQ0FpMviLSSAWugqkuehzrCY3TGSlAIG.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1YAtYnbfrmSZmLRCZ_2HdyvFaDbSHwaws.webp",
+        "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/1cs2k2jd2T7MCfdhqZ34oiqKyYsQqLEE9.webp"
+      ],
+      "share_image": "/assets/vehicles/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/share.jpg"
     },
     {
       "id": "605037",
