@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-23T12:22:09.645Z",
+  "updated_at": "2026-09-28T06:25:40.411Z",
   "source": "google-sheet",
-  "count": 28,
-  "units": 28,
+  "count": 27,
+  "units": 27,
   "vehicles": [
     {
       "id": "TI-MERCEDES-S500-2021-4YKD6",
@@ -869,76 +869,6 @@
       },
       "equipment_slug": "silverado-ev-lt",
       "share_image": "/assets/vehicles/415561/share.jpg"
-    },
-    {
-      "id": "415662",
-      "make": "CHEVROLET",
-      "model": "SILVERADO EV LT ER PLUS PACKAGE",
-      "year": 2026,
-      "trim": "3LT",
-      "color": "שחור",
-      "km": 0,
-      "price": null,
-      "currency": "ILS",
-      "status": "sold",
-      "condition": "חדש",
-      "engine": "חשמלי",
-      "drivetrain": "הנעה כפולה (AWD)",
-      "series": null,
-      "fuel": "חשמלי",
-      "transmission": null,
-      "body": "טנדר",
-      "doors": 4,
-      "gvwr": "עד 4,536 ק״ג",
-      "plant": "ארה״ב",
-      "seats": null,
-      "safety": [
-        "התרעת התנגשות מלפנים",
-        "תגבור בלימה דינמי",
-        "בלימת חירום אוטומטית ברוורס",
-        "ניטור שטח מת",
-        "התרעת סטייה מנתיב",
-        "שמירת נתיב אקטיבית",
-        "מצלמת רוורס",
-        "אור גבוה אוטומטי",
-        "תאורת יום",
-        "התנעה ללא מפתח",
-        "בקרת יציבות (ESC)",
-        "בקרת אחיזה",
-        "ABS",
-        "חלונות עם עצירה אוטומטית בהיתקלות",
-        "פנסי LED",
-        "ניטור לחץ אוויר בצמיגים",
-        "כריות אוויר: קדמיות, צד, וילון"
-      ],
-      "spec_source": "VIN",
-      "features": [
-        "נקודת עיגון",
-        "הנעה מרחוק"
-      ],
-      "description": null,
-      "images": [],
-      "equipment": [
-        "סוללת Extended Range — טווח עד כ־660 ק״מ (410 מייל, EPA)",
-        "שני מנועים, הנעה 4WD — 645 כ״ס ו־765 ליברות-רגל במצב WOW",
-        "טעינה מהירה DC עד 300 קילוואט; מטען AC מובנה 11.5 קילוואט",
-        "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
-        "תאורת LED מלאה כולל סמל Bowtie קדמי מואר",
-        "תא מטען קדמי חשמלי (eTrunk) עם מכסה מנוע חשמלי",
-        "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
-        "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision, בקר בלמי גרור",
-        "כניסה והתנעה ללא מפתח, התנעה מרחוק, Hitch Guidance",
-        "כושר גרירה עד כ־5,670 ק״ג",
-        "חבילת Plus: מושבים קדמיים חשמליים מחוממים ומאווררים, מושבים אחוריים מחוממים, דלת ארגז Multi-Flex, הזנת חשמל החוצה"
-      ],
-      "perf": {
-        "range_km": 660,
-        "hp": 645,
-        "dc_kw": 300,
-        "towing_kg": 5670
-      },
-      "equipment_slug": "silverado-ev-lt",
-      "share_image": "/assets/vehicles/415662/share.jpg"
     },
     {
       "id": "413288",
