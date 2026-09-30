@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T13:49:40.245Z",
+  "updated_at": "2026-09-30T10:48:15.230Z",
   "source": "google-sheet",
   "count": 27,
   "units": 27,
@@ -880,7 +880,7 @@
       "km": 0,
       "price": null,
       "currency": "ILS",
-      "status": "sold",
+      "status": "available",
       "condition": "חדש",
       "engine": "חשמלי",
       "drivetrain": "הנעה כפולה (AWD)",
