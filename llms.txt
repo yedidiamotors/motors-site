@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-10-13T17:05:47.006Z · 26 רכבים בסך הכל, 23 לא מכורים.
+עודכן: 2026-10-13T21:56:55.135Z · 28 רכבים בסך הכל, 25 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -54,6 +54,10 @@
 - [GMC SIERRA EV AT4 PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413447/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק · ללא גג פנורמי
 - [GMC SIERRA EV ELEVATION PREMIUM ER 18 2026](https://www.yedidia-motors.com/stock/408805/): 2026 · לבן · חדש · זמין · נקודת עיגון · 'גאנט
 
+### LAND
+
+- [LAND ROVER 2026](https://www.yedidia-motors.com/stock/639487/): 2026 · שחור · חדש · זמין · Land Rover Defender 110 P400 X-Dynamic 7 מקומות
+
 ### MERCEDES
 
 - [MERCEDES GLC 300E 2021](https://www.yedidia-motors.com/stock/TI-MERCEDES-GLC-300E-2021-7THAS/): 2021 · כסף מטלי · יד שנייה · 102,000 ק״מ · זמין · יד 1
@@ -71,6 +75,10 @@
 ### SUBARU
 
 - [SUBARU Forester 2022](https://www.yedidia-motors.com/stock/TI-SUBARU-FORESTER-2022-HGP3Z/): 2022 · ירוק · יד שנייה · 152,000 ק״מ · זמין · יד 1
+
+### TOYOTA
+
+- [TOYOTA Land Cruiser Premium Package 2027](https://www.yedidia-motors.com/stock/071892/): 2027 · סהרה · חדש · זמין
 
 ## יצירת קשר
 
