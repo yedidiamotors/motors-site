@@ -77,8 +77,19 @@
       if (left <= 0) { clearInterval(resendTimer); resendBtn.disabled = false; }
     }, 1000);
   }
+  // ספרת ביקורת של ת.ז / ח.פ ישראלי — אותה בדיקה שהשרת עושה
+  function idValid(v) {
+    var d = String(v || '').replace(/\D/g, '');
+    if (d.length < 5 || d.length > 9) return false;
+    d = ('000000000' + d).slice(-9);
+    if (d === '000000000') return false;
+    var s = 0;
+    for (var i = 0; i < 9; i++) { var x = Number(d[i]) * (i % 2 ? 2 : 1); s += x > 9 ? x - 9 : x; }
+    return s % 10 === 0;
+  }
+  var currentId = '';
   async function requestOtp(phone) {
-    var res = await api('/portal/otp/request', { phone: phone });
+    var res = await api('/portal/otp/request', { phone: phone, id_number: currentId });
     if (res.error === 'LOCKED') throw new Error(res.message_he || 'יותר מדי ניסיונות. נסו שוב בעוד 15 דקות.');
     if (res.ok !== true) throw new Error('השירות אינו זמין כרגע. נסו שוב בעוד כמה דקות.');
   }
@@ -87,6 +98,9 @@
     e.preventDefault(); hide(phoneMsg);
     var phone = phoneIn.value.trim();
     if (!looksLikePhone(phone)) { show(phoneMsg, 'מספר הטלפון אינו תקין. לדוגמה: 050-000-0000'); phoneIn.focus(); return; }
+    var idn = $('idnum').value.replace(/\D/g, '');
+    if (!idValid(idn)) { show(phoneMsg, 'מספר תעודת הזהות אינו תקין. הזינו את כל 9 הספרות, כולל ספרת הביקורת.'); $('idnum').focus(); return; }
+    currentId = idn;
     phoneBtn.disabled = true; phoneBtn.textContent = 'שולח…';
     try {
       await requestOtp(phone);

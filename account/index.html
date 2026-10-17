@@ -41,9 +41,12 @@
     <div class="gate-card">
       <form id="step-phone" autocomplete="on" novalidate>
         <h2>כניסה</h2>
-        <p class="sub">הזינו את מספר הטלפון שמסרתם לנו. נשלח אליו קוד חד-פעמי.</p>
+        <p class="sub">הזינו את מספר הטלפון ואת מספר תעודת הזהות שמסרתם לנו. אם הם תואמים — נשלח קוד חד-פעמי לטלפון.</p>
         <label class="fld" for="phone"><span>מספר טלפון</span>
           <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="050-000-0000" required dir="ltr">
+        </label>
+        <label class="fld" for="idnum"><span>מספר תעודת זהות <small>(לחברה — ח.פ)</small></span>
+          <input id="idnum" name="idnum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="9" autocomplete="off" placeholder="9 ספרות" required dir="ltr">
         </label>
         <div class="msg err" id="phone-msg" role="alert" hidden></div>
         <button class="btn gold block" type="submit" id="phone-btn">שלחו לי קוד</button>
@@ -51,7 +54,7 @@
 
       <form id="step-code" autocomplete="off" novalidate hidden>
         <h2>הזנת הקוד</h2>
-        <p class="sub">שלחנו קוד בן 6 ספרות ל-<span id="phone-echo" dir="ltr"></span>. הקוד תקף ל-5 דקות.</p>
+        <p class="sub">אם הטלפון ותעודת הזהות תואמים לרישום אצלנו, שלחנו קוד בן 6 ספרות ל-<span id="phone-echo" dir="ltr"></span>. הקוד תקף ל-5 דקות.</p>
         <label class="fld" for="code"><span>קוד חד-פעמי</span>
           <input id="code" name="one-time-code" class="otp" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" placeholder="••••••" required dir="ltr">
         </label>
@@ -59,7 +62,7 @@
         <button class="btn gold block" type="submit" id="code-btn">כניסה</button>
         <div class="row-between">
           <button type="button" class="link" id="resend-btn" disabled>שליחת קוד חדש</button>
-          <button type="button" class="link" id="back-btn">שינוי מספר</button>
+          <button type="button" class="link" id="back-btn">שינוי פרטים</button>
         </div>
       </form>
       <p class="fine">הקוד מגיע בוואטסאפ, ואם לא — למייל שמסרתם לחשבונית. לא קיבלתם? <a href="https://wa.me/972508991090" rel="noopener">כתבו לנו בוואטסאפ</a>.</p>
