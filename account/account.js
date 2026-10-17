@@ -185,6 +185,8 @@
       });
       if (it.trade_in) r += '<div class="o-row muted"><span>זיכוי טרייד-אין · ' + E(it.trade_in.title || '') + '</span><span class="n">−' + nis(it.trade_in.credit) + '</span></div>';
       if (it.expected_delivery_date) r += '<div class="o-row muted"><span>מועד מסירה משוער</span><span>' + fmtDate(it.expected_delivery_date) + '</span></div>';
+      if (it.registered_to && it.registered_to.name) r += '<div class="o-row muted"><span>הרכב יירשם ברישיון על שם</span><span>' + E(it.registered_to.name) +
+        (it.registered_to.id_tail ? ' · ' + E(it.registered_to.id_label || '') + ' …' + E(it.registered_to.id_tail) : '') + '</span></div>';
       return r + '</div>';
     }).join('') +
     '<div class="o-sum"><div class="o-row"><span>סה״כ כולל מע״מ</span><span class="n">' + nis(t.grand) + '</span></div>' +
