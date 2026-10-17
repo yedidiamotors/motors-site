@@ -138,6 +138,100 @@
     render();
     if (fresh) { $('main').focus(); window.scrollTo(0, 0); }
     loadInventory();
+    loadOrders();
+  }
+
+  /* ---------- ההזמנה: מה שנשלח אליכם לאישור ---------- */
+  var orders = null;
+  async function loadOrders() {
+    var host = $('orders'), res;
+    try { res = await api('/portal/order', { action: 'list' }); } catch (e) { return; }
+    if (!res || res.ok !== true) { if (res && res.__status === 401) sessionLost(res); return; }
+    orders = res;
+    host.innerHTML = (res.orders || []).map(orderHtml).join('');
+    host.querySelectorAll('.order').forEach(bindOrder);
+  }
+
+  function orderHtml(o) {
+    var s = o.snapshot || {}, t = s.totals || {}, st = (o.state || {}).code;
+    var badge = st === 'sent' ? ['ממתינה לאישורכם', ' gold'] : st === 'approved' ? ['אישרתם את ההזמנה', ' done'] :
+                st === 'closed' ? ['הושלמה', ' done'] : st === 'change_requested' ? ['ביקשתם שינוי', ''] :
+                st === 'changed' ? ['מתעדכנת אצלנו', ''] : [(o.state || {}).he || '', ''];
+    var h = '<article class="panel order" data-id="' + E(o.id) + '">' +
+      '<div class="sec o-head"><div><div class="veh-title">ההזמנה שלכם <span class="o-no">' + E(o.order_number) + '</span></div>' +
+      '<div class="veh-sub">נשלחה אליכם ' + E(relDay(o.sent_at)) + '</div></div>' +
+      '<span class="badge' + badge[1] + '">' + E(badge[0]) + '</span></div>';
+
+    h += '<div class="sec"><h3>מה בהזמנה</h3>' + (s.items || []).map(function (it) {
+      var r = '<div class="o-item"><div class="o-row main"><span><b>' + E(vehName(it)) + '</b>' +
+        '<small>' + E([it.model_year, it.color, it.vin ? 'שלדה …' + String(it.vin).slice(-6) : null].filter(Boolean).join(' · ')) + '</small></span>' +
+        '<span class="n">' + nis(it.price) + '</span></div>';
+      (it.extras || []).forEach(function (x) {
+        r += '<div class="o-row"><span>+ ' + E(x.label) + (x.quantity > 1 ? ' × ' + x.quantity : '') + '</span><span class="n">' + nis(x.total) + '</span></div>';
+      });
+      if (it.trade_in) r += '<div class="o-row muted"><span>זיכוי טרייד-אין · ' + E(it.trade_in.title || '') + '</span><span class="n">−' + nis(it.trade_in.credit) + '</span></div>';
+      if (it.expected_delivery_date) r += '<div class="o-row muted"><span>מועד מסירה משוער</span><span>' + fmtDate(it.expected_delivery_date) + '</span></div>';
+      return r + '</div>';
+    }).join('') +
+    '<div class="o-sum"><div class="o-row"><span>סה״כ כולל מע״מ</span><span class="n">' + nis(t.grand) + '</span></div>' +
+      (t.trade_in ? '<div class="o-row muted"><span>זיכוי טרייד-אין</span><span class="n">−' + nis(t.trade_in) + '</span></div>' : '') +
+      (t.down_payment ? '<div class="o-row muted"><span>מקדמה</span><span class="n">−' + nis(t.down_payment) + '</span></div>' : '') +
+      (t.financing ? '<div class="o-row muted"><span>מימון</span><span class="n">−' + nis(t.financing) + '</span></div>' : '') +
+      '<div class="o-row total"><span>יתרה לתשלום</span><span class="n">' + nis(t.balance) + '</span></div></div></div>';
+
+    if (o.can_approve) {
+      h += '<div class="sec"><div class="await"><div class="await-title">ממתין לאישורכם</div>' +
+        '<label class="consent"><input type="checkbox" class="o-consent"><span>' + E(orders.consent_text || '') + '</span></label>' +
+        '<div class="msg err o-msg" hidden></div>' +
+        '<div class="o-btns"><button class="btn gold" type="button" data-o-ok>אישור ההזמנה</button>' +
+        '<button class="btn ghost" type="button" data-o-change>בקשת שינוי</button></div>' + changeBox() + '</div></div>';
+    } else if (st === 'approved') {
+      h += '<div class="sec"><p class="o-done">אישרתם את ההזמנה ב-' + fmtDT(o.approved_at) + '. השלב הבא: הסכם המכירה, שיופיע כאן לקריאה ולחתימה.</p>' +
+        '<button class="link" type="button" data-o-change>צריך לשנות משהו?</button><div class="msg err o-msg" hidden></div>' + changeBox() + '</div>';
+    } else if (st === 'change_requested') {
+      h += '<div class="sec"><p class="fine">הבקשה שלכם' + (o.change_requested_at ? ' מ-' + fmtDT(o.change_requested_at) : '') + ': ' + E(o.change_request_note || '') + '<br>הנציג יעדכן את ההזמנה וישלח אותה אליכם שוב.</p></div>';
+    } else if (st === 'changed') {
+      h += '<div class="sec"><p class="fine">עדכנו את ההזמנה אחרי ששלחנו אותה. נשלח לכם את הגרסה המעודכנת לאישור בקרוב.</p></div>';
+    }
+    return h + '</article>';
+  }
+  function vehName(it) {
+    var t = it.title || '', tr = it.trim || '';
+    if (tr && t && tr.toLowerCase().indexOf(t.toLowerCase()) === 0) return tr;
+    return [t, tr].filter(Boolean).join(' · ') || 'רכב';
+  }
+  function changeBox() {
+    return '<div class="o-change" hidden><span class="fine">מה תרצו לשנות?</span>' +
+      '<textarea rows="3" maxlength="1000" placeholder="למשל: להוריד את הציפוי, להוסיף וו גרירה…"></textarea>' +
+      '<button class="btn gold small" type="button" data-o-send>שליחת הבקשה לנציג</button></div>';
+  }
+  function bindOrder(card) {
+    var id = card.getAttribute('data-id'), msg = card.querySelector('.o-msg');
+    var ok = card.querySelector('[data-o-ok]');
+    if (ok) ok.addEventListener('click', async function () {
+      if (!card.querySelector('.o-consent').checked) { show(msg, 'יש לסמן את ההצהרה כדי לאשר.'); return; }
+      ok.disabled = true; ok.textContent = 'מאשר…';
+      var r; try { r = await api('/portal/order', { action: 'approve', order_id: id, consent: true }); } catch (e) { r = { ok: false, message_he: e.message }; }
+      ok.disabled = false; ok.textContent = 'אישור ההזמנה';
+      if (r.__status === 401) { sessionLost(r); return; }
+      if (r.ok !== true) { show(msg, r.message_he || 'האישור נכשל.'); return; }
+      notice(r.message_he, 'ok'); loadOrders();
+    });
+    var ch = card.querySelector('[data-o-change]');
+    if (ch) ch.addEventListener('click', function () {
+      var box = card.querySelector('.o-change'); box.hidden = false; box.querySelector('textarea').focus();
+    });
+    var send = card.querySelector('[data-o-send]');
+    if (send) send.addEventListener('click', async function () {
+      var note = card.querySelector('.o-change textarea').value.trim();
+      if (!note) { show(msg, 'כתבו מה תרצו לשנות.'); return; }
+      send.disabled = true;
+      var r; try { r = await api('/portal/order', { action: 'request_change', order_id: id, note: note }); } catch (e) { r = { ok: false, message_he: e.message }; }
+      send.disabled = false;
+      if (r.__status === 401) { sessionLost(r); return; }
+      if (r.ok !== true) { show(msg, r.message_he || 'השליחה נכשלה.'); return; }
+      notice(r.message_he, 'ok'); loadOrders();
+    });
   }
   async function refresh() {
     var res; try { res = await api('/portal/home'); } catch (e) { return; }
@@ -260,6 +354,7 @@
     if (p.total != null) {
       h += '<div class="sec"><h3>פרטי העסקה</h3><div class="kv">' +
         kv('מחיר הרכב', nis(p.total), true) +
+        (p.extras_total ? kv('אביזרים ושירותים', nis(p.extras_total)) : '') +
         (p.discount ? kv('הנחה', nis(p.discount)) : '') +
         (p.down_payment ? kv('מקדמה ששולמה', nis(p.down_payment)) : '') +
         (p.trade_in_credit ? kv('זיכוי טרייד-אין', nis(p.trade_in_credit)) : '') +
