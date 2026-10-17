@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>האיזור האישי | ידידיה מוטורס</title>
+<meta name="description" content="האיזור האישי ללקוחות ידידיה מוטורס — מעקב אחרי הרכב, מסמכים, עדכונים וחתימה על ההסכם.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="canonical" href="https://www.yedidia-motors.com/account/">
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/account/account.css">
+<script>window.YM_NO_ANALYTICS = true;</script>
+</head>
+<body>
+<a class="skip" href="#main">דילוג לתוכן</a>
+<header class="site-head"><div class="wrap"><div class="bar">
+  <a class="brand" href="/" aria-label="ידידיה מוטורס — דף הבית"><b>YEDIDIA MOTORS</b><small>FOR EVERY ROAD</small></a>
+  <nav class="top" aria-label="ניווט ראשי">
+    <a href="/stock/">המלאי שלנו</a>
+    <span class="who" id="who" hidden><span id="who-name"></span><button type="button" class="link" id="signout">יציאה</button></span>
+  </nav>
+</div></div></header>
+
+<main id="main" tabindex="-1">
+
+  <!-- ===== כניסה ===== -->
+  <section class="gate wrap" id="gate" aria-labelledby="gate-title">
+    <div class="gate-intro">
+      <p class="eyebrow">ללקוחות שלנו</p>
+      <h1 id="gate-title">האיזור האישי</h1>
+      <p class="lead">כל מה שקשור לרכב שלכם במקום אחד: איפה הרכב עומד, אילו מסמכים חסרים, עדכונים מהצוות וההסכם לחתימה.</p>
+      <ul class="perks">
+        <li><span class="ic" aria-hidden="true">◆</span>מעקב אחרי הרכב — מההזמנה ועד המסירה</li>
+        <li><span class="ic" aria-hidden="true">◆</span>העלאת מסמכים ישירות מהטלפון</li>
+        <li><span class="ic" aria-hidden="true">◆</span>קריאה וחתימה דיגיטלית על ההסכם</li>
+      </ul>
+    </div>
+
+    <div class="gate-card">
+      <form id="step-phone" autocomplete="on" novalidate>
+        <h2>כניסה</h2>
+        <p class="sub">הזינו את מספר הטלפון שמסרתם לנו. נשלח אליו קוד חד-פעמי.</p>
+        <label class="fld" for="phone"><span>מספר טלפון</span>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="050-000-0000" required dir="ltr">
+        </label>
+        <div class="msg err" id="phone-msg" role="alert" hidden></div>
+        <button class="btn gold block" type="submit" id="phone-btn">שלחו לי קוד</button>
+      </form>
+
+      <form id="step-code" autocomplete="off" novalidate hidden>
+        <h2>הזנת הקוד</h2>
+        <p class="sub">שלחנו קוד בן 6 ספרות ל-<span id="phone-echo" dir="ltr"></span>. הקוד תקף ל-5 דקות.</p>
+        <label class="fld" for="code"><span>קוד חד-פעמי</span>
+          <input id="code" name="one-time-code" class="otp" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" placeholder="••••••" required dir="ltr">
+        </label>
+        <div class="msg err" id="code-msg" role="alert" hidden></div>
+        <button class="btn gold block" type="submit" id="code-btn">כניסה</button>
+        <div class="row-between">
+          <button type="button" class="link" id="resend-btn" disabled>שליחת קוד חדש</button>
+          <button type="button" class="link" id="back-btn">שינוי מספר</button>
+        </div>
+      </form>
+      <p class="fine">הקוד מגיע בוואטסאפ, ואם לא — למייל שמסרתם לחשבונית. לא קיבלתם? <a href="https://wa.me/972508991090" rel="noopener">כתבו לנו בוואטסאפ</a>.</p>
+    </div>
+  </section>
+
+  <!-- ===== האיזור האישי ===== -->
+  <section class="app wrap" id="app" hidden aria-live="polite">
+    <div class="hello">
+      <p class="eyebrow">האיזור האישי</p>
+      <h1 id="hello-title">שלום</h1>
+    </div>
+    <div id="notice" role="status"></div>
+    <div id="deals"></div>
+    <section class="panel" id="me" aria-labelledby="me-title"></section>
+  </section>
+
+</main>
+
+<!-- ===== ההסכם ===== -->
+<div class="modal" id="agr-modal" hidden role="dialog" aria-modal="true" aria-labelledby="agr-title">
+  <div class="modal-box">
+    <button class="modal-x" type="button" data-close="agr-modal" aria-label="סגירה">×</button>
+    <h2 id="agr-title">הסכם מכירה</h2>
+    <div class="agr-scroll" id="agr-body" tabindex="0"></div>
+
+    <div id="agr-sign">
+      <label class="consent"><input type="checkbox" id="agr-consent"><span id="agr-consent-text"></span></label>
+      <div class="sigbox">
+        <div class="sig-head"><span>חתימה — ציירו כאן באצבע או בעכבר</span><button type="button" class="link dark" id="sig-clear">ניקוי</button></div>
+        <canvas id="sig" width="640" height="200" aria-label="אזור חתימה"></canvas>
+      </div>
+      <label class="fld otp-field" for="sign-code" id="otp-wrap" hidden><span>קוד אימות שנשלח לטלפון שלכם</span>
+        <input id="sign-code" class="otp" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" placeholder="••••••" dir="ltr">
+      </label>
+      <div class="msg err" id="agr-msg" role="alert" hidden></div>
+      <div class="actions">
+        <button class="btn gold" type="button" id="sig-start">שלחו לי קוד לחתימה</button>
+        <button class="btn gold" type="button" id="sig-submit" hidden>חתימה על ההסכם</button>
+        <button class="btn ghost" type="button" id="agr-print">הדפסה</button>
+      </div>
+      <p class="fine">החתימה האלקטרונית נשמרת יחד עם מועד החתימה, אימות הטלפון, כתובת ה-IP וטביעת אצבע דיגיטלית של המסמך — כדי שאפשר יהיה להוכיח בדיוק על מה חתמתם. מעדיפים לחתום על נייר? הדפיסו, חתמו והעלו סריקה או שלחו לנציג.</p>
+    </div>
+
+    <div id="agr-done" hidden>
+      <div class="msg ok">ההסכם נחתם ונשמר בתיק שלכם. תודה!</div>
+      <a class="btn gold" id="agr-pdf" href="#" target="_blank" rel="noopener">צפייה בהסכם החתום</a>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="file-input" accept="image/*,application/pdf,.heic,.heif" hidden>
+
+<footer class="site-foot"><div class="wrap">
+  <div>© 2026 ידידיה סחר בע״מ · ידידיה מוטורס · המעפילים 1, קרית אתא · טלפון <a href="tel:+97248419413">04-8419413</a> · וואטסאפ <a href="https://wa.me/972508991090" rel="noopener">050-899-1090</a></div>
+  <nav class="legal-links" aria-label="מידע משפטי">
+    <a href="/legal/privacy/">מדיניות פרטיות</a>
+    <a href="/legal/terms/">תנאי שימוש</a>
+    <a href="/legal/accessibility/">הצהרת נגישות</a>
+  </nav>
+</div></footer>
+
+<script src="/account/account.js" defer></script>
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

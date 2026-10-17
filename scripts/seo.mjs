@@ -302,6 +302,7 @@ ${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image
 <footer><div class="wrap">
   ${esc(BIZ.name)} · ${esc(BIZ.street)}, ${esc(BIZ.city)} · ${esc(BIZ.hoursHe)} · טלפון <a href="tel:${esc(BIZ.landline)}">${esc(BIZ.landlineHe)}</a> · וואטסאפ <a href="${esc(BIZ.whatsapp)}" rel="noopener">${esc(BIZ.phoneHe)}</a>
   <nav class="legal-links" aria-label="מידע משפטי">
+    <a href="/account/">איזור אישי ללקוחות</a>
     <a href="/legal/privacy/">מדיניות פרטיות</a>
     <a href="/legal/terms/">תנאי שימוש</a>
     <a href="/legal/cookies/">עוגיות</a>

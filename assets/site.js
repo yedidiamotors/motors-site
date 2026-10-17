@@ -7,7 +7,8 @@
 (function () {
   'use strict';
 
-  var GA_ID = 'G-WDDVLHQXTF';           // מזהה המדידה של Google Analytics 4 (נכס "www.yedidia-motors.com", זרם 15755697610). ריק = בלי אנליטיקס ובלי באנר.
+  // עמודים עם מידע אישי (האיזור האישי) מבטלים את האנליטיקס לגמרי: window.YM_NO_ANALYTICS = true לפני הטעינה.
+  var GA_ID = window.YM_NO_ANALYTICS ? '' : 'G-WDDVLHQXTF';           // מזהה המדידה של Google Analytics 4 (נכס "www.yedidia-motors.com", זרם 15755697610). ריק = בלי אנליטיקס ובלי באנר.
   var CONSENT_KEY = 'ym_consent';
   var A11Y_KEY = 'ym_a11y';
   var CONSENT_TTL = 365 * 24 * 3600 * 1000;
@@ -238,7 +239,7 @@
     }
   }
   var LEGAL_LINKS = [
-    ['/guides/', 'מדריכים לקונים'], ['/legal/privacy/', 'מדיניות פרטיות'], ['/legal/terms/', 'תנאי שימוש'], ['/legal/cookies/', 'עוגיות'],
+    ['/account/', 'איזור אישי ללקוחות'], ['/guides/', 'מדריכים לקונים'], ['/legal/privacy/', 'מדיניות פרטיות'], ['/legal/terms/', 'תנאי שימוש'], ['/legal/cookies/', 'עוגיות'],
     ['/legal/accessibility/', 'הצהרת נגישות'], ['/legal/disclaimer/', 'הצהרת אחריות — מפרטים ומלאי']
   ];
   // ניגודיות: הזהב של העיצוב (#C9A24A) על רקע לבן = 2.4, ואפור #666 על #111 = 3.3 — מתחת ל-AA (4.5).
