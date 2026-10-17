@@ -279,16 +279,10 @@
       '<div><div class="veh-title">' + (v ? E([v.make, v.model].filter(Boolean).join(' ')) : 'הרכב שלכם') + '</div>' +
       '<div class="veh-sub">' + (v ? E([v.trim, v.model_year, v.color, v.license_plate ? 'מ.ר. ' + v.license_plate : (v.vin ? 'שלדה …' + String(v.vin).slice(-6) : null)].filter(Boolean).join(' · ')) : 'הרכב ישויך לעסקה בקרוב') +
       (sv ? ' · <a href="/stock/' + encodeURIComponent(sv.id) + '/">לעמוד הרכב באתר</a>' : '') + '</div></div>' +
-      '<span class="badge' + (closed ? ' done' : ' gold') + '">' + E(closed ? 'נמסר' : (v ? v.status_he : d.status_he)) + '</span></div>';
+      '<span class="badge' + (closed ? ' done' : ' gold') + '">' + E(closed ? 'נמסר' : journeyBadge(d)) + '</span></div>';
 
-    // התקדמות
-    if (d.progress && d.progress.current > 0) {
-      h += '<div class="sec"><h3>איפה הרכב עומד</h3><ol class="steps">' + d.progress.steps.map(function (s) {
-        return '<li class="' + s.state + '"' + (s.state === 'current' ? ' aria-current="step"' : '') + '><span class="dot">' + (s.state === 'done' ? '✓' : '') + '</span>' +
-          '<span class="lbl"><span>' + E(s.label_he) + '</span>' + (s.state === 'current' ? '<span class="s">' + E(s.sub_he) + '</span>' : '') + '</span></li>';
-      }).join('') + '</ol>' +
-      (d.expected_delivery_date && !closed ? '<p class="eta">מועד מסירה משוער: <b>' + fmtDate(d.expected_delivery_date) + '</b></p>' : '') + '</div>';
-    }
+    // המסלול: תשלום → שיוך → בדרך לארץ → בארץ → התקנות ‖ רישוי → מסירה
+    if (d.journey && d.journey.steps) h += journeyHtml(d.journey, closed);
 
     // ממתין לכם
     if (!closed && (agrPending || needUpload)) {
@@ -304,7 +298,7 @@
     var ups = d.updates || [];
     if (ups.length) {
       h += '<div class="sec"><h3>עדכונים מהצוות</h3><div class="feed">' + ups.map(function (u, i) {
-        return '<div class="upd"' + (i >= 3 ? ' data-extra hidden' : '') + '><span class="pin" aria-hidden="true"></span><div>' +
+        return '<div class="upd' + (u.kind === 'milestone' ? ' ms' : '') + '"' + (i >= 3 ? ' data-extra hidden' : '') + '><span class="pin" aria-hidden="true"></span><div>' +
           '<div class="meta">' + E(relDay(u.at)) + (u.by ? ' · ' + E(u.by) : '') + '</div><div class="body">' + E(u.body) + '</div></div></div>';
       }).join('') + '</div>' + (ups.length > 3 ? '<button type="button" class="link more" data-more>' + (ups.length - 3 === 1 ? 'עוד עדכון אחד' : 'עוד ' + (ups.length - 3) + ' עדכונים') + '</button>' : '') + '</div>';
     }
@@ -375,6 +369,55 @@
 
     return h + '</article>';
   }
+  function journeyBadge(d) {
+    var j = d.journey;
+    if (!j || !j.steps) return d.status_he;
+    var by = {}; j.steps.forEach(function (x) { by[x.key] = x; });
+    if (j.delivered) return 'נמסר';
+    if (by.delivery && by.delivery.state === 'active') return 'נקבע מועד מסירה';
+    if (by.install && (by.install.state !== 'todo' || by.license.state !== 'todo')) return 'בהכנה למסירה';
+    if (j.in_israel && by.assigned.state === 'done') return 'הרכב בארץ';
+    if (by.transit && by.transit.state === 'active') return 'בדרך לארץ';
+    return by.assigned.state === 'done' ? 'הרכב שויך' : d.status_he;
+  }
+
+  function stepItem(s, extraCls) {
+    var mark = s.state === 'done' ? '✓' : '';
+    var items = (s.items || []).length ? '<ul class="jr-items">' + s.items.map(function (x) {
+      return '<li>' + E(x.label) + (x.qty > 1 ? ' ×' + E(x.qty) : '') + '</li>';
+    }).join('') + '</ul>' : '';
+    return '<div class="jr-step ' + s.state + (extraCls || '') + '"' + (s.state === 'active' ? ' aria-current="step"' : '') + '>' +
+      '<span class="jr-dot" aria-hidden="true">' + mark + '</span>' +
+      '<div class="jr-body"><div class="jr-t">' + E(s.label_he) +
+        (s.state === 'active' ? '<span class="jr-now">' + ({ payment: 'ממתין', assigned: 'ממתין', transit: 'בדרך', delivery: 'נקבע' }[s.key] || 'בתהליך') + '</span>' : '') + '</div>' +
+        (s.detail ? '<div class="jr-d">' + E(s.detail) + '</div>' : '') + items + '</div></div>';
+  }
+
+  function journeyHtml(j, closed) {
+    var by = {}; j.steps.forEach(function (x) { by[x.key] = x; });
+    // שורת הדגשה: מועד מסירה, או זמן הגעה משוער
+    var hi = '';
+    if (!closed && by.delivery && by.delivery.state === 'active') hi = '<div class="jr-hi"><span>מועד המסירה</span><b>' + E(by.delivery.detail.replace(/^נקבע ליום /, '')) + '</b></div>';
+    else if (by.transit && by.transit.state === 'active' && by.transit.eta) hi = '<div class="jr-hi"><span>הגעה משוערת לארץ</span><b>' + E(by.transit.detail.replace(/^הגעה משוערת: /, '')) + '</b>' +
+      (by.transit.eta_updated_at ? '<small>עודכן ' + E(fmtDate(by.transit.eta_updated_at)) + '</small>' : '') + '</div>';
+    var h = '<div class="sec"><h3>המסלול של הרכב שלכם</h3>' + hi + '<div class="jr">';
+    var prepDone = false;
+    j.steps.forEach(function (s) {
+      if (s.group === 'prep') {
+        if (prepDone) return;
+        prepDone = true;
+        var a = by.install, b = by.license;
+        var st = a.state === 'done' && b.state === 'done' ? 'done' : (a.state !== 'todo' || b.state !== 'todo') ? 'active' : 'todo';
+        h += '<div class="jr-step jr-group ' + st + '"><span class="jr-dot" aria-hidden="true">' + (st === 'done' ? '✓' : '') + '</span>' +
+          '<div class="jr-body"><div class="jr-t">הכנת הרכב<span class="jr-par">שני התהליכים רצים במקביל</span></div>' +
+          '<div class="jr-pair">' + stepItem(a, ' sub') + stepItem(b, ' sub') + '</div></div></div>';
+      } else {
+        h += stepItem(s);
+      }
+    });
+    return h + '</div></div>';
+  }
+
   function kv(k, v, big) { return '<div><span class="k">' + E(k) + '</span><span class="v' + (big ? ' big' : '') + '">' + E(v) + '</span></div>'; }
 
   function meHtml() {
