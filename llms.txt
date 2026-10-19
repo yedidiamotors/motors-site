@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-10-16T11:49:59.017Z · 28 רכבים בסך הכל, 23 לא מכורים.
+עודכן: 2026-10-19T11:09:41.210Z · 27 רכבים בסך הכל, 23 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -44,7 +44,6 @@
 - [CHEVROLET SILVERADO EV LT PLUS ER 2026](https://www.yedidia-motors.com/stock/413563/): 2026 · בלו סמוק · חדש · זמין · נקודת עיגון, הנעה מרחוק · ללא בדליינר
 - [CHEVROLET SILVERADO LT EV MR 2026](https://www.yedidia-motors.com/stock/414671/): 2026 · בלו סמוק · חדש · זמין · נקודת עיגון, הנעה מרחוק
 - [CHEVROLET SILVERADO EV TRAIL BOSS MR 2026 2026](https://www.yedidia-motors.com/stock/410292/): 2026 · כחול · חדש · נמכר · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
-- [CHEVROLET SILVERADO EV TRAIL BOSS PLUS ER 2026](https://www.yedidia-motors.com/stock/412562/): 2026 · אפור מט · חדש · נמכר · נקודת עיגון, חניה אוטומטית, הנעה מרחוק · ללא בדליינר בלי גג פנורמי
 - [CHEVROLET SILVERADO EV TRAIL BOSS PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413055/): 2026 · לבן פנינה · חדש · נמכר · נקודת עיגון, הנעה מרחוק · עם גג פנורמי
 
 ### GMC
