@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-19T17:42:30.389Z",
+  "updated_at": "2026-10-20T12:03:46.416Z",
   "source": "google-sheet",
   "count": 27,
   "units": 27,
@@ -487,7 +487,7 @@
     {
       "id": "071892",
       "make": "TOYOTA",
-      "model": "Land Cruiser Premium Package",
+      "model": "Land Cruiser Premium Package 20",
       "year": 2027,
       "trim": null,
       "color": "סהרה",
@@ -516,7 +516,7 @@
       ],
       "spec_source": "VIN",
       "features": [],
-      "description": null,
+      "description": "גאנט",
       "images": [],
       "share_image": "/assets/vehicles/071892/share.jpg"
     },
