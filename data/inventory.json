@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20T12:03:46.416Z",
+  "updated_at": "2026-10-21T15:02:20.360Z",
   "source": "google-sheet",
   "count": 27,
   "units": 27,
@@ -1389,11 +1389,11 @@
       "share_image": "/assets/vehicles/416023/share.jpg"
     },
     {
-      "id": "411512",
+      "id": "413447",
       "make": "GMC",
       "model": "SIERRA EV AT4 PREMIUM ER",
       "year": 2026,
-      "trim": "Denali",
+      "trim": "AT4",
       "color": "לבן",
       "km": 0,
       "price": null,
@@ -1433,33 +1433,45 @@
         "הנעה מרחוק"
       ],
       "description": "ללא גג פנורמי",
-      "images": [],
-      "wheels_in": 24,
-      "trim_raw": "Denali 24",
+      "images": [
+        "/assets/vehicles/413447/1__m8fgvKVGmN_JWYbD9HajdyOESo2hlI.webp",
+        "/assets/vehicles/413447/1wCjefrvQ-xQb2K7OmlTRZ3LwKZqsOjBI.webp",
+        "/assets/vehicles/413447/1yGjORaCKocNQ7hd0UNADbOYYzA0CWZE6.webp",
+        "/assets/vehicles/413447/1JRWlAqumJzmp4DaahVc8BLtTORElBqi5.webp",
+        "/assets/vehicles/413447/1T9M5N1aZPdb7sn9jWM48PSof97mMcJ9G.webp",
+        "/assets/vehicles/413447/16dDqehMkyKgi3XLBOHM0dKh4bZSyLvP0.webp",
+        "/assets/vehicles/413447/1iwDYDEtQEWNBLYC_U5neD8ET5oewGc2i.webp",
+        "/assets/vehicles/413447/1siXMR8VldorL61DLJQwoNFaevWgRGr_i.webp",
+        "/assets/vehicles/413447/1e_1cV11Z2lTumqDSQz54xU8T9E5lbik4.webp",
+        "/assets/vehicles/413447/1W1soFsw0A7fYQ0tj1SL2EBx1WFBAz98u.webp",
+        "/assets/vehicles/413447/1WqxZ-ObrXi3fE4VmlHbcVAkHq28cgw7P.webp"
+      ],
+      "wheels_in": 20,
+      "trim_raw": "AT4 20",
       "equipment": [
-        "סוללת Max Range — טווח עד כ־769 ק״מ (478 מייל, הערכת היצרן)",
-        "שני מנועים, הנעה e4WD — 760 כ״ס ו־785 ליברות-רגל במצב Max Power",
-        "טעינה מהירה DC עד 350 קילוואט (800 וולט) — כ־160 ק״מ ב־10 דקות; מטען AC 19.2 קילוואט",
-        "Energy Transfer Pro — הזנת חשמל החוצה עד 10.2 קילוואט (הזנת בית/כלים)",
-        "מתלי אוויר אדפטיביים Air Ride עם בקרת שיכוך רציפה",
+        "סוללת Extended Range — טווח עד כ־628 ק״מ (390 מייל, הערכת היצרן)",
+        "שני מנועים, הנעה e4WD — 625 כ״ס ו־775 ליברות-רגל",
+        "טעינה מהירה DC עד 300 קילוואט",
+        "הגבהת שלדה של 5 ס״מ עם מתלים ייעודיים לשטח ומצב Terrain",
+        "צמיגי All-Terrain בקוטר 35 אינץ׳",
         "היגוי ארבעה גלגלים עם CrabWalk",
-        "Super Cruise — נהיגה ללא ידיים בכבישים ממופים, כולל בגרירה (OnStar ל־3 שנים)",
+        "Super Cruise — נהיגה ללא ידיים בכבישים ממופים (OnStar ל־3 שנים)",
         "מסך מרכזי 16.8 אינץ׳ עם Google Built-in, לוח מחוונים 11 אינץ׳ ותצוגה עילית 14 אינץ׳",
         "מושבים קדמיים חשמליים, מחוממים ומאווררים; מושבים אחוריים חיצוניים מחוממים",
-        "גג זכוכית פנורמי קבוע",
-        "מערכת שמע Bose",
-        "MultiPro Midgate — פתח בין הארגז לתא הנוסעים (אורך מטען עד 3.3 מ׳) ודלת ארגז MultiPro שש־תפקודית",
-        "תא מטען קדמי חשמלי (eTrunk) וציפוי ארגז מותז",
-        "מצלמות HD Surround Vision, מראה־מצלמה אחורית, מצלמת ארגז ומערכת גרירה ProGrade"
+        "מערכת שמע Bose ‏7 רמקולים עם סאב־וופר",
+        "ווי חילוץ קדמיים אדומים וסמל GMC מואר",
+        "דלת ארגז MultiPro שש־תפקודית, ציפוי ארגז מותז ותא מטען קדמי חשמלי (eTrunk)",
+        "Energy Transfer — הזנת חשמל החוצה עד 7.2 קילוואט",
+        "חבילת AT4 Premium: MultiPro Midgate — פתח בין הארגז לתא הנוסעים, מצלמת ארגז, מראה־מצלמה אחורית ומערכת גרירה ProGrade"
       ],
       "perf": {
-        "range_km": 769,
-        "hp": 760,
-        "dc_kw": 350,
-        "towing_kg": 5670
+        "range_km": 628,
+        "hp": 625,
+        "dc_kw": 300,
+        "towing_kg": 5580
       },
-      "equipment_slug": "sierra-ev-denali",
-      "share_image": "/assets/vehicles/411512/share.jpg"
+      "equipment_slug": "sierra-ev-at4",
+      "share_image": "/assets/vehicles/413447/share.jpg"
     },
     {
       "id": "408805",
