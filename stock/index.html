@@ -139,6 +139,9 @@
   .actions .m{flex:0 0 100%;justify-content:flex-start;padding:4px 0;min-height:0;
     font-size:13px;color:var(--muted);font-weight:300}
   .actions .m:hover{color:var(--fg)}
+  .actions .m{flex:1 1 60%}
+  .actions .sh{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer;margin-inline-start:auto;flex:0 0 auto}
+  .actions .sh:hover,.actions .sh:focus-visible{color:var(--fg);border-color:var(--gold)}
 
   .state{padding:70px 20px;text-align:center;color:var(--muted);font-weight:300}
   .state b{display:block;color:var(--fg);font-weight:500;font-size:17px;margin-bottom:6px}
@@ -325,6 +328,7 @@ function card(v, i){
              <a class="p" href="${leadUrl(v)}">לפרטים — צרו קשר</a>
              <a class="w" href="${waUrl(v)}" target="_blank" rel="noopener">וואטסאפ</a>
              <a class="m" href="${pageUrl(v)}">כל הפרטים והתמונות ←</a>
+             <button class="sh" type="button" data-share="${esc(v.id)}" aria-label="שיתוף ${esc(label(v))}">שיתוף</button>
            </div>`}
     </div>
   </article>`;
@@ -336,6 +340,11 @@ const WA = 'https://wa.me/972508991090';
 function label(v){ return [v.make, v.model, v.year].filter(Boolean).join(' '); }
 function pageUrl(v){ return '/stock/' + encodeURIComponent(v.id) + '/'; }
 function leadUrl(v){ return '/?car=' + encodeURIComponent(label(v) + ' (' + v.id + ')') + '#lead'; }
+/* קישור מודעה מקוצר — אותו כלל כמו shortCode() ב-scripts/seo.mjs */
+function shortUrl(v){
+  const id = String(v.id || '');
+  return 'https://yedidia-motors.com/v/' + (/^TI-/.test(id) ? id.split('-').pop() : id).replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+}
 function waUrl(v){
   return WA + '?text=' + encodeURIComponent('שלום, אני מתעניין ב-' + label(v) + ' שראיתי באתר (מזהה ' + v.id + '). אשמח לפרטים.');
 }
@@ -395,6 +404,20 @@ function openShot(shot){
   show(); lb.showModal();
 }
 out.addEventListener('click', e => openShot(e.target.closest('.shot[data-i]')));
+
+/* שיתוף מכרטיס: בטלפון — תפריט השיתוף של המכשיר (וואטסאפ, פייסבוק, אינסטגרם...);
+   במחשב — העתקת הקישור המקוצר. את כל אפשרויות השיתוף יש בעמוד הרכב. */
+out.addEventListener('click', e => {
+  const b = e.target.closest('button[data-share]');
+  if (!b) return;
+  const v = ALL.find(x => x.id === b.dataset.share);
+  if (!v) return;
+  const url = shortUrl(v);
+  if (navigator.share) { navigator.share({ title: label(v), text: label(v) + ' — ידידיה מוטורס', url }).catch(() => {}); return; }
+  const done = () => { b.textContent = 'הקישור הועתק ✓'; setTimeout(() => { b.textContent = 'שיתוף'; }, 2500); };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(done, () => prompt('העתיקו את הקישור:', url));
+  else prompt('העתיקו את הקישור:', url);
+});
 out.addEventListener('keydown', e => {
   if (e.key !== 'Enter' && e.key !== ' ') return;
   const shot = e.target.closest ? e.target.closest('.shot[data-i]') : null;

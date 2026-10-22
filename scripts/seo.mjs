@@ -59,6 +59,20 @@ const num = n => new Intl.NumberFormat('he-IL').format(n);
 
 export const vehicleUrl = v => `${SITE}/stock/${encodeURIComponent(v.id)}/`;
 
+/* ---------- קישור מודעה מקוצר (22/10/2026) ----------
+   yedidia-motors.com/v/<קוד> — רכב חדש: 6 התווים האחרונים של השילדה (=המזהה באתר);
+   טרייד-אין: החתימה בסוף המזהה (TI-…-XXXXX). אותו כלל בדיוק ב-n8n (site_links) ובפאנל.
+   העמוד הקצר הוא קובץ v/<קוד>.html — GitHub Pages מגיש אותו בלי סיומת ובלי הפניה,
+   ונושא את כל תגיות התצוגה המקדימה, כך שוואטסאפ/פייסבוק/אינסטגרם מציגים תמונה וטקסט
+   גם לפני שמגיעים לעמוד הרכב. */
+export const SHORT_SITE = 'https://yedidia-motors.com';
+export function shortCode(id) {
+  const s = String(id || '');
+  const code = /^TI-/.test(s) ? s.split('-').pop() : s;
+  return code.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+}
+export const shortUrl = v => `${SHORT_SITE}/v/${shortCode(v.id)}`;
+
 export function vehicleTitle(v) {
   return [v.make, v.model, v.year].filter(Boolean).join(' ');
 }
@@ -169,8 +183,55 @@ export function adText(v) {
     eq.length ? '✔ ' + eq.join('\n✔ ') : '',
     v.description || '',
     v.status === 'sold' ? 'נמכר — אבל יש עוד במלאי.' : `${STATUS_HE[v.status] === 'בדרך' ? 'בדרך לארץ' : 'במלאי'} בידידיה מוטורס, ${BIZ.city}. לפרטים ותיאום נסיעת מבחן: ${BIZ.landlineHe}`,
-    vehicleUrl(v),
+    shortUrl(v),
   ].filter(Boolean).join('\n');
+}
+
+/* תגיות התצוגה המקדימה — משותפות לעמוד הרכב ולעמוד הקצר */
+function ogTags(v, title, desc, url) {
+  return `<meta property="og:type" content="product">
+<meta property="og:site_name" content="${esc(BIZ.name)}">
+<meta property="og:locale" content="he_IL">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${esc(url)}">
+${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image)}">
+<meta property="og:image:secure_url" content="${esc(SITE + v.share_image)}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(vehicleTitle(v))} — ידידיה מוטורס">` : (v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.images[0])}">` : '')}
+<meta name="twitter:card" content="${(v.share_image || (v.images && v.images.length)) ? 'summary_large_image' : 'summary'}">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(desc)}">${v.share_image ? `\n<meta name="twitter:image" content="${esc(SITE + v.share_image)}">` : ''}`;
+}
+
+/* תיאור קצר לתצוגה המקדימה — שנה · צבע · מצב · סטטוס, ואז הטלפון */
+function shareDesc(v) {
+  const bits = [v.year, v.color, v.condition, v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null, STATUS_HE[v.status]].filter(Boolean);
+  return (bits.join(' · ') + ` · ${BIZ.name}, ${BIZ.city} · ${BIZ.landlineHe}`).slice(0, 200);
+}
+
+function shortPage(v) {
+  const title = `${vehicleTitle(v)}${v.color ? ' · ' + v.color : ''} | ${BIZ.name}`;
+  const url = vehicleUrl(v);
+  return `<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(shareDesc(v))}">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="${esc(url)}">
+${ogTags(v, title, shareDesc(v), url)}
+<meta http-equiv="refresh" content="0;url=${esc(url)}">
+<script>location.replace(${JSON.stringify(url)} + location.search + location.hash);</script>
+<style>body{margin:0;background:#0b0b0c;color:#f5f5f3;font-family:Heebo,system-ui,Arial,sans-serif;display:grid;place-items:center;min-height:100vh;text-align:center}a{color:#c9a227}</style>
+</head>
+<body><p>מעביר אל <a href="${esc(url)}">${esc(vehicleTitle(v))}</a>…</p></body>
+</html>
+`;
 }
 
 function vehiclePage(v) {
@@ -208,21 +269,7 @@ function vehiclePage(v) {
 <link rel="canonical" href="${esc(url)}">
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <script src="/assets/site.js" defer></script>
-<meta property="og:type" content="product">
-<meta property="og:site_name" content="${esc(BIZ.name)}">
-<meta property="og:locale" content="he_IL">
-<meta property="og:title" content="${esc(title)}">
-<meta property="og:description" content="${esc(desc)}">
-<meta property="og:url" content="${esc(url)}">
-${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image)}">
-<meta property="og:image:secure_url" content="${esc(SITE + v.share_image)}">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${esc(vehicleTitle(v))} — ידידיה מוטורס">` : (v.images && v.images[0] ? `<meta property="og:image" content="${esc(SITE + v.images[0])}">` : '')}
-<meta name="twitter:card" content="${(v.share_image || (v.images && v.images.length)) ? 'summary_large_image' : 'summary'}">
-<meta name="twitter:title" content="${esc(title)}">
-<meta name="twitter:description" content="${esc(desc)}">${v.share_image ? `\n<meta name="twitter:image" content="${esc(SITE + v.share_image)}">` : ''}
+${ogTags(v, title, desc, url)}
 <script type="application/ld+json">${JSON.stringify(vehicleLd(v))}</script>
 <script type="application/ld+json">${JSON.stringify(breadcrumbLd(v))}</script>
 <style>
@@ -256,6 +303,13 @@ ${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image
   .share a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--muted);background:var(--bg-2)}
   .share a:hover,.share a:focus-visible{color:var(--fg);border-color:var(--gold)}
   .share svg{width:22px;height:22px;fill:currentColor}
+  .share{flex-wrap:wrap;position:relative}
+  .share button{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);color:var(--muted);background:var(--bg-2);cursor:pointer;padding:0}
+  .share button[hidden]{display:none}
+  .share button:hover,.share button:focus-visible{color:var(--fg);border-color:var(--gold)}
+  .share-link{font-size:13px;color:var(--muted);margin-inline-start:4px;user-select:all}
+  .share-toast{position:absolute;inset-inline-start:0;top:calc(100% + 8px);background:var(--bg-3);border:1px solid var(--gold);color:var(--fg);font-size:14px;padding:8px 12px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .2s;max-width:min(92vw,420px);z-index:5}
+  .share-toast.on{opacity:1}
   .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 8px;list-style:none}
   .chips li{background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--fg)}
   ul.eq{color:var(--fg);line-height:1.7}
@@ -293,10 +347,60 @@ ${v.share_image ? `<meta property="og:image" content="${esc(SITE + v.share_image
     <a class="s" href="/stock/">חזרה למלאי</a>
   </div>
 
-  <div class="share" aria-label="שיתוף">
+  <div class="share" aria-label="שיתוף הרכב" data-url="${esc(shortUrl(v))}" data-title="${esc(vehicleTitle(v))}" data-text="${esc(adText(v))}" data-img="${esc(v.share_image || '')}">
     <a href="https://wa.me/?text=${encodeURIComponent(adText(v))}" target="_blank" rel="noopener" aria-label="שיתוף בוואטסאפ" title="שיתוף בוואטסאפ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg></a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" target="_blank" rel="noopener" aria-label="שיתוף בפייסבוק" title="שיתוף בפייסבוק"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shortUrl(v))}" target="_blank" rel="noopener" aria-label="שיתוף בפייסבוק" title="שיתוף בפייסבוק"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg></a>
+    <button type="button" data-share="instagram" aria-label="שיתוף באינסטגרם" title="שיתוף באינסטגרם"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1zM21.9 8.2a5.4 5.4 0 0 0-1.5-3.9 5.4 5.4 0 0 0-3.9-1.5C15 2.7 9 2.7 7.5 2.8a5.4 5.4 0 0 0-3.9 1.5 5.4 5.4 0 0 0-1.5 3.9C2 9.8 2 14.2 2.1 15.8a5.4 5.4 0 0 0 1.5 3.9 5.4 5.4 0 0 0 3.9 1.5c1.6.1 7.4.1 9 0a5.4 5.4 0 0 0 3.9-1.5 5.4 5.4 0 0 0 1.5-3.9c.1-1.6.1-6 0-7.6zm-2.1 9.9a3 3 0 0 1-1.7 1.7c-1.2.5-4 .4-5.3.4s-4.1.1-5.3-.4a3 3 0 0 1-1.7-1.7c-.5-1.2-.4-4-.4-5.3s-.1-4.1.4-5.3a3 3 0 0 1 1.7-1.7c1.2-.5 4-.4 5.3-.4s4.1-.1 5.3.4a3 3 0 0 1 1.7 1.7c.5 1.2.4 4 .4 5.3s.1 4.1-.4 5.3z"/></svg></button>
+    <button type="button" data-share="copy" aria-label="העתקת הקישור" title="העתקת הקישור"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.5-3.5a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0zm-1.8 4.9-1.4 1.4a3.5 3.5 0 0 1-5-5l3.5-3.5a3.5 3.5 0 0 1 4.6-.3 1 1 0 1 1-1.2 1.6 1.5 1.5 0 0 0-2 .1L3.8 16.1a1.5 1.5 0 0 0 2.1 2.1l1.4-1.4a1 1 0 0 1 1.5 1.5zm12.6-15.6a3.5 3.5 0 0 0-5 0L15 4.1a1 1 0 0 0 1.5 1.5l1.4-1.4a1.5 1.5 0 0 1 2.1 2.1l-3.5 3.5a1.5 1.5 0 0 1-2 .1 1 1 0 1 0-1.2 1.6 3.5 3.5 0 0 0 4.6-.3l3.5-3.5a3.5 3.5 0 0 0 0-5z"/></svg></button>
+    <button type="button" data-share="native" hidden aria-label="שיתוף באפליקציה אחרת" title="שיתוף באפליקציה אחרת"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7a3 3 0 0 0 .1.8L8.4 11.2a3 3 0 1 0 0 1.6l6.7 3.4A3 3 0 1 0 18 16z"/></svg></button>
+    <span class="share-link" dir="ltr">${esc(shortUrl(v).replace(/^https:\/\//, ''))}</span>
+    <span class="share-toast" role="status" aria-live="polite"></span>
   </div>
+  <script>
+  (function () {
+    var box = document.querySelector('.share[data-url]');
+    if (!box) return;
+    var url = box.dataset.url, title = box.dataset.title, text = box.dataset.text, img = box.dataset.img;
+    var toastEl = box.querySelector('.share-toast'), t;
+    function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('on'); clearTimeout(t); t = setTimeout(function () { toastEl.classList.remove('on'); }, 4500); }
+    function copy(s) {
+      if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(s).then(function () { return true; }, function () { return legacy(s); });
+      return Promise.resolve(legacy(s));
+    }
+    function legacy(s) {
+      var ta = document.createElement('textarea'); ta.value = s; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) {} ta.remove(); return ok;
+    }
+    // תמונת המודעה נטענת מראש: בטלפון תפריט השיתוף חייב להיפתח מיד בלחיצה, בלי המתנה לרשת
+    var file = null;
+    if (img && navigator.canShare) {
+      fetch(img).then(function (r) { return r.ok ? r.blob() : null; }).then(function (b) {
+        if (b) file = new File([b], 'yedidia-motors.jpg', { type: 'image/jpeg' });
+      }).catch(function () {});
+    }
+    var nativeBtn = box.querySelector('[data-share="native"]');
+    if (navigator.share) nativeBtn.hidden = false;
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-share]'); if (!b) return;
+      var kind = b.dataset.share;
+      if (kind === 'copy') {
+        copy(url).then(function (ok) { toast(ok ? 'הקישור הועתק' : url); });
+      } else if (kind === 'native') {
+        navigator.share({ title: title, text: text.replace(url, '').trim(), url: url }).catch(function () {});
+      } else if (kind === 'instagram') {
+        // לאינסטגרם אין שיתוף קישור מהדפדפן: מעתיקים את הקישור ומשתפים את תמונת המודעה —
+        // בטלפון דרך תפריט השיתוף (סטורי / פוסט / הודעה), במחשב — הורדת התמונה.
+        if (file && navigator.canShare({ files: [file] })) {
+          navigator.share({ files: [file], title: title }).catch(function () {});
+          copy(url).then(function () { toast('הקישור הועתק — בסטורי הוסיפו "מדבקת קישור" והדביקו'); });
+        } else {
+          if (img) { var a = document.createElement('a'); a.href = img; a.download = 'yedidia-motors.jpg'; document.body.appendChild(a); a.click(); a.remove(); }
+          copy(url).then(function () { toast('הקישור הועתק ותמונת המודעה ירדה — העלו אותה לאינסטגרם והדביקו את הקישור'); });
+        }
+      }
+    });
+  })();
+  </script>
 </main>
 
 <footer><div class="wrap">
@@ -468,6 +572,25 @@ export function buildSeo({ root, payload, log = console.log }) {
     }
   }
 
+  // עמודי קישור מקוצר — v/<קוד>.html, גם לרכבים שאוחדו (מפנים לכרטיס המאוחד)
+  const shortDir = resolve(root, 'v');
+  mkdirSync(shortDir, { recursive: true });
+  const liveShort = new Set();
+  for (const v of vehicles) {
+    for (const id of [v.id, ...(v.merged_ids || [])]) {
+      const code = shortCode(id);
+      if (!code || liveShort.has(code)) continue;
+      liveShort.add(code);
+      writeFileSync(join(shortDir, code + '.html'), shortPage(v));
+    }
+  }
+  let shortRemoved = 0;
+  for (const name of readdirSync(shortDir)) {
+    if (!name.endsWith('.html') || liveShort.has(name.slice(0, -5))) continue;
+    rmSync(join(shortDir, name), { force: true });
+    shortRemoved++;
+  }
+
   // ניקוי עמודים של רכבים שכבר לא במלאי
   let removed = 0;
   for (const name of readdirSync(stockDir)) {
@@ -478,5 +601,5 @@ export function buildSeo({ root, payload, log = console.log }) {
   }
 
   const injected = injectStatic(root, vehicles);
-  log(`SEO: ${vehicles.length} עמודי רכב, ${removed} הוסרו, sitemap ו-llms.txt נכתבו${injected ? ', רשימה סטטית הוזרקה' : ''}.`);
+  log(`SEO: ${vehicles.length} עמודי רכב, ${removed} הוסרו, ${liveShort.size} קישורים מקוצרים (${shortRemoved} הוסרו), sitemap ו-llms.txt נכתבו${injected ? ', רשימה סטטית הוזרקה' : ''}.`);
 }
