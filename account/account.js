@@ -588,3 +588,82 @@
   session = loadSession();
   if (session) enter(false); else phoneIn.focus();
 })();
+
+/* ------------------------------------------------------------
+   פתיחת מסמכים מתוך הדף (קישורי /webhook/doc)
+   חוסמי פרסומות (AdBlock, uBlock Lite ועוד) חוסמים מעבר לכתובת
+   duckdns בלשונית חדשה — ERR_BLOCKED_BY_CLIENT. לכן מושכים את המסמך
+   ב-fetch (כמו כל קריאה אחרת לשרת) ופותחים אותו מהזיכרון.
+   ------------------------------------------------------------ */
+(function () {
+  'use strict';
+  var DOC_PREFIX = 'https://yedidiamotors.duckdns.org/webhook/doc?';
+  var VIEWABLE = /^(application\/pdf|image\/|text\/plain)/i;
+
+  function msgPage(w, title, text) {
+    if (!w || w.closed) return;
+    try {
+      w.document.open();
+      w.document.write('<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8">' +
+        '<meta name="viewport" content="width=device-width,initial-scale=1"><title>ידידיה מוטורס — מסמך</title>' +
+        '<style>body{font-family:system-ui,Arial,sans-serif;background:#f5f5f4;color:#1c1917;display:flex;min-height:100vh;' +
+        'align-items:center;justify-content:center;margin:0;padding:16px}main{background:#fff;border-radius:12px;padding:28px 24px;' +
+        'max-width:420px;box-shadow:0 1px 3px rgba(0,0,0,.08)}h1{font-size:18px;margin:0 0 8px}p{margin:0;line-height:1.6;color:#44403c}</style>' +
+        '</head><body><main><h1>' + title + '</h1><p>' + text + '</p></main></body></html>');
+      w.document.close();
+    } catch (e) {}
+  }
+
+  function fileNameFrom(r) {
+    var cd = r.headers.get('Content-Disposition') || '';
+    var m = /filename\*=UTF-8''([^;]+)/i.exec(cd);
+    if (m) { try { return decodeURIComponent(m[1]); } catch (e) {} }
+    m = /filename="?([^";]+)"?/i.exec(cd);
+    return m ? m[1] : 'document';
+  }
+
+  function saveAs(url, name) {
+    var a = document.createElement('a');
+    a.href = url; a.download = name; a.style.display = 'none';
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { a.remove(); }, 0);
+  }
+
+  function openDoc(href) {
+    var w = null;
+    try { w = window.open('', '_blank'); } catch (e) {}
+    msgPage(w, 'פותח את המסמך…', 'רק רגע.');
+
+    fetch(href, { method: 'GET', cache: 'no-store', credentials: 'omit' }).then(function (r) {
+      var type = r.headers.get('Content-Type') || '';
+      if (!r.ok || /text\/html/i.test(type)) {
+        return r.text().then(function (html) {
+          if (w && !w.closed && html) { w.document.open(); w.document.write(html); w.document.close(); }
+          else alert('לא ניתן לפתוח את המסמך. רעננו את הדף ונסו שוב.');
+        });
+      }
+      var name = fileNameFrom(r);
+      return r.blob().then(function (b) {
+        var url = URL.createObjectURL(b);
+        setTimeout(function () { URL.revokeObjectURL(url); }, 120000);
+        if (VIEWABLE.test(b.type || type) && w && !w.closed) {
+          w.location.href = url;
+        } else {
+          saveAs(url, name);
+          if (w && !w.closed) msgPage(w, 'המסמך הורד', 'הקובץ "' + name.replace(/[<>&"]/g, '') + '" נשמר בתיקיית ההורדות. אפשר לסגור את הלשונית.');
+        }
+      });
+    }).catch(function () {
+      if (w && !w.closed) msgPage(w, 'לא ניתן לפתוח את המסמך', 'אין תקשורת עם השרת. בדקו את החיבור לאינטרנט ונסו שוב.');
+      else alert('לא ניתן לפתוח את המסמך — אין תקשורת עם השרת.');
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0) return;
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || String(a.href).indexOf(DOC_PREFIX) !== 0) return;
+    e.preventDefault();
+    openDoc(a.href);
+  });
+})();
