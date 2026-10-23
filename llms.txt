@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-10-21T15:02:20.360Z · 27 רכבים בסך הכל, 23 לא מכורים.
+עודכן: 2026-10-23T06:27:11.617Z · 23 רכבים בסך הכל, 20 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -39,12 +39,8 @@
 - [CHEVROLET SILVERADO LTZ + 2022](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-LTZ-2022-5LGT6/): 2022 · לבן · יד שנייה · 155,000 ק״מ · זמין · יד 1
 - [CHEVROLET SILVERADO 4WT 2025](https://www.yedidia-motors.com/stock/TI-CHEVROLET-SILVERADO-4WT-2025-MK21E/): 2025 · לבן · יד שנייה · 43,000 ק״מ · זמין · יד 1
 - [CHEVROLET SILVERADO EV 8WT MR 2026](https://www.yedidia-motors.com/stock/414331/): 2026 · לבן · חדש · זמין · נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/415561/): 2026 · שחור · חדש · זמין · נקודת עיגון, הנעה מרחוק · גג פנורמי
-- [CHEVROLET SILVERADO EV LT PREMIUM PACKAGE ER 2026](https://www.yedidia-motors.com/stock/413288/): 2026 · אפור בטון · חדש · זמין · נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV LT PLUS ER 2026](https://www.yedidia-motors.com/stock/413563/): 2026 · בלו סמוק · חדש · זמין · נקודת עיגון, הנעה מרחוק · ללא בדליינר
-- [CHEVROLET SILVERADO LT EV MR 2026](https://www.yedidia-motors.com/stock/414671/): 2026 · בלו סמוק · חדש · זמין · נקודת עיגון, הנעה מרחוק
-- [CHEVROLET SILVERADO EV TRAIL BOSS MR 2026 2026](https://www.yedidia-motors.com/stock/410292/): 2026 · כחול · חדש · נמכר · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
-- [CHEVROLET SILVERADO EV TRAIL BOSS PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413055/): 2026 · לבן פנינה · חדש · נמכר · נקודת עיגון, הנעה מרחוק · עם גג פנורמי
+- [CHEVROLET SILVERADO EV LT 2026](https://www.yedidia-motors.com/stock/413288/): 2026 · מגיע ב-3 צבעים: אפור בטון, בלו סמוק, שחור · גרסאות: Premium, סוללה מוגדלת (ER) (אפור בטון, שחור) | Plus, סוללה מוגדלת (ER) (בלו סמוק) | סוללה רגילה (MR) (בלו סמוק) · חדש · זמין · נקודת עיגון, הנעה מרחוק · ללא בדליינר
+- [CHEVROLET SILVERADO EV TRAIL BOSS 2026](https://www.yedidia-motors.com/stock/410292/): 2026 · מגיע ב-2 צבעים: כחול, לבן פנינה · גרסאות: סוללה רגילה (MR) (כחול) | Premium, סוללה מוגדלת (ER) (לבן פנינה) · חדש · נמכר · נקודת עיגון, הנעה מרחוק, חניה אוטומטית (בחלק מהיחידות) · עם גג פנורמי
 
 ### GMC
 

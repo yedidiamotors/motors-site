@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-21T15:02:20.360Z",
+  "updated_at": "2026-10-23T06:27:11.617Z",
   "source": "google-sheet",
-  "count": 27,
+  "count": 23,
   "units": 27,
   "vehicles": [
     {
@@ -879,155 +879,13 @@
       "share_image": "/assets/vehicles/414331/share.jpg"
     },
     {
-      "id": "415561",
-      "make": "CHEVROLET",
-      "model": "SILVERADO EV LT PREMIUM PACKAGE ER",
-      "year": 2026,
-      "trim": "3LT",
-      "color": "שחור",
-      "km": 0,
-      "price": null,
-      "currency": "ILS",
-      "status": "available",
-      "condition": "חדש",
-      "engine": "חשמלי",
-      "drivetrain": "הנעה כפולה (AWD)",
-      "series": null,
-      "fuel": "חשמלי",
-      "transmission": null,
-      "body": "טנדר",
-      "doors": 4,
-      "gvwr": "עד 4,536 ק״ג",
-      "plant": "ארה״ב",
-      "seats": null,
-      "safety": [
-        "התרעת התנגשות מלפנים",
-        "תגבור בלימה דינמי",
-        "בלימת חירום לזיהוי הולכי רגל",
-        "בלימת חירום אוטומטית ברוורס",
-        "ניטור שטח מת",
-        "התרעת סטייה מנתיב",
-        "שמירת נתיב אקטיבית",
-        "מצלמת רוורס",
-        "אור גבוה אוטומטי",
-        "תאורת יום",
-        "התנעה ללא מפתח",
-        "בקרת יציבות (ESC)",
-        "בקרת אחיזה",
-        "ABS",
-        "חלונות עם עצירה אוטומטית בהיתקלות",
-        "פנסי LED",
-        "ניטור לחץ אוויר בצמיגים",
-        "כריות אוויר: קדמיות, צד, וילון"
-      ],
-      "spec_source": "VIN",
-      "features": [
-        "נקודת עיגון",
-        "הנעה מרחוק"
-      ],
-      "description": "גג פנורמי",
-      "images": [],
-      "equipment": [
-        "סוללת Extended Range — טווח עד כ־660 ק״מ (410 מייל, EPA)",
-        "שני מנועים, הנעה 4WD — 645 כ״ס ו־765 ליברות-רגל במצב WOW",
-        "טעינה מהירה DC עד 300 קילוואט; מטען AC מובנה 11.5 קילוואט",
-        "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
-        "תאורת LED מלאה כולל סמל Bowtie קדמי מואר",
-        "תא מטען קדמי חשמלי (eTrunk) עם מכסה מנוע חשמלי",
-        "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
-        "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision, בקר בלמי גרור",
-        "כניסה והתנעה ללא מפתח, התנעה מרחוק, Hitch Guidance",
-        "כושר גרירה עד כ־5,670 ק״ג",
-        "חבילת Premium: Super Cruise — נהיגה ללא ידיים בכבישים ממופים, תצוגה עילית 14 אינץ׳, Multi-Flex Midgate — פתח בין הארגז לתא הנוסעים, מטען AC 19.2 קילוואט, חניה אוטומטית משופרת, ציפוי ארגז"
-      ],
-      "perf": {
-        "range_km": 660,
-        "hp": 645,
-        "dc_kw": 300,
-        "towing_kg": 5670
-      },
-      "equipment_slug": "silverado-ev-lt",
-      "share_image": "/assets/vehicles/415561/share.jpg"
-    },
-    {
       "id": "413288",
       "make": "CHEVROLET",
-      "model": "SILVERADO EV LT PREMIUM PACKAGE ER",
+      "model": "SILVERADO EV LT",
       "year": 2026,
-      "trim": "3LT",
-      "color": "אפור בטון",
-      "km": 0,
-      "price": null,
-      "currency": "ILS",
-      "status": "available",
-      "condition": "חדש",
-      "engine": "חשמלי",
-      "drivetrain": "הנעה כפולה (AWD)",
-      "series": null,
-      "fuel": "חשמלי",
-      "transmission": null,
-      "body": "טנדר",
-      "doors": 4,
-      "gvwr": "עד 4,536 ק״ג",
-      "plant": "ארה״ב",
-      "seats": null,
-      "safety": [
-        "התרעת התנגשות מלפנים",
-        "תגבור בלימה דינמי",
-        "בלימת חירום לזיהוי הולכי רגל",
-        "בלימת חירום אוטומטית ברוורס",
-        "ניטור שטח מת",
-        "התרעת סטייה מנתיב",
-        "שמירת נתיב אקטיבית",
-        "מצלמת רוורס",
-        "אור גבוה אוטומטי",
-        "תאורת יום",
-        "התנעה ללא מפתח",
-        "בקרת יציבות (ESC)",
-        "בקרת אחיזה",
-        "ABS",
-        "חלונות עם עצירה אוטומטית בהיתקלות",
-        "פנסי LED",
-        "ניטור לחץ אוויר בצמיגים",
-        "כריות אוויר: קדמיות, צד, וילון"
-      ],
-      "spec_source": "VIN",
-      "features": [
-        "נקודת עיגון",
-        "הנעה מרחוק"
-      ],
-      "description": null,
-      "images": [],
-      "equipment": [
-        "סוללת Extended Range — טווח עד כ־660 ק״מ (410 מייל, EPA)",
-        "שני מנועים, הנעה 4WD — 645 כ״ס ו־765 ליברות-רגל במצב WOW",
-        "טעינה מהירה DC עד 300 קילוואט; מטען AC מובנה 11.5 קילוואט",
-        "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
-        "תאורת LED מלאה כולל סמל Bowtie קדמי מואר",
-        "תא מטען קדמי חשמלי (eTrunk) עם מכסה מנוע חשמלי",
-        "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
-        "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision, בקר בלמי גרור",
-        "כניסה והתנעה ללא מפתח, התנעה מרחוק, Hitch Guidance",
-        "כושר גרירה עד כ־5,670 ק״ג",
-        "חבילת Premium: Super Cruise — נהיגה ללא ידיים בכבישים ממופים, תצוגה עילית 14 אינץ׳, Multi-Flex Midgate — פתח בין הארגז לתא הנוסעים, מטען AC 19.2 קילוואט, חניה אוטומטית משופרת, ציפוי ארגז"
-      ],
-      "perf": {
-        "range_km": 660,
-        "hp": 645,
-        "dc_kw": 300,
-        "towing_kg": 5670
-      },
-      "equipment_slug": "silverado-ev-lt",
-      "share_image": "/assets/vehicles/413288/share.jpg"
-    },
-    {
-      "id": "413563",
-      "make": "CHEVROLET",
-      "model": "SILVERADO EV LT PLUS ER",
-      "year": 2026,
-      "trim": "3LT",
-      "color": "בלו סמוק",
-      "km": 0,
+      "trim": null,
+      "color": "מגיע ב-3 צבעים",
+      "km": null,
       "price": null,
       "currency": "ILS",
       "status": "available",
@@ -1080,174 +938,74 @@
         "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision, בקר בלמי גרור",
         "כניסה והתנעה ללא מפתח, התנעה מרחוק, Hitch Guidance",
         "כושר גרירה עד כ־5,670 ק״ג",
-        "חבילת Plus: מושבים קדמיים חשמליים מחוממים ומאווררים, מושבים אחוריים מחוממים, דלת ארגז Multi-Flex, הזנת חשמל החוצה"
+        "חבילת Premium: Super Cruise — נהיגה ללא ידיים בכבישים ממופים, תצוגה עילית 14 אינץ׳, Multi-Flex Midgate — פתח בין הארגז לתא הנוסעים, מטען AC 19.2 קילוואט, חניה אוטומטית משופרת, ציפוי ארגז"
       ],
       "perf": {
-        "range_km": 660,
+        "range_km": 769,
         "hp": 645,
         "dc_kw": 300,
         "towing_kg": 5670
       },
       "equipment_slug": "silverado-ev-lt",
-      "share_image": "/assets/vehicles/413563/share.jpg"
-    },
-    {
-      "id": "414671",
-      "make": "CHEVROLET",
-      "model": "SILVERADO LT EV MR",
-      "year": 2026,
-      "trim": "4LT",
-      "color": "בלו סמוק",
-      "km": 0,
-      "price": null,
-      "currency": "ILS",
-      "status": "available",
-      "condition": "חדש",
-      "engine": "חשמלי",
-      "drivetrain": "הנעה כפולה (AWD)",
-      "series": null,
-      "fuel": "חשמלי",
-      "transmission": null,
-      "body": "טנדר",
-      "doors": 4,
-      "gvwr": "עד 6,350 ק״ג",
-      "plant": "ארה״ב",
-      "seats": null,
-      "safety": [
-        "התרעת התנגשות מלפנים",
-        "תגבור בלימה דינמי",
-        "בלימת חירום לזיהוי הולכי רגל",
-        "בלימת חירום אוטומטית ברוורס",
-        "ניטור שטח מת",
-        "התרעת סטייה מנתיב",
-        "שמירת נתיב אקטיבית",
-        "מצלמת רוורס",
-        "אור גבוה אוטומטי",
-        "תאורת יום",
-        "התנעה ללא מפתח",
-        "בקרת יציבות (ESC)",
-        "בקרת אחיזה",
-        "ABS",
-        "חלונות עם עצירה אוטומטית בהיתקלות",
-        "פנסי LED",
-        "ניטור לחץ אוויר בצמיגים",
-        "כריות אוויר: קדמיות, צד, וילון"
+      "colors": [
+        {
+          "name": "אפור בטון",
+          "units": 1,
+          "status": "available"
+        },
+        {
+          "name": "בלו סמוק",
+          "units": 2,
+          "status": "available"
+        },
+        {
+          "name": "שחור",
+          "units": 1,
+          "status": "available"
+        }
       ],
-      "spec_source": "VIN",
-      "features": [
-        "נקודת עיגון",
-        "הנעה מרחוק"
+      "variants": [
+        {
+          "label": "Premium, סוללה מוגדלת (ER)",
+          "colors": [
+            "אפור בטון",
+            "שחור"
+          ],
+          "status": "available"
+        },
+        {
+          "label": "Plus, סוללה מוגדלת (ER)",
+          "colors": [
+            "בלו סמוק"
+          ],
+          "status": "available"
+        },
+        {
+          "label": "סוללה רגילה (MR)",
+          "colors": [
+            "בלו סמוק"
+          ],
+          "status": "available"
+        }
       ],
-      "description": null,
-      "images": [],
-      "equipment": [
-        "סוללת Max Range — טווח עד כ־769 ק״מ (478 מייל, הערכת היצרן)",
-        "שני מנועים, הנעה 4WD — 760 כ״ס",
-        "טעינה מהירה DC עד 350 קילוואט; מטען AC מובנה 19.2 קילוואט",
-        "חישוקי 22 אינץ׳ בעיבוד מכני",
-        "מושבים קדמיים חשמליים 12 כיווני, מחוממים ומאווררים; מושבים אחוריים מחוממים",
-        "מערכת שמע Bose",
-        "Super Cruise — נהיגה ללא ידיים בכבישים ממופים",
-        "דלת ארגז Multi-Flex",
-        "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
-        "תא מטען קדמי חשמלי (eTrunk) עם מכסה מנוע חשמלי",
-        "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
-        "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision, בקר בלמי גרור",
-        "כושר גרירה עד כ־5,670 ק״ג"
+      "features_some": [],
+      "units": 4,
+      "units_available": 4,
+      "merged_ids": [
+        "413563",
+        "414671",
+        "415561"
       ],
-      "perf": {
-        "range_km": 769,
-        "hp": 760,
-        "dc_kw": 350,
-        "towing_kg": 5670
-      },
-      "equipment_slug": "silverado-ev-lt",
-      "share_image": "/assets/vehicles/414671/share.jpg"
+      "share_image": "/assets/vehicles/413288/share.jpg"
     },
     {
       "id": "410292",
       "make": "CHEVROLET",
-      "model": "SILVERADO EV TRAIL BOSS MR 2026",
+      "model": "SILVERADO EV TRAIL BOSS",
       "year": 2026,
-      "trim": "3TR",
-      "color": "כחול",
-      "km": 0,
-      "price": null,
-      "currency": "ILS",
-      "status": "sold",
-      "condition": "חדש",
-      "engine": "חשמלי",
-      "drivetrain": "הנעה כפולה (AWD)",
-      "series": null,
-      "fuel": "חשמלי",
-      "transmission": null,
-      "body": "טנדר",
-      "doors": 4,
-      "gvwr": "עד 6,350 ק״ג",
-      "plant": "ארה״ב",
-      "seats": null,
-      "safety": [
-        "התרעת התנגשות מלפנים",
-        "תגבור בלימה דינמי",
-        "בלימת חירום לזיהוי הולכי רגל",
-        "בלימת חירום אוטומטית ברוורס",
-        "ניטור שטח מת",
-        "התרעת סטייה מנתיב",
-        "שמירת נתיב אקטיבית",
-        "מצלמת רוורס",
-        "אור גבוה אוטומטי",
-        "תאורת יום",
-        "התנעה ללא מפתח",
-        "בקרת יציבות (ESC)",
-        "בקרת אחיזה",
-        "ABS",
-        "חלונות עם עצירה אוטומטית בהיתקלות",
-        "פנסי LED",
-        "ניטור לחץ אוויר בצמיגים",
-        "כריות אוויר: קדמיות, צד, וילון"
-      ],
-      "spec_source": "VIN",
-      "features": [
-        "נקודת עיגון",
-        "חניה אוטומטית",
-        "הנעה מרחוק"
-      ],
-      "description": null,
-      "images": [
-        "/assets/vehicles/410292/1aKzh8A9fOl-jCxIrge0gqKpFs83X-nAh.webp",
-        "/assets/vehicles/410292/1ukYeruPVka-rwd2qXeSCtyE-rihIzMCH.webp"
-      ],
-      "equipment": [
-        "סוללת Max Range — טווח עד כ־769 ק״מ (478 מייל, הערכת היצרן)",
-        "שני מנועים, הנעה 4WD — 725 כ״ס ו־775 ליברות-רגל",
-        "טעינה מהירה DC עד 350 קילוואט",
-        "הגבהת שלדה 5 ס״מ עם מתלי High Stance ובקרת ריבאונד הידראולית",
-        "צמיגי All-Terrain בקוטר 35 אינץ׳",
-        "היגוי ארבעה גלגלים עם מצב Sidewinder ומצב Terrain",
-        "חזית בזווית גישה גבוהה ווי חילוץ קדמיים אדומים",
-        "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
-        "תא מטען קדמי חשמלי (eTrunk), פנסי LED, תאורת ארגז LED",
-        "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
-        "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision",
-        "כושר גרירה עד כ־5,670 ק״ג"
-      ],
-      "perf": {
-        "range_km": 769,
-        "hp": 725,
-        "dc_kw": 350,
-        "towing_kg": 5670
-      },
-      "equipment_slug": "silverado-ev-trail-boss",
-      "share_image": "/assets/vehicles/410292/share.jpg"
-    },
-    {
-      "id": "413055",
-      "make": "CHEVROLET",
-      "model": "SILVERADO EV TRAIL BOSS PREMIUM ER",
-      "year": 2026,
-      "trim": "2TR",
-      "color": "לבן פנינה",
-      "km": 0,
+      "trim": null,
+      "color": "מגיע ב-2 צבעים",
+      "km": null,
       "price": null,
       "currency": "ILS",
       "status": "sold",
@@ -1288,31 +1046,68 @@
         "הנעה מרחוק"
       ],
       "description": "עם גג פנורמי",
-      "images": [],
+      "images": [
+        "/assets/vehicles/410292/1aKzh8A9fOl-jCxIrge0gqKpFs83X-nAh.webp",
+        "/assets/vehicles/410292/1ukYeruPVka-rwd2qXeSCtyE-rihIzMCH.webp"
+      ],
       "equipment": [
-        "סוללת Extended Range — טווח עד כ־660 ק״מ (410 מייל, הערכת היצרן)",
-        "שני מנועים, הנעה 4WD — 625 כ״ס ו־775 ליברות-רגל",
-        "טעינה מהירה DC עד 300 קילוואט",
-        "הגבהת שלדה 5 ס״מ עם מתלי High Stance ובקרת ריבאונד הידראולית — מרווח גחון גבוה ב־24%",
+        "סוללת Max Range — טווח עד כ־769 ק״מ (478 מייל, הערכת היצרן)",
+        "שני מנועים, הנעה 4WD — 725 כ״ס ו־775 ליברות-רגל",
+        "טעינה מהירה DC עד 350 קילוואט",
+        "הגבהת שלדה 5 ס״מ עם מתלי High Stance ובקרת ריבאונד הידראולית",
         "צמיגי All-Terrain בקוטר 35 אינץ׳",
-        "היגוי ארבעה גלגלים עם מצב Sidewinder (נסיעה אלכסונית) ומצב Terrain",
+        "היגוי ארבעה גלגלים עם מצב Sidewinder ומצב Terrain",
         "חזית בזווית גישה גבוהה ווי חילוץ קדמיים אדומים",
-        "עיצוב פנים ייחודי עם תפרים אדומים",
         "מסך מרכזי 17.7 אינץ׳ עם Google Built-in ולוח מחוונים דיגיטלי 11 אינץ׳",
         "תא מטען קדמי חשמלי (eTrunk), פנסי LED, תאורת ארגז LED",
         "בקרת אקלים דו־אזורית, טעינה אלחוטית, תאורת אווירה",
         "בקרת שיוט אדפטיבית, Chevy Safety Assist, מצלמות HD Surround Vision",
-        "כושר גרירה עד כ־5,670 ק״ג, מטען עד כ־950 ק״ג",
-        "חבילת Premium: Super Cruise — נהיגה ללא ידיים בכבישים ממופים, תצוגה עילית 14 אינץ׳, Multi-Flex Midgate — פתח בין הארגז לתא הנוסעים, מטען AC 19.2 קילוואט, חניה אוטומטית משופרת, ציפוי ארגז"
+        "כושר גרירה עד כ־5,670 ק״ג"
       ],
       "perf": {
-        "range_km": 660,
-        "hp": 625,
-        "dc_kw": 300,
+        "range_km": 769,
+        "hp": 725,
+        "dc_kw": 350,
         "towing_kg": 5670
       },
       "equipment_slug": "silverado-ev-trail-boss",
-      "share_image": "/assets/vehicles/413055/share.jpg"
+      "colors": [
+        {
+          "name": "כחול",
+          "units": 1,
+          "status": "sold"
+        },
+        {
+          "name": "לבן פנינה",
+          "units": 1,
+          "status": "sold"
+        }
+      ],
+      "variants": [
+        {
+          "label": "סוללה רגילה (MR)",
+          "colors": [
+            "כחול"
+          ],
+          "status": "sold"
+        },
+        {
+          "label": "Premium, סוללה מוגדלת (ER)",
+          "colors": [
+            "לבן פנינה"
+          ],
+          "status": "sold"
+        }
+      ],
+      "features_some": [
+        "חניה אוטומטית"
+      ],
+      "units": 2,
+      "units_available": 0,
+      "merged_ids": [
+        "413055"
+      ],
+      "share_image": "/assets/vehicles/410292/share.jpg"
     },
     {
       "id": "416023",
