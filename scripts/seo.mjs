@@ -73,6 +73,15 @@ export function shortCode(id) {
 }
 export const shortUrl = v => `${SHORT_SITE}/v/${shortCode(v.id)}`;
 
+/* דגם שאוחד מכמה יחידות (groupByModel): צבעים, גרסאות ותוספות */
+const openColors = v => (v.colors || []).filter(c => v.status === 'sold' || c.status !== 'sold');
+export function colorText(v) {
+  const cs = openColors(v);
+  return cs.length > 1 ? `מגיע ב-${cs.length} צבעים: ${cs.map(c => c.name).join(', ')}` : v.color;
+}
+const variantsText = v => (v.variants || []).map(x => x.label + (x.colors.length ? ` (${x.colors.join(', ')})` : '')).join(' | ') || null;
+const allFeatures = v => [...(v.features || []), ...(v.features_some || []).map(f => f + ' (בחלק מהיחידות)')];
+
 export function vehicleTitle(v) {
   return [v.make, v.model, v.year].filter(Boolean).join(' ');
 }
@@ -81,10 +90,10 @@ function vehicleDescription(v) {
   const bits = [
     v.condition,
     v.trim,
-    v.color,
+    colorText(v),
     v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null,
     v.engine, v.drivetrain, v.body,
-    ...(v.features || []),
+    ...allFeatures(v),
     v.description,
   ].filter(Boolean);
   const head = `${vehicleTitle(v)} ${v.status === 'sold' ? 'שנמכר' : 'למכירה'} בידידיה מוטורס, ${BIZ.street}, ${BIZ.city}.`;
@@ -173,7 +182,7 @@ function breadcrumbLd(v) {
 
 /* טקסט מודעה מוכן לוואטסאפ/פייסבוק — אותו טקסט משמש לכפתורי השיתוף ולהעתקה */
 export function adText(v) {
-  const bits = [v.condition, v.trim, v.color, v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null, ...(v.features || [])].filter(Boolean);
+  const bits = [v.condition, v.trim, colorText(v), variantsText(v) && 'גרסאות: ' + variantsText(v), v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null, ...allFeatures(v)].filter(Boolean);
   const spec = [v.engine, v.drivetrain, v.transmission, v.body].filter(Boolean);
   const eq = (v.equipment || []).slice(0, 3);
   return [
@@ -241,7 +250,8 @@ function vehiclePage(v) {
   const perf = v.perf || {};
   const specs = [
     ['יצרן', v.make], ['דגם', v.model], ['שנת דגם', v.year], ['גימור', v.trim], ['סדרה', v.series && v.series !== v.trim ? v.series : null],
-    ['צבע', v.color],
+    [openColors(v).length > 1 ? 'צבעים' : 'צבע', openColors(v).length > 1 ? openColors(v).map(c => c.name + (c.status === 'in_transit' ? ' (בדרך)' : '')).join(' · ') : v.color],
+    ['גרסאות', variantsText(v)],
     ['קילומטראז׳', v.km != null ? num(v.km) + ' ק״מ' : null],
     ['מצב הרכב', v.condition], ['מרכב', v.body], ['מנוע', v.engine], ['דלק', v.fuel], ['הנעה', v.drivetrain],
     ['תיבת הילוכים', v.transmission], ['דלתות', v.doors], ['מושבים', v.seats],
@@ -336,7 +346,7 @@ ${ogTags(v, title, desc, url)}
 
   ${(v.equipment || []).length ? `<h2>אבזור</h2>\n  <ul class="eq">${v.equipment.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
   ${(v.safety || []).length ? `<h2>בטיחות ועזרי נהיגה</h2>\n  <ul class="chips">${v.safety.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
-  ${((v.features || []).length || (v.description && v.description.length <= 60)) ? `<h2>ברכב זה</h2>\n  <ul class="eq">${[...(v.features || []), ...(v.description && v.description.length <= 60 ? [v.description] : [])].map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
+  ${(allFeatures(v).length || (v.description && v.description.length <= 60)) ? `<h2>${v.units > 1 ? 'תוספות' : 'ברכב זה'}</h2>\n  <ul class="eq">${[...allFeatures(v), ...(v.description && v.description.length <= 60 ? [v.description] : [])].map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
 
   <h2>מחיר</h2>
   <p>המחיר נמסר בפנייה ישירה — לפרטים צרו קשר.</p>
@@ -503,10 +513,10 @@ function llms(vehicles, updatedAt) {
   const avail = vehicles.filter(v => v.status !== 'sold');
   const line = v => {
     const bits = [
-      v.year, v.color, v.condition,
+      v.year, colorText(v), variantsText(v) && 'גרסאות: ' + variantsText(v), v.condition,
       v.km != null && v.km > 0 ? num(v.km) + ' ק״מ' : null,
       STATUS_HE[v.status],
-      (v.features || []).join(', ') || null,
+      allFeatures(v).join(', ') || null,
       v.description || null,
     ].filter(Boolean).join(' · ');
     return `- [${vehicleTitle(v)}](${vehicleUrl(v)}): ${bits}`;

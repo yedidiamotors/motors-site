@@ -114,6 +114,12 @@
     font-size:13px;color:var(--muted);background:var(--bg-3);
     border:1px solid var(--line);border-radius:6px;padding:2px 9px;
   }
+  .extras{display:flex;flex-direction:column;gap:7px}
+  .xr{display:flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:13px}
+  .xr b{font-weight:500;color:var(--fg);margin-inline-end:4px;font-size:13px}
+  .xc{background:var(--bg-3);border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--muted)}
+  .xc.t{color:var(--transit)}
+  .xc.some small{color:var(--muted-2);font-size:11px}
   .desc{margin:0;font-size:14px;color:var(--muted);font-weight:300;
     display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .price{
@@ -297,7 +303,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>'
 
 function card(v, i){
   const specs = [
-    v.year, v.trim, v.color,
+    v.year, v.trim, (v.colors||[]).length > 1 ? null : v.color,
     v.km != null ? num(v.km)+' ק״מ' : null,
     v.engine, v.drivetrain, v.body, v.condition,
   ].filter(Boolean);
@@ -321,6 +327,7 @@ function card(v, i){
     <div class="body">
       <h2 class="title"><a href="${pageUrl(v)}">${esc(v.make)} <span>${esc(v.model)}</span></a></h2>
       ${specs.length ? `<div class="specs">${specs.map(s=>`<span class="spec">${esc(s)}</span>`).join('')}</div>` : ''}
+      ${extras(v)}
       ${v.description ? `<p class="desc">${esc(v.description)}</p>` : ''}
       ${v.price != null
         ? `<div class="price">${nis(v.price)}${v.status==='available' ? ' <small>כולל מע״מ</small>' : ''}</div>`
@@ -332,6 +339,20 @@ function card(v, i){
            </div>`}
     </div>
   </article>`;
+}
+
+/* דגם שמגיע בכמה צבעים / גרסאות — ותוספות (נגזר ב-scripts/sync-inventory.mjs → groupByModel) */
+function extras(v){
+  const rows = [];
+  const cs = (v.colors || []).filter(c => v.status === 'sold' || c.status !== 'sold');
+  if (cs.length > 1) rows.push(`<div class="xr"><b>מגיע ב-${cs.length} צבעים</b>${cs.map(c =>
+    `<span class="xc${c.status==='in_transit'?' t':''}">${esc(c.name)}${c.status==='in_transit'?' · בדרך':''}</span>`).join('')}</div>`);
+  if ((v.variants || []).length) rows.push(`<div class="xr"><b>גרסאות</b>${v.variants.map(x =>
+    `<span class="xc">${esc(x.label)}</span>`).join('')}</div>`);
+  const fs = v.features || [], some = v.features_some || [];
+  if (fs.length || some.length) rows.push(`<div class="xr"><b>תוספות</b>${fs.map(f => `<span class="xc">${esc(f)}</span>`).join('')}${some.map(f =>
+    `<span class="xc some" title="בחלק מהיחידות">${esc(f)} <small>(בחלק מהיחידות)</small></span>`).join('')}</div>`);
+  return rows.length ? `<div class="extras">${rows.join('')}</div>` : '';
 }
 
 /* קישורי פעולה לכל רכב: טופס הפנייה בדף הבית עם הרכב מסומן, וואטסאפ עם
@@ -362,7 +383,8 @@ function render(){
     if (cond && condOf(v) !== cond) return false;
     if (status && v.status !== status) return false;
     if (q){
-      const hay = [v.make,v.model,v.trim,v.series,v.color,v.engine,v.drivetrain,v.fuel,v.body,v.transmission,v.description,...(v.features||[])]
+      const hay = [v.make,v.model,v.trim,v.series,v.color,v.engine,v.drivetrain,v.fuel,v.body,v.transmission,v.description,...(v.features||[]),
+                   ...(v.features_some||[]),...(v.colors||[]).map(c=>c.name),...(v.variants||[]).map(x=>x.label)]
         .filter(Boolean).join(' ').toLowerCase();
       if (!hay.includes(q)) return false;
     }

@@ -280,32 +280,85 @@ function applyTrimEquipment(list) {
   console.log(`אבזור לפי גימור: ${hit}/${list.length} רכבים הותאמו.`);
 }
 
-function dedupeIdentical(list) {
-  const RANK = { available: 0, in_transit: 1, sold: 2 };
+// אלעד (23/10/2026): "מלאי הרכבים צריך להיות אחד מכל דגם. אם הצבע משתנה אז רק להוסיף שהוא
+// מגיע בכמה צבעים, ואילו תוספות או שינויים קיימים." — מרחיב את כלל 11/09 (אותו רכב באותו צבע).
+// דגם = יצרן + שנה + רמת גימור (equipment_slug מ-trim-equipment.json); בלי התאמה — יצרן+דגם+שנה+גימור.
+// רק רכבים חדשים; יד שנייה נשארת פרטנית (כל רכב שונה — ק״מ, יד, מצב).
+const RANK = { available: 0, in_transit: 1, sold: 2 };
+const bestStatus = ms => ms.map(m => m.status).sort((a, b) => (RANK[a] ?? 9) - (RANK[b] ?? 9))[0];
+const up = s => String(s ?? '').toUpperCase().trim();
+const words = s => String(s ?? '').trim().split(/\s+/).filter(w => w && !/^20\d\d$/.test(w));
+
+function groupByModel(list) {
   const groups = new Map();
   const out = [];
   for (const v of list) {
     const isNew = /חדש/.test(v.condition || '') && !/^TI-/.test(v.id);
     if (!isNew) { out.push(v); continue; }
-    const key = [v.make, v.model, v.year, v.trim, v.color].map(x => String(x ?? '').toUpperCase().trim()).join('|');
-    if (!groups.has(key)) { groups.set(key, []); }
+    const key = v.equipment_slug
+      ? [up(v.make), v.year, v.equipment_slug].join('|')
+      : [v.make, v.model, v.year, v.trim].map(up).join('|');
+    if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(v);
   }
   for (const members of groups.values()) {
     members.sort((a, b) => a.id.localeCompare(b.id));
-    const rep = members[0];
+    const rep = members[0];               // המזהה הקטן — יציב כל עוד הרכב בגיליון
     if (members.length > 1) {
+      // יחידות שנמכרו לא קובעות צבעים/גרסאות כל עוד יש יחידה פתוחה
+      const open = members.filter(m => m.status !== 'sold');
+      const shown = open.length ? open : members;
+
+      // שם הדגם = המילים המשותפות לכל היחידות; מה שנשאר בכל יחידה = הגרסה שלה
+      const common = words(rep.model).filter(w => members.every(m => words(m.model).map(up).includes(up(w))));
+      const commonUp = new Set(common.map(up));
+      const origModel = new Map(members.map(m => [m, m.model]));
+      const trims = [...new Set(members.map(m => m.trim).filter(Boolean))];
+      rep.trim = trims.length === 1 ? trims[0] : null;
+
+      const colors = new Map();
+      const variants = new Map();
+      for (const m of shown) {
+        const c = (m.color || '').trim() || 'לא צוין';
+        if (!colors.has(c)) colors.set(c, []);
+        colors.get(c).push(m);
+        const label = words(origModel.get(m)).filter(w => !commonUp.has(up(w))).join(' ') || (trims.length > 1 ? m.trim : '') || '';
+        if (!label) continue;
+        if (!variants.has(label)) variants.set(label, []);
+        variants.get(label).push(m);
+      }
+      // שם גרסה קריא: "PREMIUM PACKAGE ER" → "Premium · סוללה מוגדלת (ER)"
+      const pretty = l => l.replace(/\bPACKAGE\b/i, '').replace(/\s+/g, ' ').trim()
+        .split(' ').map(w => /^ER$/i.test(w) ? 'סוללה מוגדלת (ER)' : /^MR$/i.test(w) ? 'סוללה רגילה (MR)'
+          : /^[A-Z]{3,}$/.test(w) ? w[0] + w.slice(1).toLowerCase() : w).join(', ');
+      rep.colors = [...colors].map(([name, ms]) => ({ name, units: ms.length, status: bestStatus(ms) }));
+      rep.variants = variants.size > 1 || (variants.size === 1 && members.length > [...variants.values()][0].length)
+        ? [...variants].map(([label, ms]) => ({ label: pretty(label), colors: [...new Set(ms.map(m => m.color).filter(Boolean))], status: bestStatus(ms) }))
+        : [];
+      rep.model = common.length ? common.join(' ') : rep.model;
+      rep.color = rep.colors.length > 1 ? `מגיע ב-${rep.colors.length} צבעים` : rep.colors[0]?.name || rep.color;
+
+      // תוספות: מה שיש בכל היחידות — features; מה שיש רק בחלק — features_some
+      const all = shown.map(m => new Set(m.features || []));
+      const union = [...new Set(shown.flatMap(m => m.features || []))];
+      rep.features = union.filter(f => all.every(s => s.has(f)));
+      rep.features_some = union.filter(f => !all.every(s => s.has(f)));
+
+      // טווח שונה בין גרסאות סוללה — מציגים את המקסימום ("עד כ־…")
+      const ranges = shown.map(m => m.perf && m.perf.range_km).filter(Boolean);
+      if (ranges.length) rep.perf = Object.assign({}, rep.perf, { range_km: Math.max(...ranges) });
       rep.units = members.length;
       rep.units_available = members.filter(m => m.status === 'available').length;
-      rep.status = members.map(m => m.status).sort((a, b) => (RANK[a] ?? 9) - (RANK[b] ?? 9))[0];
-      rep.images = [...new Set(members.flatMap(m => m.images || []))];
+      rep.status = bestStatus(members);
+      rep.km = null;
+      rep.images = [...new Set([...open, ...members].flatMap(m => m.images || []))];
       rep.description = rep.description || members.map(m => m.description).find(Boolean) || null;
       rep.merged_ids = members.slice(1).map(m => m.id);
     }
     out.push(rep);
   }
   const merged = list.length - out.length;
-  if (merged) console.log(`איחוד רכבים זהים: ${merged} יחידות אוחדו לתוך ${[...groups.values()].filter(g => g.length > 1).length} כרטיסים.`);
+  if (merged) console.log(`איחוד לפי דגם: ${merged} יחידות אוחדו לתוך ${[...groups.values()].filter(g => g.length > 1).length} כרטיסים.`);
   return out;
 }
 
@@ -333,12 +386,13 @@ for (const v of vehicles) {
 
 applyTrimEquipment(vehicles);
 
-/* ---------- איחוד רכבים זהים ---------- */
+/* ---------- איחוד לפי דגם (ראו groupByModel) ---------- */
 // ידידיה (11/09/2026): "אם יש את אותו הרכב מספר פעמים במלאי באותו הצבע מספיק שהוא יופיע פעם אחת,
 // וברגע שייגמר נרשום נמכר. הרכב הוא אותו הרכב." — רק לרכבים חדשים; יד שנייה נשארת פרטנית.
 // המזהה של הקבוצה הוא הקטן מבין המזהים (יציב כל עוד הרכב בגיליון), התמונות מאוחדות,
 // והסטטוס: זמין אם יש אחד זמין → בדרך אם יש אחד בדרך → אחרת נמכר.
-const publicVehicles = dedupeIdentical(vehicles);
+// אלעד (23/10/2026): הורחב לכרטיס אחד לכל דגם — צבעים, גרסאות ותוספות מוצגים בכרטיס.
+const publicVehicles = groupByModel(vehicles);
 
 // תמונת מודעה 1200×630 לכל רכב (og:image לוואטסאפ/פייסבוק + קובץ להורדה)
 try { buildShareImages({ root: ROOT, vehicles: publicVehicles }); } catch (e) { console.log('תמונות מודעה דולגו: ' + e.message); }
