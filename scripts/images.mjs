@@ -33,20 +33,48 @@ const IDENTIFY = process.env.IM_IDENTIFY || 'identify';
 
 const run = (bin, args) => execFileSync(bin, args, { stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
 
+/**
+ * מפתח הגישה ל-proxy. מעדיפים את ה-secret YM_PROXY_KEY (נשלח בכותרת X-YM-Key ומוסתר בלוגים).
+ * תאימות לאחור: אם אין secret, משתמשים ב-?key= מתוך SHEET_CSV_URL כמו קודם.
+ */
+export function proxyKeyFromEnv() {
+  return (process.env.YM_PROXY_KEY || '').trim();
+}
+
+/** כותרות האימות לכל קריאה ל-n8n. ריק כשעובדים במצב הישן (מפתח ב-URL). */
+export function authHeaders() {
+  const k = proxyKeyFromEnv();
+  return k ? { 'X-YM-Key': k } : {};
+}
+
+/** מסיר את ?key= מכתובת — כשהמפתח נשלח בכותרת אין סיבה שיופיע ב-URL. */
+export function stripKey(url) {
+  try {
+    const u = new URL(url);
+    u.searchParams.delete('key');
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
+
 /** בונה את כתובת ה-proxy מתוך SHEET_CSV_URL — אותו host, אותו מפתח. */
 export function imageProxyBase(sheetCsvUrl) {
   try {
     const u = new URL(sheetCsvUrl);
+    if (!/\/webhook\//.test(u.pathname)) return null;
+    const path = `${u.origin}${u.pathname.replace(/[^/]+$/, 'inventory-image')}`;
+    if (proxyKeyFromEnv()) return `${path}?id=`;
     const key = u.searchParams.get('key');
-    if (!key || !/\/webhook\//.test(u.pathname)) return null;
-    return `${u.origin}${u.pathname.replace(/[^/]+$/, 'inventory-image')}?key=${encodeURIComponent(key)}&id=`;
+    if (!key) return null;
+    return `${path}?key=${encodeURIComponent(key)}&id=`;
   } catch {
     return null;
   }
 }
 
 async function fetchToFile(url, dest) {
-  const res = await fetch(url, { redirect: 'follow' });
+  const res = await fetch(url, { redirect: 'follow', headers: authHeaders() });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   writeFileSync(dest, Buffer.from(await res.arrayBuffer()));
   return dest;
@@ -253,10 +281,10 @@ export async function processSiteImages({ root, proxyBase, log = console.log }) 
   const prev = existsSync(mapFile) ? JSON.parse(readFileSync(mapFile, 'utf8')) : {};
   if (!proxyBase) return prev;
 
-  const listUrl = proxyBase.replace(/inventory-image\?key=([^&]+)&id=$/, 'site-images?key=$1');
+  const listUrl = proxyBase.replace(/inventory-image\?(?:key=([^&]+)&)?id=$/, (m, k) => 'site-images' + (k ? '?key=' + k : ''));
   let files;
   try {
-    const res = await fetch(listUrl, { redirect: 'follow' });
+    const res = await fetch(listUrl, { redirect: 'follow', headers: authHeaders() });
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     files = (await res.json()).files || [];
   } catch (e) {

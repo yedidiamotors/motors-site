@@ -6,13 +6,14 @@
  *
  * כשנחליף מקור ל-Supabase, רק הקובץ הזה משתנה. האתר לא נוגע.
  *
- * הרצה: SHEET_CSV_URL="https://.../webhook/inventory.csv?key=..." node scripts/sync-inventory.mjs
+ * הרצה: SHEET_CSV_URL="https://.../webhook/inventory.csv" YM_PROXY_KEY="..." node scripts/sync-inventory.mjs
+ * (המפתח נשלח בכותרת X-YM-Key. תאימות לאחור: בלי YM_PROXY_KEY נקרא ?key= מתוך SHEET_CSV_URL.)
  */
 
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { processImages, processSiteImages, imageProxyBase } from './images.mjs';
+import { processImages, processSiteImages, imageProxyBase, authHeaders, proxyKeyFromEnv, stripKey } from './images.mjs';
 import { buildSeo } from './seo.mjs';
 import { buildShareImages } from './share.mjs';
 
@@ -151,7 +152,7 @@ function driveId(raw) {
 
 /* ---------- ראשי ---------- */
 
-const res = await fetch(SHEET_CSV_URL, { redirect: 'follow' });
+const res = await fetch(proxyKeyFromEnv() ? stripKey(SHEET_CSV_URL) : SHEET_CSV_URL, { redirect: 'follow', headers: authHeaders() });
 if (!res.ok) {
   console.error(`שגיאה במשיכת הגיליון: ${res.status} ${res.statusText}`);
   process.exit(1);

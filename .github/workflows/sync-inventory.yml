@@ -41,6 +41,7 @@ jobs:
       - name: משיכת הגיליון, המרת תמונות, בניית inventory.json ועמודי ה-SEO
         env:
           SHEET_CSV_URL: ${{ vars.SHEET_CSV_URL }}
+          YM_PROXY_KEY: ${{ secrets.YM_PROXY_KEY }}
         run: node scripts/sync-inventory.mjs
 
       - name: קיבוע השינוי
