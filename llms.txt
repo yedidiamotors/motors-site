@@ -6,7 +6,7 @@
 מחירים אינם מתפרסמים באתר — כל רכב מוצע "לפרטים, צרו קשר".
 מותגים שהסוכנות מספקת: GMC, RAM, Mercedes-Benz, BMW, Chevrolet, Cadillac, Jeep, Ford (לא כולם במלאי בכל רגע; חלקם מובאים בהזמנה).
 
-עודכן: 2026-10-25T13:52:49.251Z · 23 רכבים בסך הכל, 20 לא מכורים.
+עודכן: 2026-10-26T07:41:49.203Z · 24 רכבים בסך הכל, 21 לא מכורים.
 
 ## דפים מרכזיים
 
@@ -44,6 +44,7 @@
 
 ### GMC
 
+- [GMC AT4 EV 2025](https://www.yedidia-motors.com/stock/TI-GMC-AT4-EV-2025-U6UPG/): 2025 · לבן · יד שנייה · 27,000 ק״מ · זמין · יד 1
 - [GMC HUMMER EV 2X PICKUP 2026](https://www.yedidia-motors.com/stock/605037/): 2026 · לבן · חדש · נמכר
 - [GMC SIERRA DENALI EV MR 2026](https://www.yedidia-motors.com/stock/416023/): 2026 · לבן פנינה · חדש · זמין · נקודת עיגון, חניה אוטומטית, הנעה מרחוק
 - [GMC SIERRA EV AT4 PREMIUM ER 2026](https://www.yedidia-motors.com/stock/413447/): 2026 · לבן · חדש · נמכר · נקודת עיגון, הנעה מרחוק · ללא גג פנורמי
