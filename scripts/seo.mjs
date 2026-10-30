@@ -109,6 +109,8 @@ export function dealerLd() {
     '@id': SITE + '/#dealer',
     name: BIZ.name,
     alternateName: BIZ.nameEn,
+    legalName: 'ידידיה סחר בע״מ',
+    taxID: '514569649',
     url: SITE + '/',
     telephone: [BIZ.landline, BIZ.phone],
     address: {
